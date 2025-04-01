@@ -1,0 +1,3825 @@
+[
+  {
+    "name": "Altrheinbrücke",
+    "triasID": "de:08212:307",
+    "triasName": "Daxlanden Altrheinbrücke",
+    "coordPositionWGS84": {
+      "lat": "49.0008522250264",
+      "long": "8.31194064405395"
+    }
+  },
+  {
+    "name": "Ankerstr.",
+    "triasID": "de:08212:303",
+    "triasName": "Daxlanden Ankerstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0066038295095",
+      "long": "8.33464107128365"
+    }
+  },
+  {
+    "name": "Dornröschenweg",
+    "triasID": "de:08212:206",
+    "triasName": "Daxlanden Dornröschenweg",
+    "coordPositionWGS84": {
+      "lat": "48.9928365864455",
+      "long": "8.33532379089958"
+    }
+  },
+  {
+    "name": "Hammweg",
+    "triasID": "de:08212:305",
+    "triasName": "Daxlanden Hammweg",
+    "coordPositionWGS84": {
+      "lat": "49.0037870406415",
+      "long": "8.3274994647749"
+    }
+  },
+  {
+    "name": "Karl-Delisle-Str.",
+    "triasID": "de:08212:205",
+    "triasName": "Daxlanden Karl-Delisle-Straße",
+    "coordPositionWGS84": {
+      "lat": "48.9960194208686",
+      "long": "8.33808161882183"
+    }
+  },
+  {
+    "name": "Kirchplatz",
+    "triasID": "de:08212:304",
+    "triasName": "Daxlanden Kirchplatz",
+    "coordPositionWGS84": {
+      "lat": "49.0052956335748",
+      "long": "8.33232341785062"
+    }
+  },
+  {
+    "name": "Mauerweg",
+    "triasID": "de:08212:302",
+    "triasName": "Daxlanden Mauerweg",
+    "coordPositionWGS84": {
+      "lat": "49.0077528921812",
+      "long": "8.33925841184402"
+    }
+  },
+  {
+    "name": "Nussbaumweg",
+    "triasID": "de:08212:209",
+    "triasName": "Daxlanden Nussbaumweg",
+    "coordPositionWGS84": {
+      "lat": "48.9893941810707",
+      "long": "8.3332127499819"
+    }
+  },
+  {
+    "name": "Rappenwört",
+    "triasID": "de:08212:308",
+    "triasName": "Daxlanden Rappenwört",
+    "coordPositionWGS84": {
+      "lat": "48.9989309468438",
+      "long": "8.29555537327161"
+    }
+  },
+  {
+    "name": "Thomas-Mann-Str.",
+    "triasID": "de:08212:204",
+    "triasName": "Daxlanden Thomas-Mann-Straße",
+    "coordPositionWGS84": {
+      "lat": "48.99912543543",
+      "long": "8.34144131798443"
+    }
+  },
+  {
+    "name": "Waidweg",
+    "triasID": "de:08212:306",
+    "triasName": "Daxlanden Waidweg",
+    "coordPositionWGS84": {
+      "lat": "49.0043409824188",
+      "long": "8.32237906765542"
+    }
+  },
+  {
+    "name": "Auer Str./Dr. Schwabe",
+    "triasID": "de:08212:11",
+    "triasName": "Durlach Auer Str./Dr. Schwabe",
+    "coordPositionWGS84": {
+      "lat": "49.0004455803059",
+      "long": "8.46346846617923"
+    }
+  },
+  {
+    "name": "Durlach Bahnhof",
+    "triasID": "de:08212:802",
+    "triasName": "Durlach Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.001848195897",
+      "long": "8.46262404981216"
+    }
+  },
+  {
+    "name": "Ellmendinger Str.",
+    "triasID": "de:08212:4495",
+    "triasName": "Durlach Ellmendinger Straße",
+    "coordPositionWGS84": {
+      "lat": "48.9941863688398",
+      "long": "8.4587073951734"
+    }
+  },
+  {
+    "name": "Friedrichschule",
+    "triasID": "de:08212:16",
+    "triasName": "Durlach Friedrichschule",
+    "coordPositionWGS84": {
+      "lat": "48.9993022425766",
+      "long": "8.4688044589669"
+    }
+  },
+  {
+    "name": "Gritznerstr.",
+    "triasID": "de:08212:4499",
+    "triasName": "Durlach Gritznerstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9993376039306",
+      "long": "8.46402542165538"
+    }
+  },
+  {
+    "name": "Hubstr.",
+    "triasID": "de:08212:1510",
+    "triasName": "Durlach Hubstraße",
+    "coordPositionWGS84": {
+      "lat": "49.007163632585",
+      "long": "8.4722719559636"
+    }
+  },
+  {
+    "name": "Karl-Weysser-Str.",
+    "triasID": "de:08212:19",
+    "triasName": "Durlach Karl-Weysser-Straße",
+    "coordPositionWGS84": {
+      "lat": "48.9985714356397",
+      "long": "8.4769162459825"
+    }
+  },
+  {
+    "name": "Killisfeldstr.",
+    "triasID": "de:08212:4497",
+    "triasName": "Durlach Killisfeldstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9973514356525",
+      "long": "8.46195929650191"
+    }
+  },
+  {
+    "name": "Ostmarkstr.",
+    "triasID": "de:08212:4494",
+    "triasName": "Durlach Ostmarkstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9916871795943",
+      "long": "8.45264376700559"
+    }
+  },
+  {
+    "name": "Schlesier Str. West",
+    "triasID": "de:08212:4493",
+    "triasName": "Durlach Schlesier Straße West",
+    "coordPositionWGS84": {
+      "lat": "48.9885748063923",
+      "long": "8.45221257566921"
+    }
+  },
+  {
+    "name": "Schlossplatz",
+    "triasID": "de:08212:17",
+    "triasName": "Durlach Schlossplatz",
+    "coordPositionWGS84": {
+      "lat": "48.9991077546808",
+      "long": "8.47387994032218"
+    }
+  },
+  {
+    "name": "Steiermärker Str.",
+    "triasID": "de:08212:4496",
+    "triasName": "Durlach Steiermärker Straße",
+    "coordPositionWGS84": {
+      "lat": "48.9858277397364",
+      "long": "8.45598549986252"
+    }
+  },
+  {
+    "name": "Turmberg",
+    "triasID": "de:08212:18",
+    "triasName": "Durlach Turmberg",
+    "coordPositionWGS84": {
+      "lat": "49.0000625061553",
+      "long": "8.47818287053311"
+    }
+  },
+  {
+    "name": "Untermühlstr.",
+    "triasID": "de:08212:10",
+    "triasName": "Durlach Untermühlstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0019896339322",
+      "long": "8.45542854438636"
+    }
+  },
+  {
+    "name": "Zündhütle",
+    "triasID": "de:08212:4492",
+    "triasName": "Durlach Zündhütle",
+    "coordPositionWGS84": {
+      "lat": "48.9826383586489",
+      "long": "8.46056690781152"
+    }
+  },
+  {
+    "name": "KA-Durlach",
+    "triasID": "de:08212:801",
+    "triasName": "Karlsruhe-Durlach",
+    "coordPositionWGS84": {
+      "lat": "49.0022489359535",
+      "long": "8.46275879710478"
+    }
+  },
+  {
+    "name": "Grötzingen",
+    "triasID": "de:08212:1521",
+    "triasName": "Grötzingen",
+    "coordPositionWGS84": {
+      "lat": "49.0062797301156",
+      "long": "8.49225947103526"
+    }
+  },
+  {
+    "name": "Grötzingen Krappmühlenweg",
+    "triasID": "de:08212:1600",
+    "triasName": "Grötzingen Krappmühlenweg",
+    "coordPositionWGS84": {
+      "lat": "49.0058967008396",
+      "long": "8.51258834591489"
+    }
+  },
+  {
+    "name": "Grötzingen Oberausstr.",
+    "triasID": "de:08212:1525",
+    "triasName": "Grötzingen Oberausstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0052013478554",
+      "long": "8.5038028224362"
+    }
+  },
+  {
+    "name": "Hagsfeld Bf",
+    "triasID": "de:08212:3102",
+    "triasName": "Hagsfeld Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0274772786068",
+      "long": "8.45383852633347"
+    }
+  },
+  {
+    "name": "KA-Hagsfeld",
+    "triasID": "de:08212:3102",
+    "triasName": "Hagsfeld Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0274772786068",
+      "long": "8.45383852633347"
+    }
+  },
+  {
+    "name": "Fächerbad",
+    "triasID": "de:08212:405",
+    "triasName": "Hagsfeld Fächerbad",
+    "coordPositionWGS84": {
+      "lat": "49.0254274375525",
+      "long": "8.44811625797363"
+    }
+  },
+  {
+    "name": "Geroldsäcker",
+    "triasID": "de:08212:233",
+    "triasName": "Hagsfeld Geroldsäcker",
+    "coordPositionWGS84": {
+      "lat": "49.0328194272714",
+      "long": "8.45534769601079"
+    }
+  },
+  {
+    "name": "Jenaer Str.",
+    "triasID": "de:08212:3301",
+    "triasName": "Hagsfeld Jenaer Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0359584818976",
+      "long": "8.45621007868355"
+    }
+  },
+  {
+    "name": "Reitschulschlag",
+    "triasID": "de:08212:3013",
+    "triasName": "Hagsfeld Reitschulschlag",
+    "coordPositionWGS84": {
+      "lat": "49.0429072790238",
+      "long": "8.46082741924392"
+    }
+  },
+  {
+    "name": "Hagsfeld Süd",
+    "triasID": "de:08212:231",
+    "triasName": "Hagsfeld Süd",
+    "coordPositionWGS84": {
+      "lat": "49.0244319383032",
+      "long": "8.4495266129697"
+    }
+  },
+  {
+    "name": "Durlacher Tor/KIT-Campus Süd",
+    "triasID": "de:08212:3",
+    "triasName": "KA Durlacher Tor/KIT-Campus Süd",
+    "coordPositionWGS84": {
+      "lat": "49.0090904855834",
+      "long": "8.41783404974596"
+    }
+  },
+  {
+    "name": "Durlacher Tor/KIT-Campus Süd (U)",
+    "triasID": "de:08212:1001",
+    "triasName": "KA Durlacher Tor/KIT-Campus Süd (U)",
+    "coordPositionWGS84": {
+      "lat": "49.0089313904536",
+      "long": "8.41710641436582"
+    }
+  },
+  {
+    "name": "Ettlinger Tor/Staatstheater",
+    "triasID": "de:08212:71",
+    "triasName": "KA Ettlinger Tor/Staatstheater",
+    "coordPositionWGS84": {
+      "lat": "49.0054547403216",
+      "long": "8.4022303132608"
+    }
+  },
+  {
+    "name": "Ettlinger Tor/",
+    "triasID": "de:08212:1012",
+    "triasName": "KA Ettlinger Tor/Staatstheater (U)",
+    "coordPositionWGS84": {
+      "lat": "49.0054606331543",
+      "long": "8.40349693781141"
+    }
+  },
+  {
+    "name": "Europaallee/Europabad",
+    "triasID": "de:08212:605",
+    "triasName": "KA Europahalle/Europabad",
+    "coordPositionWGS84": {
+      "lat": "48.9988012873644",
+      "long": "8.3763229004668"
+    }
+  },
+  {
+    "name": "Europaplatz/Postgalerie",
+    "triasID": "de:08212:37",
+    "triasName": "KA Europaplatz/Postgalerie",
+    "coordPositionWGS84": {
+      "lat": "49.0098270304856",
+      "long": "8.39487311108386"
+    }
+  },
+  {
+    "name": "Europaplatz/Postgalerie (U)",
+    "triasID": "de:08212:1004",
+    "triasName": "KA Europaplatz/Postgalerie (U)",
+    "coordPositionWGS84": {
+      "lat": "49.0100450456868",
+      "long": "8.39423530723214"
+    }
+  },
+  {
+    "name": "Hauptbahnhof",
+    "triasID": "de:08212:89",
+    "triasName": "KA Hauptbahnhof (Vorplatz)",
+    "coordPositionWGS84": {
+      "lat": "48.9943690876635",
+      "long": "8.39967011470106"
+    }
+  },
+  {
+    "name": "Hirtenweg/Technologiepark",
+    "triasID": "de:08212:403",
+    "triasName": "KA Hirtenweg/Technologiepark",
+    "coordPositionWGS84": {
+      "lat": "49.0173214918476",
+      "long": "8.43911513882675"
+    }
+  },
+  {
+    "name": "Karlstor/Bundesgerichtshof",
+    "triasID": "de:08212:61",
+    "triasName": "KA Karlstor/Bundesgerichtshof",
+    "coordPositionWGS84": {
+      "lat": "49.0053604549034",
+      "long": "8.39490006054239"
+    }
+  },
+  {
+    "name": "Knielinger Allee/Städt. Klinikum",
+    "triasID": "de:08212:1103",
+    "triasName": "KA Knielinger Allee/Städt. Klinikum",
+    "coordPositionWGS84": {
+      "lat": "49.0188532397281",
+      "long": "8.37534373680711"
+    }
+  },
+  {
+    "name": "Kunstakademie/Hochschule",
+    "triasID": "de:08212:7003",
+    "triasName": "KA Kunstakademie/Hochschule",
+    "coordPositionWGS84": {
+      "lat": "49.0144581751731",
+      "long": "8.38564741311596"
+    }
+  },
+  {
+    "name": "Kußmaulstr./Städt. Klinikum",
+    "triasID": "de:08212:521",
+    "triasName": "KA Kußmaulstr./Städt. Klinikum",
+    "coordPositionWGS84": {
+      "lat": "49.016838392354",
+      "long": "8.36938790647339"
+    }
+  },
+  {
+    "name": "Marktplatz (Kaiserstraße U)",
+    "triasID": "de:08212:1003",
+    "triasName": "KA Marktplatz (Kaiserstraße U)",
+    "coordPositionWGS84": {
+      "lat": "49.009656153039",
+      "long": "8.4023830268591"
+    }
+  },
+  {
+    "name": "Marktplatz (Pyramide U)",
+    "triasID": "de:08212:1011",
+    "triasName": "KA Marktplatz (Pyramide U)",
+    "coordPositionWGS84": {
+      "lat": "49.0087310477152",
+      "long": "8.40373948293812"
+    }
+  },
+  {
+    "name": "Moltkestr./Städt. Klinikum",
+    "triasID": "de:08212:1101",
+    "triasName": "KA Moltkestr./Städt. Klinikum",
+    "coordPositionWGS84": {
+      "lat": "49.0151769656238",
+      "long": "8.37507424222187"
+    }
+  },
+  {
+    "name": "Tullastr./Alter Schlachthof",
+    "triasID": "de:08212:7",
+    "triasName": "KA Tullastraße/Alter Schlachthof",
+    "coordPositionWGS84": {
+      "lat": "49.0063681210686",
+      "long": "8.43124589693786"
+    }
+  },
+  {
+    "name": "Albtalbahnhof",
+    "triasID": "de:08212:1201",
+    "triasName": "Karlsruhe Albtalbahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.9936617852671",
+      "long": "8.39608583671743"
+    }
+  },
+  {
+    "name": "Arbeitsagentur",
+    "triasID": "de:08212:64",
+    "triasName": "Karlsruhe Arbeitsagentur",
+    "coordPositionWGS84": {
+      "lat": "49.0035689980392",
+      "long": "8.38644691371882"
+    }
+  },
+  {
+    "name": "August-Bebel-Str.",
+    "triasID": "de:08212:1104",
+    "triasName": "Karlsruhe August-Bebel-Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0239960329544",
+      "long": "8.37573899553212"
+    }
+  },
+  {
+    "name": "Bannwaldallee",
+    "triasID": "de:08212:606",
+    "triasName": "Karlsruhe Bannwaldallee",
+    "coordPositionWGS84": {
+      "lat": "48.9952237313275",
+      "long": "8.37257692573202"
+    }
+  },
+  {
+    "name": "Barbarossaplatz",
+    "triasID": "de:08212:5003",
+    "triasName": "Karlsruhe Barbarossaplatz",
+    "coordPositionWGS84": {
+      "lat": "48.9949349223502",
+      "long": "8.38965389928313"
+    }
+  },
+  {
+    "name": "Dammerstock",
+    "triasID": "de:08212:1206",
+    "triasName": "Karlsruhe Dammerstock",
+    "coordPositionWGS84": {
+      "lat": "48.9844659402504",
+      "long": "8.40362270195119"
+    }
+  },
+  {
+    "name": "Duale Hochschule",
+    "triasID": "de:08212:12",
+    "triasName": "Karlsruhe Duale Hochschule",
+    "coordPositionWGS84": {
+      "lat": "49.0269177039398",
+      "long": "8.38609657075802"
+    }
+  },
+  {
+    "name": "Dunantstr.",
+    "triasID": "de:08212:310",
+    "triasName": "Karlsruhe Dunantstraße",
+    "coordPositionWGS84": {
+      "lat": "49.011465067286",
+      "long": "8.43606985001358"
+    }
+  },
+  {
+    "name": "Ebertstr.",
+    "triasID": "de:08212:91",
+    "triasName": "Karlsruhe Ebertstraße",
+    "coordPositionWGS84": {
+      "lat": "48.994563594062",
+      "long": "8.39492701000091"
+    }
+  },
+  {
+    "name": "Eckenerstr.",
+    "triasID": "de:08212:201",
+    "triasName": "Karlsruhe Eckenerstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0060558056658",
+      "long": "8.35087362846769"
+    }
+  },
+  {
+    "name": "Entenfang",
+    "triasID": "de:08212:51",
+    "triasName": "Karlsruhe Entenfang",
+    "coordPositionWGS84": {
+      "lat": "49.0104692887473",
+      "long": "8.35909321331738"
+    }
+  },
+  {
+    "name": "Essenweinstr.",
+    "triasID": "de:08212:626",
+    "triasName": "Karlsruhe Essenweinstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0097268610191",
+      "long": "8.43189268394243"
+    }
+  },
+  {
+    "name": "Feierabendweg",
+    "triasID": "de:08212:523",
+    "triasName": "Karlsruhe Feierabendweg",
+    "coordPositionWGS84": {
+      "lat": "49.0220049572705",
+      "long": "8.36051255146629"
+    }
+  },
+  {
+    "name": "Gottesauer Platz/BGV",
+    "triasID": "de:08212:6",
+    "triasName": "Karlsruhe Gottesauer Platz/BGV",
+    "coordPositionWGS84": {
+      "lat": "49.0074877262259",
+      "long": "8.42489480787914"
+    }
+  },
+  {
+    "name": "Händelstr.",
+    "triasID": "de:08212:44",
+    "triasName": "Karlsruhe Händelstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0112117054049",
+      "long": "8.36941485593192"
+    }
+  },
+  {
+    "name": "Hardecksiedlung",
+    "triasID": "de:08212:607",
+    "triasName": "Karlsruhe Hardecksiedlung",
+    "coordPositionWGS84": {
+      "lat": "48.9926420733041",
+      "long": "8.36878603523303"
+    }
+  },
+  {
+    "name": "Hbf",
+    "triasID": "de:08212:90",
+    "triasName": "Karlsruhe Hauptbahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.9933493901782",
+      "long": "8.40103555393292"
+    }
+  },
+  {
+    "name": "Hauptfriedhof",
+    "triasID": "de:08212:402",
+    "triasName": "Karlsruhe Hauptfriedhof",
+    "coordPositionWGS84": {
+      "lat": "49.0137924009889",
+      "long": "8.43046436264068"
+    }
+  },
+  {
+    "name": "Haus Bethlehem",
+    "triasID": "de:08212:1106",
+    "triasName": "Karlsruhe Haus Bethlehem",
+    "coordPositionWGS84": {
+      "lat": "49.033443720331",
+      "long": "8.3766283276634"
+    }
+  },
+  {
+    "name": "Heidehof",
+    "triasID": "de:08212:7009",
+    "triasName": "Karlsruhe Heidehof",
+    "coordPositionWGS84": {
+      "lat": "49.0313705660206",
+      "long": "8.3870308186535"
+    }
+  },
+  {
+    "name": "Hertzstr.",
+    "triasID": "de:08212:522",
+    "triasName": "Karlsruhe Hertzstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0199489996739",
+      "long": "8.36430344196528"
+    }
+  },
+  {
+    "name": "Hübschstr.",
+    "triasID": "de:08212:505",
+    "triasName": "Karlsruhe Hübschstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0055667040238",
+      "long": "8.37257692573202"
+    }
+  },
+  {
+    "name": "Karl-Wilhelm-Platz",
+    "triasID": "de:08212:401",
+    "triasName": "Karlsruhe Karl-Wilhelm-Platz",
+    "coordPositionWGS84": {
+      "lat": "49.0113177640237",
+      "long": "8.42319699199215"
+    }
+  },
+  {
+    "name": "Kolpingplatz",
+    "triasID": "de:08212:63",
+    "triasName": "Karlsruhe Kolpingplatz",
+    "coordPositionWGS84": {
+      "lat": "48.9975753992421",
+      "long": "8.39375920013156"
+    }
+  },
+  {
+    "name": "Kongresszentrum (U)",
+    "triasID": "de:08212:1013",
+    "triasName": "Karlsruhe Kongresszentrum (U)",
+    "coordPositionWGS84": {
+      "lat": "49.002531809346",
+      "long": "8.40316456115629"
+    }
+  },
+  {
+    "name": "Kronenplatz",
+    "triasID": "de:08212:80",
+    "triasName": "Karlsruhe Kronenplatz",
+    "coordPositionWGS84": {
+      "lat": "49.0088547889135",
+      "long": "8.41007260569117"
+    }
+  },
+  {
+    "name": "Kronenplatz (U)",
+    "triasID": "de:08212:1002",
+    "triasName": "Karlsruhe Kronenplatz (U)",
+    "coordPositionWGS84": {
+      "lat": "49.0093085040097",
+      "long": "8.41030616766504"
+    }
+  },
+  {
+    "name": "Kühler Krug",
+    "triasID": "de:08212:504",
+    "triasName": "Karlsruhe Kühler Krug",
+    "coordPositionWGS84": {
+      "lat": "49.0060322346125",
+      "long": "8.36693550574775"
+    }
+  },
+  {
+    "name": "Kurt-Schumacher-Str.",
+    "triasID": "de:08212:1105",
+    "triasName": "Karlsruhe Kurt-Schumacher-Str.",
+    "coordPositionWGS84": {
+      "lat": "49.0301395897726",
+      "long": "8.37626900154975"
+    }
+  },
+  {
+    "name": "Lameyplatz",
+    "triasID": "de:08212:58",
+    "triasName": "Karlsruhe Lameyplatz",
+    "coordPositionWGS84": {
+      "lat": "49.0131384017496",
+      "long": "8.35472740103656"
+    }
+  },
+  {
+    "name": "Landesbausparkasse",
+    "triasID": "de:08212:604",
+    "triasName": "Karlsruhe Landesbausparkasse",
+    "coordPositionWGS84": {
+      "lat": "49.0016949709056",
+      "long": "8.37757155871172"
+    }
+  },
+  {
+    "name": "Lessingstr.",
+    "triasID": "de:08212:507",
+    "triasName": "Karlsruhe Lessingstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0043822331557",
+      "long": "8.38422807496705"
+    }
+  },
+  {
+    "name": "Lilienthalstr.",
+    "triasID": "de:08212:8",
+    "triasName": "Karlsruhe Lilienthalstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0225351331337",
+      "long": "8.38517130601537"
+    }
+  },
+  {
+    "name": "Mathystr.",
+    "triasID": "de:08212:62",
+    "triasName": "Karlsruhe Mathystraße",
+    "coordPositionWGS84": {
+      "lat": "49.0023844796546",
+      "long": "8.39416344200941"
+    }
+  },
+  {
+    "name": "Mühlburg West",
+    "triasID": "de:08212:103",
+    "triasName": "Karlsruhe Mühlburg West",
+    "coordPositionWGS84": {
+      "lat": "49.0202965744019",
+      "long": "8.35072989802223"
+    }
+  },
+  {
+    "name": "Mühlburger Feld",
+    "triasID": "de:08212:503",
+    "triasName": "Karlsruhe Mühlburger Feld",
+    "coordPositionWGS84": {
+      "lat": "49.0076998591031",
+      "long": "8.36415072836698"
+    }
+  },
+  {
+    "name": "Mühlburger Tor",
+    "triasID": "de:08212:39",
+    "triasName": "Karlsruhe Mühlburger Tor",
+    "coordPositionWGS84": {
+      "lat": "49.0107049777745",
+      "long": "8.38424604127273"
+    }
+  },
+  {
+    "name": "Neureuter Str.",
+    "triasID": "de:08212:524",
+    "triasName": "Karlsruhe Neureuter Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0236543747416",
+      "long": "8.35744929634745"
+    }
+  },
+  {
+    "name": "Ostendstr.",
+    "triasID": "de:08212:622",
+    "triasName": "Karlsruhe Ostendstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0050363474168",
+      "long": "8.41629793061011"
+    }
+  },
+  {
+    "name": "Otto-Sachs-Str.",
+    "triasID": "de:08212:508",
+    "triasName": "Karlsruhe Otto-Sachs-Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0034452437051",
+      "long": "8.38937542154505"
+    }
+  },
+  {
+    "name": "Philipp-Reis-Str.",
+    "triasID": "de:08212:621",
+    "triasName": "Karlsruhe Philipp-Reis-Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0044765204261",
+      "long": "8.41123143240768"
+    }
+  },
+  {
+    "name": "Philippstr.",
+    "triasID": "de:08212:45",
+    "triasName": "Karlsruhe Philippstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0114179302895",
+      "long": "8.36451005448062"
+    }
+  },
+  {
+    "name": "Poststr.",
+    "triasID": "de:08212:98",
+    "triasName": "Karlsruhe Poststraße",
+    "coordPositionWGS84": {
+      "lat": "48.9951647908559",
+      "long": "8.40358676933982"
+    }
+  },
+  {
+    "name": "Rheinhafen",
+    "triasID": "de:08212:501",
+    "triasName": "Karlsruhe Rheinhafen",
+    "coordPositionWGS84": {
+      "lat": "49.0156011649542",
+      "long": "8.34743308092951"
+    }
+  },
+  {
+    "name": "Rheinhafenstr.",
+    "triasID": "de:08212:203",
+    "triasName": "Karlsruhe Rheinhafenstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0015653186216",
+      "long": "8.34508847803796"
+    }
+  },
+  {
+    "name": "Rüppurrer Tor",
+    "triasID": "de:08212:85",
+    "triasName": "Karlsruhe Rüppurrer Tor",
+    "coordPositionWGS84": {
+      "lat": "49.0058200946308",
+      "long": "8.41005463938548"
+    }
+  },
+  {
+    "name": "Schillerstr.",
+    "triasID": "de:08212:40",
+    "triasName": "Karlsruhe Schillerstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0101039685503",
+      "long": "8.37972751539361"
+    }
+  },
+  {
+    "name": "Schloss Gottesaue/HfM",
+    "triasID": "de:08212:624",
+    "triasName": "Karlsruhe Schloss Gottesaue",
+    "coordPositionWGS84": {
+      "lat": "49.0036397146635",
+      "long": "8.4274370401332"
+    }
+  },
+  {
+    "name": "Schloss Rüppurr",
+    "triasID": "de:08212:1207",
+    "triasName": "Karlsruhe Schloss Rüppurr",
+    "coordPositionWGS84": {
+      "lat": "48.9812175150338",
+      "long": "8.40378439870233"
+    }
+  },
+  {
+    "name": "Sophienstr.",
+    "triasID": "de:08212:602",
+    "triasName": "Karlsruhe Sophienstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0076114705141",
+      "long": "8.37917055991745"
+    }
+  },
+  {
+    "name": "Stadtwerke",
+    "triasID": "de:08212:315",
+    "triasName": "Karlsruhe Stadtwerke",
+    "coordPositionWGS84": {
+      "lat": "49.0071105988793",
+      "long": "8.34392965132145"
+    }
+  },
+  {
+    "name": "Starckstr.",
+    "triasID": "de:08212:101",
+    "triasName": "Karlsruhe Starckstraße",
+    "coordPositionWGS84": {
+      "lat": "49.016838392354",
+      "long": "8.35285890524559"
+    }
+  },
+  {
+    "name": "Synagoge",
+    "triasID": "de:08212:5",
+    "triasName": "Karlsruhe Synagoge",
+    "coordPositionWGS84": {
+      "lat": "49.0177692384113",
+      "long": "8.38490181143014"
+    }
+  },
+  {
+    "name": "Tivoli",
+    "triasID": "de:08212:84",
+    "triasName": "Karlsruhe Tivoli",
+    "coordPositionWGS84": {
+      "lat": "48.9968150977001",
+      "long": "8.41054871279175"
+    }
+  },
+  {
+    "name": "Weinbrennerplatz",
+    "triasID": "de:08212:603",
+    "triasName": "Karlsruhe Weinbrennerplatz",
+    "coordPositionWGS84": {
+      "lat": "49.0056020609301",
+      "long": "8.3777422386157"
+    }
+  },
+  {
+    "name": "Weinweg",
+    "triasID": "de:08212:9",
+    "triasName": "Karlsruhe Weinweg",
+    "coordPositionWGS84": {
+      "lat": "49.0044116979469",
+      "long": "8.44148669117683"
+    }
+  },
+  {
+    "name": "Welfenstr.",
+    "triasID": "de:08212:6218",
+    "triasName": "Karlsruhe Welfenstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9952649896161",
+      "long": "8.38535995222504"
+    }
+  },
+  {
+    "name": "Werderstr.",
+    "triasID": "de:08212:83",
+    "triasName": "Karlsruhe Werderstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0004691540035",
+      "long": "8.41062057801448"
+    }
+  },
+  {
+    "name": "KA West",
+    "triasID": "de:08212:6017",
+    "triasName": "Karlsruhe West",
+    "coordPositionWGS84": {
+      "lat": "49.0023078680428",
+      "long": "8.36276732282943"
+    }
+  },
+  {
+    "name": "Wolfartsweierer Str.",
+    "triasID": "de:08212:623",
+    "triasName": "Karlsruhe Wolfartsweierer Str.",
+    "coordPositionWGS84": {
+      "lat": "49.0034806021176",
+      "long": "8.42334970559045"
+    }
+  },
+  {
+    "name": "Yorckstr.",
+    "triasID": "de:08212:41",
+    "triasName": "Karlsruhe Yorckstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0109347735018",
+      "long": "8.37571204607359"
+    }
+  },
+  {
+    "name": "ZKM",
+    "triasID": "de:08212:65",
+    "triasName": "Karlsruhe ZKM",
+    "coordPositionWGS84": {
+      "lat": "48.9993847523636",
+      "long": "8.38599775607676"
+    }
+  },
+  {
+    "name": "Maxau",
+    "triasID": "de:08212:1700",
+    "triasName": "Maxau",
+    "coordPositionWGS84": {
+      "lat": "49.0359702603411",
+      "long": "8.30770059591291"
+    }
+  },
+  {
+    "name": "Messe (Messe-Express)",
+    "triasID": "de:08212:211",
+    "triasName": "Messe (Messe-Express)",
+    "coordPositionWGS84": {
+      "lat": "48.9816125254153",
+      "long": "8.32862235888005"
+    }
+  },
+  {
+    "name": "KA-Knielingen",
+    "triasID": "de:08212:32586",
+    "triasName": "Karlsruhe-Knielingen",
+    "coordPositionWGS84": {
+      "lat": "49.0266585303828",
+      "long": "8.34119877285772"
+    }
+  },
+  {
+    "name": "Eggensteiner Str.",
+    "triasID": "de:08212:106",
+    "triasName": "Knielingen Eggensteiner Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0333435983867",
+      "long": "8.33835111340706"
+    }
+  },
+  {
+    "name": "Egon-Eiermann-Allee",
+    "triasID": "de:08212:239",
+    "triasName": "Knielingen Egon-Eiermann-Allee",
+    "coordPositionWGS84": {
+      "lat": "49.0358524757798",
+      "long": "8.35028972353301"
+    }
+  },
+  {
+    "name": "Herweghstr.",
+    "triasID": "de:08212:105",
+    "triasName": "Knielingen Herweghstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0303869654352",
+      "long": "8.34122572231625"
+    }
+  },
+  {
+    "name": "Knielingen Nord",
+    "triasID": "de:08212:240",
+    "triasName": "Knielingen Nord",
+    "coordPositionWGS84": {
+      "lat": "49.0379372212965",
+      "long": "8.34755884506929"
+    }
+  },
+  {
+    "name": "Pionierstr.",
+    "triasID": "de:08212:238",
+    "triasName": "Knielingen Pionierstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0333553774494",
+      "long": "8.34791817118294"
+    }
+  },
+  {
+    "name": "Rheinbergstr.",
+    "triasID": "de:08212:107",
+    "triasName": "Knielingen Rheinbergstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0351398732359",
+      "long": "8.33642871869905"
+    }
+  },
+  {
+    "name": "Siemens",
+    "triasID": "de:08212:104",
+    "triasName": "Knielingen Siemens",
+    "coordPositionWGS84": {
+      "lat": "49.0252683946304",
+      "long": "8.34626527106016"
+    }
+  },
+  {
+    "name": "Siemensallee",
+    "triasID": "de:08212:525",
+    "triasName": "Knielingen Siemensallee",
+    "coordPositionWGS84": {
+      "lat": "49.0277246675062",
+      "long": "8.35002022894778"
+    }
+  },
+  {
+    "name": "Sudetenstr.",
+    "triasID": "de:08212:237",
+    "triasName": "Knielingen Sudetenstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0304164148369",
+      "long": "8.34534000631751"
+    }
+  },
+  {
+    "name": "KA-Mühlburg",
+    "triasID": "de:08212:32587",
+    "triasName": "Karlsruhe-Mühlburg",
+    "coordPositionWGS84": {
+      "lat": "49.0145701186306",
+      "long": "8.3511161735944"
+    }
+  },
+  {
+    "name": "Neureut Adolf-Ehrmann-Bad",
+    "triasID": "de:08212:1114",
+    "triasName": "Neureut Adolf-Ehrmann-Bad",
+    "coordPositionWGS84": {
+      "lat": "49.050608709503",
+      "long": "8.38482096305457"
+    }
+  },
+  {
+    "name": "Neureut Bärenweg",
+    "triasID": "de:08212:1111",
+    "triasName": "Neureut Bärenweg",
+    "coordPositionWGS84": {
+      "lat": "49.0470937550287",
+      "long": "8.37866750335835"
+    }
+  },
+  {
+    "name": "Neureut Kirchfeld",
+    "triasID": "de:08212:1115",
+    "triasName": "Neureut Kirchfeld",
+    "coordPositionWGS84": {
+      "lat": "49.0528282428681",
+      "long": "8.3887106682348"
+    }
+  },
+  {
+    "name": "Neureut Welschneureuter Str.",
+    "triasID": "de:08212:1110",
+    "triasName": "Neureut Welschneureuter Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0446266620312",
+      "long": "8.37434660684173"
+    }
+  },
+  {
+    "name": "Neureut-Heide",
+    "triasID": "de:08212:13",
+    "triasName": "Neureut-Heide",
+    "coordPositionWGS84": {
+      "lat": "49.0363295015307",
+      "long": "8.38806388123024"
+    }
+  },
+  {
+    "name": "Albert-Braun-Str.",
+    "triasID": "de:08212:608",
+    "triasName": "Oberreut Albert-Braun-Straße",
+    "coordPositionWGS84": {
+      "lat": "48.9891289173621",
+      "long": "8.36354885712662"
+    }
+  },
+  {
+    "name": "Badeniaplatz",
+    "triasID": "de:08212:611",
+    "triasName": "Oberreut Badeniaplatz",
+    "coordPositionWGS84": {
+      "lat": "48.9822256696567",
+      "long": "8.36839077650802"
+    }
+  },
+  {
+    "name": "Wilhelm-Leuschner-Str.",
+    "triasID": "de:08212:610",
+    "triasName": "Oberreut Wilhelm-Leuschner-Str.",
+    "coordPositionWGS84": {
+      "lat": "48.9834814126829",
+      "long": "8.3648963300528"
+    }
+  },
+  {
+    "name": "Oberreuut Zentrum",
+    "triasID": "de:08212:609",
+    "triasName": "Oberreut Zentrum",
+    "coordPositionWGS84": {
+      "lat": "48.9857452074936",
+      "long": "8.36228223257601"
+    }
+  },
+  {
+    "name": "Rintheim",
+    "triasID": "de:08212:314",
+    "triasName": "Rintheim",
+    "coordPositionWGS84": {
+      "lat": "49.0164318781718",
+      "long": "8.4437055299286"
+    }
+  },
+  {
+    "name": "Forststr.",
+    "triasID": "de:08212:313",
+    "triasName": "Rintheim Forststraße",
+    "coordPositionWGS84": {
+      "lat": "49.0140398579201",
+      "long": "8.44209754557003"
+    }
+  },
+  {
+    "name": "Sinsheimer Str.",
+    "triasID": "de:08212:404",
+    "triasName": "Rintheim Sinsheimer Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0208032044037",
+      "long": "8.44478350826954"
+    }
+  },
+  {
+    "name": "Rüppurr Battstr.",
+    "triasID": "de:08212:1210",
+    "triasName": "Rüppurr Battstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9652494002708",
+      "long": "8.40480847812623"
+    }
+  },
+  {
+    "name": "Rüppur Ostendorfplatz",
+    "triasID": "de:08212:1208",
+    "triasName": "Rüppurr Ostendorfplatz",
+    "coordPositionWGS84": {
+      "lat": "48.9757636935166",
+      "long": "8.40661409184731"
+    }
+  },
+  {
+    "name": "Rüppurr Tulpenstr.",
+    "triasID": "de:08212:1209",
+    "triasName": "Rüppurr Tulpenstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9710699812812",
+      "long": "8.40404491013472"
+    }
+  },
+  {
+    "name": "Elbinger Str. Ost",
+    "triasID": "de:08212:3017",
+    "triasName": "Waldstadt Elbinger Straße Ost",
+    "coordPositionWGS84": {
+      "lat": "49.040728523387",
+      "long": "8.45060459131064"
+    }
+  },
+  {
+    "name": "Europäische Schule",
+    "triasID": "de:08212:3012",
+    "triasName": "Waldstadt Europäische Schule",
+    "coordPositionWGS84": {
+      "lat": "49.0451389324601",
+      "long": "8.4469753975628"
+    }
+  },
+  {
+    "name": "Glogauer Str.",
+    "triasID": "de:08212:407",
+    "triasName": "Waldstadt Glogauer Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0318535244592",
+      "long": "8.44193584881889"
+    }
+  },
+  {
+    "name": "Im Eichbäumle",
+    "triasID": "de:08212:406",
+    "triasName": "Waldstadt Im Eichbäumle",
+    "coordPositionWGS84": {
+      "lat": "49.0295682650895",
+      "long": "8.44786472969407"
+    }
+  },
+  {
+    "name": "Jägerhaus",
+    "triasID": "de:08212:409",
+    "triasName": "Waldstadt Jägerhaus",
+    "coordPositionWGS84": {
+      "lat": "49.0371363124507",
+      "long": "8.44725387530087"
+    }
+  },
+  {
+    "name": "osteroder Str.",
+    "triasID": "de:08212:411",
+    "triasName": "Waldstadt Osteroder Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0433430186974",
+      "long": "8.44719997638383"
+    }
+  },
+  {
+    "name": "Waldstadt Zentrum",
+    "triasID": "de:08212:408",
+    "triasName": "Waldstadt Zentrum",
+    "coordPositionWGS84": {
+      "lat": "49.0351339839161",
+      "long": "8.44524164906444"
+    }
+  },
+  {
+    "name": "Wolfartsweier Nord",
+    "triasID": "de:08212:4500",
+    "triasName": "Wolfartsweier Nord",
+    "coordPositionWGS84": {
+      "lat": "48.9791127054407",
+      "long": "8.45876129409044"
+    }
+  },
+  {
+    "name": "Bauerbach",
+    "triasID": "de:08215:32617",
+    "triasName": "Bauerbach (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.0738941560858",
+      "long": "8.74818949548091"
+    }
+  },
+  {
+    "name": "Bretten",
+    "triasID": "de:08215:1551",
+    "triasName": "Bretten",
+    "coordPositionWGS84": {
+      "lat": "49.0371775360149",
+      "long": "8.69327548216269"
+    }
+  },
+  {
+    "name": "Bretten Kupferhälde",
+    "triasID": "de:08215:1556",
+    "triasName": "Bretten Kupferhälde",
+    "coordPositionWGS84": {
+      "lat": "49.0371068670268",
+      "long": "8.72364752191877"
+    }
+  },
+  {
+    "name": "Bretten Rechberg",
+    "triasID": "de:08215:35082",
+    "triasName": "Bretten Rechberg",
+    "coordPositionWGS84": {
+      "lat": "49.0330078939263",
+      "long": "8.70151303331806"
+    }
+  },
+  {
+    "name": "Bretten Schulzentrum",
+    "triasID": "de:08215:1555",
+    "triasName": "Bretten Schulzentrum",
+    "coordPositionWGS84": {
+      "lat": "49.0318829729928",
+      "long": "8.71842831011803"
+    }
+  },
+  {
+    "name": "Bretten Stadtmitte",
+    "triasID": "de:08215:1553",
+    "triasName": "Bretten Stadtmitte",
+    "coordPositionWGS84": {
+      "lat": "49.0338972113203",
+      "long": "8.70296830407834"
+    }
+  },
+  {
+    "name": "Bretten Wannenweg",
+    "triasID": "de:08215:1554",
+    "triasName": "Bretten Wannenweg",
+    "coordPositionWGS84": {
+      "lat": "49.0303810755528",
+      "long": "8.7093283762899"
+    }
+  },
+  {
+    "name": "Diedelsheim",
+    "triasID": "de:08215:1838",
+    "triasName": "Diedelsheim",
+    "coordPositionWGS84": {
+      "lat": "49.0393093366255",
+      "long": "8.67449170957175"
+    }
+  },
+  {
+    "name": "Dürrenbüchig",
+    "triasID": "de:08215:1548",
+    "triasName": "Dürrenbüchig",
+    "coordPositionWGS84": {
+      "lat": "49.0238958919971",
+      "long": "8.64787462770329"
+    }
+  },
+  {
+    "name": "Gölshausen",
+    "triasID": "de:08215:1557",
+    "triasName": "Gölshausen",
+    "coordPositionWGS84": {
+      "lat": "49.0448798538223",
+      "long": "8.72472550025971"
+    }
+  },
+  {
+    "name": "Gölshausen Industrie",
+    "triasID": "de:08215:32831",
+    "triasName": "Gölshausen Industrie",
+    "coordPositionWGS84": {
+      "lat": "49.0518332918892",
+      "long": "8.73987109594997"
+    }
+  },
+  {
+    "name": "Bretten-Rinklingen",
+    "triasID": "de:08215:1550",
+    "triasName": "Bretten-Rinklingen",
+    "coordPositionWGS84": {
+      "lat": "49.0366887401259",
+      "long": "8.67368322581604"
+    }
+  },
+  {
+    "name": "Bretten-Ruit",
+    "triasID": "de:08215:35081",
+    "triasName": "Bretten-Ruit",
+    "coordPositionWGS84": {
+      "lat": "49.0094086743179",
+      "long": "8.72207547017156"
+    }
+  },
+  {
+    "name": "Bruchsal",
+    "triasID": "de:08215:1856",
+    "triasName": "Bruchsal",
+    "coordPositionWGS84": {
+      "lat": "49.1249238384356",
+      "long": "8.59034651690827"
+    }
+  },
+  {
+    "name": "Bruchsal Am Mantel",
+    "triasID": "de:08215:32985",
+    "triasName": "Bruchsal Am Mantel",
+    "coordPositionWGS84": {
+      "lat": "49.1411933620708",
+      "long": "8.56327129424491"
+    }
+  },
+  {
+    "name": "Augartenstr.",
+    "triasID": "de:08215:12656",
+    "triasName": "Bruchsal Augartenstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1225487937914",
+      "long": "8.60823197421509"
+    }
+  },
+  {
+    "name": "Bruchsal Gewerbliches Bildungszentrum",
+    "triasID": "de:08215:1855",
+    "triasName": "Bruchsal Gew. Bildungszentrum",
+    "coordPositionWGS84": {
+      "lat": "49.1103954860236",
+      "long": "8.57456311736629"
+    }
+  },
+  {
+    "name": "Bruchsal Schlachthof",
+    "triasID": "de:08215:1832",
+    "triasName": "Bruchsal Schlachthof",
+    "coordPositionWGS84": {
+      "lat": "49.1189213402478",
+      "long": "8.60968724497537"
+    }
+  },
+  {
+    "name": "Bruchsal Schlossgarten",
+    "triasID": "de:08215:1857",
+    "triasName": "Bruchsal Schlossgarten",
+    "coordPositionWGS84": {
+      "lat": "49.1313899676559",
+      "long": "8.59409249164305"
+    }
+  },
+  {
+    "name": "Bruchsal Sportzentrum",
+    "triasID": "de:08215:12639",
+    "triasName": "Bruchsal Sportzentrum",
+    "coordPositionWGS84": {
+      "lat": "49.1355337252404",
+      "long": "8.5896548141395"
+    }
+  },
+  {
+    "name": "Bruchsal Stegwiesen",
+    "triasID": "de:08215:1858",
+    "triasName": "Bruchsal Stegwiesen",
+    "coordPositionWGS84": {
+      "lat": "49.1364505950103",
+      "long": "8.59818880933863"
+    }
+  },
+  {
+    "name": "Bruchsal Tunnelstr.",
+    "triasID": "de:08215:1831",
+    "triasName": "Bruchsal Tunnelstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1197150521099",
+      "long": "8.59469436288341"
+    }
+  },
+  {
+    "name": "Heidelsheim",
+    "triasID": "de:08215:1834",
+    "triasName": "Heidelsheim",
+    "coordPositionWGS84": {
+      "lat": "49.1014976358487",
+      "long": "8.64935684792208"
+    }
+  },  {
+    "name": "Heidelsheim Nord",
+    "triasID": "de:08215:1833",
+    "triasName": "Heidelsheim Nord",
+    "coordPositionWGS84": {
+      "lat": "49.1052557460524",
+      "long": "8.64502696825263"
+    }
+  },
+  {
+    "name": "Helmsheim",
+    "triasID": "de:08215:1835",
+    "triasName": "Helmsheim",
+    "coordPositionWGS84": {
+      "lat": "49.0856798717331",
+      "long": "8.65140500676988"
+    }
+  },
+  {
+    "name": "Untergrombach",
+    "triasID": "de:08215:1854",
+    "triasName": "Untergrombach",
+    "coordPositionWGS84": {
+      "lat": "49.0874154248295",
+      "long": "8.54807179963761"
+    }
+  },
+  {
+    "name": "Bruchhausen",
+    "triasID": "de:08215:1841",
+    "triasName": "Bruchhausen (b. Ettlingen)",
+    "coordPositionWGS84": {
+      "lat": "48.9240023072994",
+      "long": "8.37394236496388"
+    }
+  },
+  {
+    "name": "Ettlingen Albgaubad",
+    "triasID": "de:08215:1235",
+    "triasName": "Ettlingen Albgaubad",
+    "coordPositionWGS84": {
+      "lat": "48.9367913131138",
+      "long": "8.41553436261861"
+    }
+  },
+  {
+    "name": "Ettlingen Erbprinz/Schloss",
+    "triasID": "de:08215:1223",
+    "triasName": "Ettlingen Erbprinz / Schloss",
+    "coordPositionWGS84": {
+      "lat": "48.9407034924821",
+      "long": "8.40454796669383"
+    }
+  },
+  {
+    "name": "Ettlingen Neuwiesenreben",
+    "triasID": "de:08215:1220",
+    "triasName": "Ettlingen Neuwiesenreben",
+    "coordPositionWGS84": {
+      "lat": "48.9529868045395",
+      "long": "8.40052351422097"
+    }
+  },
+  {
+    "name": "Ettlingen Spinnerei",
+    "triasID": "de:08215:1237",
+    "triasName": "Ettlingen Spinnerei",
+    "coordPositionWGS84": {
+      "lat": "48.9345548013435",
+      "long": "8.44223229286265"
+    }
+  },
+  {
+    "name": "Ettlingen Stadt",
+    "triasID": "de:08215:1231",
+    "triasName": "Ettlingen Stadt",
+    "coordPositionWGS84": {
+      "lat": "48.9386913842264",
+      "long": "8.40894971158602"
+    }
+  },
+  {
+    "name": "Ettlingen Wasen",
+    "triasID": "de:08215:1221",
+    "triasName": "Ettlingen Wasen",
+    "coordPositionWGS84": {
+      "lat": "48.9452466643663",
+      "long": "8.39874484995842"
+    }
+  },
+  {
+    "name": "Ettlingen West",
+    "triasID": "de:08215:1840",
+    "triasName": "Ettlingen West",
+    "coordPositionWGS84": {
+      "lat": "48.9471287144141",
+      "long": "8.38786625186773"
+    }
+  },
+  {
+    "name": "Gondelsheim (Baden)",
+    "triasID": "de:08215:1837",
+    "triasName": "Gondelsheim (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.0599512747388",
+      "long": "8.66012764817868"
+    }
+  },
+  {
+    "name": "Gondelsheim Schloßstadion",
+    "triasID": "de:08215:1836",
+    "triasName": "Gondelsheim Schlossstadion",
+    "coordPositionWGS84": {
+      "lat": "49.0657549079324",
+      "long": "8.66290344240661"
+    }
+  },
+  {
+    "name": "Malsch",
+    "triasID": "de:08215:8306",
+    "triasName": "Malsch (Kr Karlsruhe)",
+    "coordPositionWGS84": {
+      "lat": "48.8894550370574",
+      "long": "8.32337619762079"
+    }
+  },
+  {
+    "name": "Malsch Süd",
+    "triasID": "de:08215:8301",
+    "triasName": "Malsch Süd",
+    "coordPositionWGS84": {
+      "lat": "48.8875235585337",
+      "long": "8.31591119760976"
+    }
+  },
+  {
+    "name": "Frauenalb-Schielberg",
+    "triasID": "de:08215:1304",
+    "triasName": "Frauenalb - Schielberg",
+    "coordPositionWGS84": {
+      "lat": "48.837261189132",
+      "long": "8.44048956121145"
+    }
+  },
+  {
+    "name": "Marxzell",
+    "triasID": "de:08215:1303",
+    "triasName": "Marxzell",
+    "coordPositionWGS84": {
+      "lat": "48.863359007584",
+      "long": "8.44731675737076"
+    }
+  },
+  {
+    "name": "Flehingen",
+    "triasID": "de:08215:32092",
+    "triasName": "Flehingen",
+    "coordPositionWGS84": {
+      "lat": "49.0847208790877",
+      "long": "8.78352921875817"
+    }
+  },
+  {
+    "name": "Oberderdingen-Flehingen",
+    "triasID": "de:08215:1561",
+    "triasName": "Oberderdingen-Flehingen",
+    "coordPositionWGS84": {
+      "lat": "49.0839383744351",
+      "long": "8.77504013932325"
+    }
+  },
+  {
+    "name": "Odenheim",
+    "triasID": "de:08215:31008",
+    "triasName": "Odenheim",
+    "coordPositionWGS84": {
+      "lat": "49.1789958438832",
+      "long": "8.7464647301354"
+    }
+  },
+  {
+    "name": "Odenheim West",
+    "triasID": "de:08215:31007",
+    "triasName": "Odenheim West",
+    "coordPositionWGS84": {
+      "lat": "49.1821785117007",
+      "long": "8.73673597560839"
+    }
+  },
+  {
+    "name": "Huttenheim",
+    "triasID": "de:08215:32590",
+    "triasName": "Huttenheim Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1972082723344",
+      "long": "8.47256840000736"
+    }
+  },
+  {
+    "name": "Philippsburg Bahnhof",
+    "triasID": "de:08215:32589",
+    "triasName": "Philippsburg Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2316596733408",
+      "long": "8.45385649263915"
+    }
+  },
+  {
+    "name": "Rheinsheim",
+    "triasID": "de:08215:32588",
+    "triasName": "Rheinsheim Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2291078893033",
+      "long": "8.41561521099418"
+    }
+  },
+  {
+    "name": "Sulzfeld (Baden)",
+    "triasID": "de:08215:32093",
+    "triasName": "Sulzfeld (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.108184404563",
+      "long": "8.85258271464844"
+    }
+  },
+  {
+    "name": "Stettfeld (Baden)",
+    "triasID": "de:08215:31004",
+    "triasName": "Stettfeld (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.178972354799",
+      "long": "8.64385017523043"
+    }
+  },
+  {
+    "name": "Stettfeld-Weiher",
+    "triasID": "de:08215:1864",
+    "triasName": "Stettfeld-Weiher",
+    "coordPositionWGS84": {
+      "lat": "49.1832589280403",
+      "long": "8.63671755187452"
+    }
+  },
+  {
+    "name": "Ubstadt Ort",
+    "triasID": "de:08215:31002",
+    "triasName": "Ubstadt Ort",
+    "coordPositionWGS84": {
+      "lat": "49.156711438054",
+      "long": "8.6254616613645"
+    }
+  },
+  {
+    "name": "Ubstadt Salzbrunnenstr.",
+    "triasID": "de:08215:32001",
+    "triasName": "Ubstadt Salzbrunnenstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1551898121579",
+      "long": "8.63314225704372"
+    }
+  },
+  {
+    "name": "Ubstadt Uhlandstr.",
+    "triasID": "de:08215:32603",
+    "triasName": "Ubstadt Uhlandstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1626917386551",
+      "long": "8.62878542791575"
+    }
+  },
+  {
+    "name": "Ubstadt-Weiher",
+    "triasID": "de:08215:1861",
+    "triasName": "Ubstadt-Weiher",
+    "coordPositionWGS84": {
+      "lat": "49.1668916163185",
+      "long": "8.62304519325022"
+    }
+  },  {
+    "name": "Zeutern",
+    "triasID": "de:08215:31005",
+    "triasName": "Zeutern",
+    "coordPositionWGS84": {
+      "lat": "49.1781619745672",
+      "long": "8.67760886360764"
+    }
+  },
+  {
+    "name": "Zeutern Ost",
+    "triasID": "de:08215:3185",
+    "triasName": "Zeutern Ost",
+    "coordPositionWGS84": {
+      "lat": "49.1789840993425",
+      "long": "8.70292338831413"
+    }
+  },
+  {
+    "name": "zeutern Sportplatz",
+    "triasID": "de:08215:32554",
+    "triasName": "Zeutern Sportplatz",
+    "coordPositionWGS84": {
+      "lat": "49.177979930806",
+      "long": "8.6707098022256"
+    }
+  },
+  {
+    "name": "Jöhlingen",
+    "triasID": "de:08215:1531",
+    "triasName": "Jöhlingen",
+    "coordPositionWGS84": {
+      "lat": "49.028213551476",
+      "long": "8.57514702230097"
+    }
+  },
+  {
+    "name": "Jöhlingen West",
+    "triasID": "de:08215:1530",
+    "triasName": "Jöhlingen West",
+    "coordPositionWGS84": {
+      "lat": "49.0309052723589",
+      "long": "8.56999967572296"
+    }
+  },
+  {
+    "name": "Wössingen",
+    "triasID": "de:08215:1541",
+    "triasName": "Wössingen",
+    "coordPositionWGS84": {
+      "lat": "49.0155304653168",
+      "long": "8.60453091524452"
+    }
+  },
+  {
+    "name": "Wössingen Ost",
+    "triasID": "de:08215:1543",
+    "triasName": "Wössingen Ost",
+    "coordPositionWGS84": {
+      "lat": "49.0158839624996",
+      "long": "8.61019030153447"
+    }
+  },
+  {
+    "name": "Weingarten (Baden)",
+    "triasID": "de:08215:1853",
+    "triasName": "Weingarten (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.0590212177733",
+      "long": "8.5210953916555"
+    }
+  },
+  {
+    "name": "Zaisenhausen",
+    "triasID": "de:08215:32618",
+    "triasName": "Zaisenhausen",
+    "coordPositionWGS84": {
+      "lat": "49.1047499762766",
+      "long": "8.81665010328366"
+    }
+  },
+  {
+    "name": "Fischweier",
+    "triasID": "de:08215:1302",
+    "triasName": "Fischweier",
+    "coordPositionWGS84": {
+      "lat": "48.8882323666578",
+      "long": "8.45130527723225"
+    }
+  },
+  {
+    "name": "Ittersbach",
+    "triasID": "de:08215:1409",
+    "triasName": "Ittersbach",
+    "coordPositionWGS84": {
+      "lat": "48.8692328352251",
+      "long": "8.51109714254325"
+    }
+  },
+  {
+    "name": "Ittersbach Industrie",
+    "triasID": "de:08215:1408",
+    "triasName": "Ittersbach Industrie",
+    "coordPositionWGS84": {
+      "lat": "48.8848063676457",
+      "long": "8.50861779235908"
+    }
+  },
+  {
+    "name": "Ittersbach Rathaus",
+    "triasID": "de:08215:1410",
+    "triasName": "Ittersbach Rathaus",
+    "coordPositionWGS84": {
+      "lat": "48.8660064518659",
+      "long": "8.51028865878754"
+    }
+  },
+  {
+    "name": "Langensteinbach",
+    "triasID": "de:08215:1403",
+    "triasName": "Langensteinbach",
+    "coordPositionWGS84": {
+      "lat": "48.9152186656155",
+      "long": "8.50312010282027"
+    }
+  },
+  {
+    "name": "Langensteinbach Schießhüttenäcker",
+    "triasID": "de:08215:1411",
+    "triasName": "Langensteinbach Schießhüttenäcker",
+    "coordPositionWGS84": {
+      "lat": "48.9200593043853",
+      "long": "8.49943701015538"
+    }
+  },
+  {
+    "name": "Langensteinbach St. Barbara",
+    "triasID": "de:08215:1404",
+    "triasName": "Langensteinbach St. Barbara",
+    "coordPositionWGS84": {
+      "lat": "48.9097281051525",
+      "long": "8.49957175744799"
+    }
+  },
+  {
+    "name": "Spielberg",
+    "triasID": "de:08215:1406",
+    "triasName": "Spielberg (Baden)",
+    "coordPositionWGS84": {
+      "lat": "48.8974932027779",
+      "long": "8.4746704577722"
+    }
+  },
+  {
+    "name": "Bahnbrücken",
+    "triasID": "de:08215:32008",
+    "triasName": "Bahnbrücken",
+    "coordPositionWGS84": {
+      "lat": "49.1192858613469",
+      "long": "8.76482629454281"
+    }
+  },
+  {
+    "name": "Gochsheim (Baden)",
+    "triasID": "de:08215:32007",
+    "triasName": "Gochsheim (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.1095251784847",
+      "long": "8.74434470606488"
+    }
+  },
+  {
+    "name": "Menzingen (Baden)",
+    "triasID": "de:08215:32009",
+    "triasName": "Menzingen (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.1362625205427",
+      "long": "8.77519285292155"
+    }
+  },
+  {
+    "name": "Münzesheim",
+    "triasID": "de:08215:32005",
+    "triasName": "Münzesheim",
+    "coordPositionWGS84": {
+      "lat": "49.1259702328972",
+      "long": "8.71615557244921"
+    }
+  },
+  {
+    "name": "Münzesheim Ost",
+    "triasID": "de:08215:32006",
+    "triasName": "Münzesheim Ost",
+    "coordPositionWGS84": {
+      "lat": "49.1213200750611",
+      "long": "8.72651314767511"
+    }
+  },
+  {
+    "name": "Oberöwisheim",
+    "triasID": "de:08215:32004",
+    "triasName": "Oberöwisheim",
+    "coordPositionWGS84": {
+      "lat": "49.1401355351367",
+      "long": "8.68626862294655"
+    }
+  },
+  {
+    "name": "Unteröwisheim",
+    "triasID": "de:08215:32003",
+    "triasName": "Unteröwisheim",
+    "coordPositionWGS84": {
+      "lat": "49.1463587592569",
+      "long": "8.66890418850452"
+    }
+  },
+  {
+    "name": "Unteröwisheim Martin-Luther-Str.",
+    "triasID": "de:08215:32002",
+    "triasName": "Unteröwisheim M.-Luther-Str.",
+    "coordPositionWGS84": {
+      "lat": "49.1464880341911",
+      "long": "8.66205902603953"
+    }
+  },
+  {
+    "name": "Graben-Neudorf",
+    "triasID": "de:08215:32585",
+    "triasName": "Graben-Neudorf Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1617753543719",
+      "long": "8.49061555406532"
+    }
+  },
+  {
+    "name": "Graben-Neudorf Nord",
+    "triasID": "de:08215:32591",
+    "triasName": "Graben-Neudorf Nord",
+    "coordPositionWGS84": {
+      "lat": "49.1779564412396",
+      "long": "8.49414593313191"
+    }
+  },
+  {
+    "name": "Bad Schönborn Süd",
+    "triasID": "de:08215:1862",
+    "triasName": "Bad Schönborn Süd",
+    "coordPositionWGS84": {
+      "lat": "49.199996495273",
+      "long": "8.64211642673208"
+    }
+  },
+  {
+    "name": "Bad Schönborn-Kronau",
+    "triasID": "de:08215:1863",
+    "triasName": "Bad Schönborn-Kronau",
+    "coordPositionWGS84": {
+      "lat": "49.2195624619445",
+      "long": "8.6470930934061"
+    }
+  },
+  {
+    "name": "Berghausen (Baden)",
+    "triasID": "de:08215:2008",
+    "triasName": "Berghausen (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.0057493811027",
+      "long": "8.53048278637455"
+    }
+  },
+  {
+    "name": "Berghausen Am Stadion",
+    "triasID": "de:08215:1634",
+    "triasName": "Berghausen Am Stadion",
+    "coordPositionWGS84": {
+      "lat": "49.0026202069517",
+      "long": "8.53611522320598"
+    }
+  },
+  {
+    "name": "Berghausen Hummelberg",
+    "triasID": "de:08215:1526",
+    "triasName": "Berghausen Hummelberg",
+    "coordPositionWGS84": {
+      "lat": "49.0098093535356",
+      "long": "8.52688054208523"
+    }
+  },
+  {
+    "name": "Berghausen Pfinzbrücke",
+    "triasID": "de:08215:1601",
+    "triasName": "Berghausen Pfinzbrücke",
+    "coordPositionWGS84": {
+      "lat": "49.0065154389749",
+      "long": "8.52087081283447"
+    }
+  },
+  {
+    "name": "Kleinsteinbach",
+    "triasID": "de:08215:1619",
+    "triasName": "Kleinsteinbach",
+    "coordPositionWGS84": {
+      "lat": "48.9666235196685",
+      "long": "8.55497086101964"
+    }
+  },
+  {
+    "name": "Söllingen (b. KA)",
+    "triasID": "de:08215:1617",
+    "triasName": "Söllingen (b. Karlsruhe)",
+    "coordPositionWGS84": {
+      "lat": "48.9879027912031",
+      "long": "8.54344547592439"
+    }
+  },
+  {
+    "name": "Söllingen Kapellenstr.",
+    "triasID": "de:08215:1627",
+    "triasName": "Söllingen Kapellenstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9839176728072",
+      "long": "8.54963486823197"
+    }
+  },
+  {
+    "name": "Söllingen Reetzstr.",
+    "triasID": "de:08215:1616",
+    "triasName": "Söllingen Reetzstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9908914208553",
+      "long": "8.54085832790613"
+    }
+  },
+  {
+    "name": "KIT-Campus Nord",
+    "triasID": "de:08215:1140",
+    "triasName": "KIT-Campus Nord",
+    "coordPositionWGS84": {
+      "lat": "49.0970686993748",
+      "long": "8.43032961534806"
+    }
+  },
+  {
+    "name": "Eggenstein",
+    "triasID": "de:08215:1120",
+    "triasName": "Eggenstein",
+    "coordPositionWGS84": {
+      "lat": "49.0756948508025",
+      "long": "8.39796331566123"
+    }
+  },
+  {
+    "name": "Eggenstein Schweriner Str.",
+    "triasID": "de:08215:1123",
+    "triasName": "Eggenstein Schweriner Straße",
+    "coordPositionWGS84": {
+      "lat": "49.0858799046744",
+      "long": "8.40220336380228"
+    }
+  },
+  {
+    "name": "Eggenstein Spöcker Weg",
+    "triasID": "de:08215:1122",
+    "triasName": "Eggenstein Spöcker Weg",
+    "coordPositionWGS84": {
+      "lat": "49.079866797864",
+      "long": "8.39969706415959"
+    }
+  },
+  {
+    "name": "Eggenstein Süd",
+    "triasID": "de:08215:1124",
+    "triasName": "Eggenstein Süd",
+    "coordPositionWGS84": {
+      "lat": "49.0711400261443",
+      "long": "8.39606787041174"
+    }
+  },
+  {
+    "name": "Leopoldshafen Frankfurter Str.",
+    "triasID": "de:08215:1133",
+    "triasName": "Leopoldshafen Frankfurter Straße",
+    "coordPositionWGS84": {
+      "lat": "49.1009624201647",
+      "long": "8.40388321338358"
+    }
+  },
+  {
+    "name": "Leopoldshafen Leopoldstr.",
+    "triasID": "de:08215:1132",
+    "triasName": "Leopoldshafen Leopoldstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0971628110324",
+      "long": "8.40109843600281"
+    }
+  },
+  {
+    "name": "Leopoldshafen Viermorgen",
+    "triasID": "de:08215:1131",
+    "triasName": "Leopoldshafen Viermorgen",
+    "coordPositionWGS84": {
+      "lat": "49.0903804328192",
+      "long": "8.40073012673632"
+    }
+  },
+  {
+    "name": "Karlsdorf",
+    "triasID": "de:08215:32592",
+    "triasName": "Karlsdorf Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1443902129056",
+      "long": "8.54818858062454"
+    }
+  },
+  {
+    "name": "Hochstetten",
+    "triasID": "de:08215:1157",
+    "triasName": "Hochstetten",
+    "coordPositionWGS84": {
+      "lat": "49.1336529136628",
+      "long": "8.41545351424304"
+    }
+  },
+  {
+    "name": "Hochstetten Altenheim",
+    "triasID": "de:08215:1156",
+    "triasName": "Hochstetten Altenheim",
+    "coordPositionWGS84": {
+      "lat": "49.1326125591063",
+      "long": "8.41815744324824"
+    }
+  },
+  {
+    "name": "Hochstetten Grenzstr.",
+    "triasID": "de:08215:1155",
+    "triasName": "Hochstetten Grenzstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1295501458135",
+      "long": "8.41572300882828"
+    }
+  },
+  {
+    "name": "Linkenheim Friedrichstr.",
+    "triasID": "de:08215:1152",
+    "triasName": "Linkenheim Friedrichstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1196856556008",
+      "long": "8.40934497031103"
+    }
+  },
+  {
+    "name": "Linkenheim Rathaus",
+    "triasID": "de:08215:1153",
+    "triasName": "Linkenheim Rathaus",
+    "coordPositionWGS84": {
+      "lat": "49.1231249289321",
+      "long": "8.40822207620588"
+    }
+  },
+  {
+    "name": "Linkenheim Schulzentrum",
+    "triasID": "de:08215:1154",
+    "triasName": "Linkenheim Schulzentrum",
+    "coordPositionWGS84": {
+      "lat": "49.1274868778066",
+      "long": "8.41338738908957"
+    }
+  },
+  {
+    "name": "Linkenheim Süd",
+    "triasID": "de:08215:1151",
+    "triasName": "Linkenheim Süd",
+    "coordPositionWGS84": {
+      "lat": "49.1165989251797",
+      "long": "8.41163567428553"
+    }
+  },
+  {
+    "name": "Waghäusel",
+    "triasID": "de:08215:32509",
+    "triasName": "Waghäusel Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2479527856497",
+      "long": "8.50842016299657"
+    }
+  },
+  {
+    "name": "Wiesental",
+    "triasID": "de:08215:32584",
+    "triasName": "Wiesental Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2257463726181",
+      "long": "8.50243738320434"
+    }
+  },
+  {
+    "name": "Forchheim (b. KA)",
+    "triasID": "de:08215:1818",
+    "triasName": "Forchheim (b Karlsruhe)",
+    "coordPositionWGS84": {
+      "lat": "48.9646065588828",
+      "long": "8.33848586069968"
+    }
+  },
+  {
+    "name": "Forchheim Hallenbad",
+    "triasID": "de:08215:212",
+    "triasName": "Forchheim Hallenbad",
+    "coordPositionWGS84": {
+      "lat": "48.9786351312286",
+      "long": "8.31735748521719"
+    }
+  },
+  {
+    "name": "Forchheim Hauptstr.",
+    "triasID": "de:08215:213",
+    "triasName": "Forchheim Hauptstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9748851302465",
+      "long": "8.31228200386192"
+    }
+  },
+  {
+    "name": "Forchheim Leichtsandstr./Messe Karlsruhe",
+    "triasID": "de:08215:210",
+    "triasName": "Forchheim Leichtsandstr./Messe KA",
+    "coordPositionWGS84": {
+      "lat": "48.9821431314482",
+      "long": "8.32344806284352"
+    }
+  },
+  {
+    "name": "Forchheim Oberfeldstr.",
+    "triasID": "de:08215:214",
+    "triasName": "Forchheim Oberfeldstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9702503053046",
+      "long": "8.30784432635836"
+    }
+  },
+  {
+    "name": "Mörsch Am Hang",
+    "triasID": "de:08215:1500",
+    "triasName": "Mörsch Am Hang",
+    "coordPositionWGS84": {
+      "lat": "48.9565437985486",
+      "long": "8.28547627578379"
+    }
+  },
+  {
+    "name": "Mörsch Bach-West",
+    "triasID": "de:08215:1501",
+    "triasName": "Mörsch Bach-West",
+    "coordPositionWGS84": {
+      "lat": "48.9589503770059",
+      "long": "8.28398507241215"
+    }
+  },
+  {
+    "name": "Mörsch Merkurstr.",
+    "triasID": "de:08215:220",
+    "triasName": "Mörsch Merkurstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9531637754108",
+      "long": "8.29128837567204"
+    }
+  },
+  {
+    "name": "Mörsch Narzissenstr.",
+    "triasID": "de:08215:217",
+    "triasName": "Mörsch Narzissenstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9659924909988",
+      "long": "8.30243646834797"
+    }
+  },
+  {
+    "name": "Mörsch Rheinaustr.",
+    "triasID": "de:08215:219",
+    "triasName": "Mörsch Rheinaustraße",
+    "coordPositionWGS84": {
+      "lat": "48.9585492886595",
+      "long": "8.29436061394373"
+    }
+  },
+  {
+    "name": "Mörsch Römerstr.",
+    "triasID": "de:08215:218",
+    "triasName": "Mörsch Römerstraße",
+    "coordPositionWGS84": {
+      "lat": "48.9614217178593",
+      "long": "8.29739691960405"
+    }
+  },
+  {
+    "name": "Mörsch Rösselbrünnle",
+    "triasID": "de:08215:215",
+    "triasName": "Mörsch Rösselsbrünnle",
+    "coordPositionWGS84": {
+      "lat": "48.9677794019416",
+      "long": "8.30517632996453"
+    }
+  },
+  {
+    "name": "Blankenloch",
+    "triasID": "de:08215:32239",
+    "triasName": "Blankenloch",
+    "coordPositionWGS84": {
+      "lat": "49.0662905032027",
+      "long": "8.46484288856393"
+    }
+  },
+  {
+    "name": "Blankenloch Kirche",
+    "triasID": "de:08215:32031",
+    "triasName": "Blankenloch Kirche",
+    "coordPositionWGS84": {
+      "lat": "49.0648073021581",
+      "long": "8.47142753959653"
+    }
+  },
+  {
+    "name": "Blankenloch Mühlenweg",
+    "triasID": "de:08215:1906",
+    "triasName": "Blankenloch Mühlenweg",
+    "coordPositionWGS84": {
+      "lat": "49.0687094384961",
+      "long": "8.47459859254947"
+    }
+  },
+  {
+    "name": "Blankenloch Nord",
+    "triasID": "de:08215:32033",
+    "triasName": "Blankenloch Nord",
+    "coordPositionWGS84": {
+      "lat": "49.0732703707986",
+      "long": "8.46770851432028"
+    }
+  },
+  {
+    "name": "Blankenloch Süd",
+    "triasID": "de:08215:1903",
+    "triasName": "Blankenloch Süd",
+    "coordPositionWGS84": {
+      "lat": "49.0574082929142",
+      "long": "8.46707969362139"
+    }
+  },
+  {
+    "name": "Blankenloch Tolna-Platz",
+    "triasID": "de:08215:32030",
+    "triasName": "Blankenloch Tolna-Platz",
+    "coordPositionWGS84": {
+      "lat": "49.0603456607289",
+      "long": "8.46939734705442"
+    }
+  },
+  {
+    "name": "Büchig",
+    "triasID": "de:08215:1902",
+    "triasName": "Büchig",
+    "coordPositionWGS84": {
+      "lat": "49.0479298303746",
+      "long": "8.46106996437063"
+    }
+  },
+  {
+    "name": "Friedrichstal (Baden)",
+    "triasID": "de:08215:33000",
+    "triasName": "Friedrichstal (Baden)",
+    "coordPositionWGS84": {
+      "lat": "49.1006271722358",
+      "long": "8.47409553599036"
+    }
+  },
+  {
+    "name": "Friedrichstal Mitte",
+    "triasID": "de:08215:32743",
+    "triasName": "Friedrichstal Mitte",
+    "coordPositionWGS84": {
+      "lat": "49.1043618238828",
+      "long": "8.47526334585972"
+    }
+  },
+  {
+    "name": "Friedrichstal Nord",
+    "triasID": "de:08215:33079",
+    "triasName": "Friedrichstal Nord",
+    "coordPositionWGS84": {
+      "lat": "49.1088724378119",
+      "long": "8.47652098725749"
+    }
+  },
+  {
+    "name": "Friedrichstal Saint-Riquier-Platz",
+    "triasID": "de:08215:32704",
+    "triasName": "Friedrichstal St-Riquier-Platz",
+    "coordPositionWGS84": {
+      "lat": "49.1008624341773",
+      "long": "8.4743650305756"
+    }
+  },
+  {
+    "name": "Spöck Hochhaus",
+    "triasID": "de:08215:32052",
+    "triasName": "Spöck Hochhaus",
+    "coordPositionWGS84": {
+      "lat": "49.1114892292539",
+      "long": "8.50042515696791"
+    }
+  },
+  {
+    "name": "Spöck Richard-Hecht-Schule",
+    "triasID": "de:08215:32296",
+    "triasName": "Spöck Richard-Hecht-Schule",
+    "coordPositionWGS84": {
+      "lat": "49.1127593524229",
+      "long": "8.50498859861124"
+    }
+  },
+  {
+    "name": "Busenbach",
+    "triasID": "de:08215:1241",
+    "triasName": "Busenbach",
+    "coordPositionWGS84": {
+      "lat": "48.929302440459",
+      "long": "8.45056865869927"
+    }
+  },
+  {
+    "name": "Etzenrot",
+    "triasID": "de:08215:1301",
+    "triasName": "Etzenrot",
+    "coordPositionWGS84": {
+      "lat": "48.913931685156",
+      "long": "8.45754856845688"
+    }
+  },
+  {
+    "name": "Reichenbach (b. Ettlingen)",
+    "triasID": "de:08215:1402",
+    "triasName": "Reichenbach (b. Ettlingen)",
+    "coordPositionWGS84": {
+      "lat": "48.9203839645891",
+      "long": "8.4794674613894"
+    }
+  },
+  {
+    "name": "Reichenbach Kurpark",
+    "triasID": "de:08215:1401",
+    "triasName": "Reichenbach Kurpark",
+    "coordPositionWGS84": {
+      "lat": "48.91892002552",
+      "long": "8.47286484405112"
+    }
+  },
+  {
+    "name": "Pforzheim Hbf",
+    "triasID": "de:08231:50",
+    "triasName": "Pforzheim Hauptbahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.8936485103258",
+      "long": "8.70345339433176"
+    }
+  },
+  {
+    "name": "Pforzheim Maihälden",
+    "triasID": "de:08231:3993",
+    "triasName": "Pforzheim Maihälden",
+    "coordPositionWGS84": {
+      "lat": "48.8934713284313",
+      "long": "8.67829158322357"
+    }
+  },
+  {
+    "name": "Brötzingen Mitte",
+    "triasID": "de:08231:3991",
+    "triasName": "Pforzheim Brötzingen Mitte",
+    "coordPositionWGS84": {
+      "lat": "48.8894432239599",
+      "long": "8.66681111389252"
+    }
+  },
+  {
+    "name": "Pforzheim Weißenstein",
+    "triasID": "de:08231:3996",
+    "triasName": "Pforzheim Weißenstein",
+    "coordPositionWGS84": {
+      "lat": "48.8651023181158",
+      "long": "8.6763781716684"
+    }
+  },
+  {
+    "name": "Eutingen (Baden)",
+    "triasID": "de:08231:2891",
+    "triasName": "Eutingen",
+    "coordPositionWGS84": {
+      "lat": "48.9099996954463",
+      "long": "8.74385961581146"
+    }
+  },
+  {
+    "name": "Höfen (Enz) Nord",
+    "triasID": "de:08235:422",
+    "triasName": "Höfen, Nord",
+    "coordPositionWGS84": {
+      "lat": "48.8075705846213",
+      "long": "8.58194726900176"
+    }
+  },
+  {
+    "name": "Höfen (Enz)",
+    "triasID": "de:08235:8940",
+    "triasName": "Höfen, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.7985830488154",
+      "long": "8.58079742543808"
+    }
+  },
+  {
+    "name": "Calmbach",
+    "triasID": "de:08235:420",
+    "triasName": "Calmbach, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.7756424463622",
+      "long": "8.57017035562695"
+    }
+  },
+  {
+    "name": "Calmbach Süd",
+    "triasID": "de:08235:423",
+    "triasName": "Calmbach, Süd",
+    "coordPositionWGS84": {
+      "lat": "48.7724633159258",
+      "long": "8.56469063239382"
+    }
+  },
+  {
+    "name": "Bad Wildbad Nord",
+    "triasID": "de:08235:424",
+    "triasName": "Bad Wildbad, Nord",
+    "coordPositionWGS84": {
+      "lat": "48.7632444756434",
+      "long": "8.55406356258268"
+    }
+  },
+  {
+    "name": "Bad Wildbad",
+    "triasID": "de:08235:8960",
+    "triasName": "Bad Wildbad, Bhf",
+    "coordPositionWGS84": {
+      "lat": "48.755285425906",
+      "long": "8.55137759988317"
+    }
+  },
+  {
+    "name": "Bad Wildbad Uhlandplatz",
+    "triasID": "de:08235:402",
+    "triasName": "Bad Wildbad, Uhlandplatz",
+    "coordPositionWGS84": {
+      "lat": "48.750807906222",
+      "long": "8.54923960950696"
+    }
+  },
+  {
+    "name": "Bad Wildbad Kurpark",
+    "triasID": "de:08235:8961",
+    "triasName": "Bad Wildbad, Kurpark",
+    "coordPositionWGS84": {
+      "lat": "48.7473369616715",
+      "long": "8.54994927858142"
+    }
+  },
+  {
+    "name": "Unterreichenbach",
+    "triasID": "de:08235:9000",
+    "triasName": "Unterreichenbach, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.8265107267752",
+      "long": "8.71131365306781"
+    }
+  },
+  {
+    "name": "Monbach-Neuhausen",
+    "triasID": "de:08236:5691",
+    "triasName": "Monbach - Neuhausen",
+    "coordPositionWGS84": {
+      "lat": "48.7992576136578",
+      "long": "8.72789655321265"
+    }
+  },
+  {
+    "name": "Maulbronn Stadt",
+    "triasID": "de:08236:2293",
+    "triasName": "Maulbronn Stadtbahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.997162833954",
+      "long": "8.80463064478214"
+    }
+  },
+  {
+    "name": "Maulbronn West",
+    "triasID": "de:08236:2292",
+    "triasName": "Maulbronn Westbahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.9840296849257",
+      "long": "8.78166072296721"
+    }
+  },
+  {
+    "name": "Ötisheim",
+    "triasID": "de:08236:2790",
+    "triasName": "Ötisheim",
+    "coordPositionWGS84": {
+      "lat": "48.9665527504957",
+      "long": "8.81365871338754"
+    }
+  },
+  {
+    "name": "Mühlacker Rößlesweg",
+    "triasID": "de:08236:2690",
+    "triasName": "Mühlacker Rösslesweg",
+    "coordPositionWGS84": {
+      "lat": "48.9563373464598",
+      "long": "8.85833193246681"
+    }
+  },
+  {
+    "name": "Mühlacker",
+    "triasID": "de:08236:3090",
+    "triasName": "Mühlacker Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.9529927035787",
+      "long": "8.84607891199142"
+    }
+  },
+  {
+    "name": "Illingen (Württ)",
+    "triasID": "de:08236:2590",
+    "triasName": "Illingen",
+    "coordPositionWGS84": {
+      "lat": "48.9564317246635",
+      "long": "8.92073789525459"
+    }
+  },
+  {
+    "name": "Enzberg",
+    "triasID": "de:08236:2791",
+    "triasName": "Enzberg",
+    "coordPositionWGS84": {
+      "lat": "48.9346433195449",
+      "long": "8.80055229339224"
+    }
+  },
+  {
+    "name": "Niefern",
+    "triasID": "de:08236:2890",
+    "triasName": "Niefern",
+    "coordPositionWGS84": {
+      "lat": "48.9200947219647",
+      "long": "8.76897651115544"
+    }
+  },
+  {
+    "name": "Ispringen",
+    "triasID": "de:08236:1717",
+    "triasName": "Ispringen Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.9153190250834",
+      "long": "8.67145540391142"
+    }
+  },
+  {
+    "name": "Ersingen",
+    "triasID": "de:08236:1791",
+    "triasName": "Ersingen",
+    "coordPositionWGS84": {
+      "lat": "48.9306716484523",
+      "long": "8.63847824983139"
+    }
+  },
+  {
+    "name": "Ersingen West",
+    "triasID": "de:08236:1795",
+    "triasName": "Ersingen West",
+    "coordPositionWGS84": {
+      "lat": "48.9314624669972",
+      "long": "8.6338788755767"
+    }
+  },
+  {
+    "name": "Bilfingen",
+    "triasID": "de:08236:1792",
+    "triasName": "Bilfingen",
+    "coordPositionWGS84": {
+      "lat": "48.9489398993136",
+      "long": "8.62017058434104"
+    }
+  },
+  {
+    "name": "Königsbach (Baden)",
+    "triasID": "de:08236:1793",
+    "triasName": "Königsbach Bf",
+    "coordPositionWGS84": {
+      "lat": "48.9625777207075",
+      "long": "8.60871706446852"
+    }
+  },
+  {
+    "name": "Wilferdingen Singen",
+    "triasID": "de:08236:1612",
+    "triasName": "Wilferingen Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "48.9534056345862",
+      "long": "8.57143698017756"
+    }
+  },
+  {
+    "name": "Ölbronn Dürrn",
+    "triasID": "de:08236:2290",
+    "triasName": "Ölbronn - Dürrn",
+    "coordPositionWGS84": {
+      "lat": "48.9859161669878",
+      "long": "8.75349853881006"
+    }
+  },
+  {
+    "name": "Knittlingen-Kleinvillars",
+    "triasID": "de:08236:2390",
+    "triasName": "Knittlingen - Kleinvillars",
+    "coordPositionWGS84": {
+      "lat": "48.9937737754823",
+      "long": "8.74403029571544"
+    }
+  },
+  {
+    "name": "Durmersheim Nord",
+    "triasID": "de:08216:35109",
+    "triasName": "Durmersheim Nord",
+    "coordPositionWGS84": {
+      "lat": "48.9377590602338",
+      "long": "8.28053554172113"
+    }
+  },
+  {
+    "name": "Durmersheim",
+    "triasID": "de:08216:1819",
+    "triasName": "Durmersheim",
+    "coordPositionWGS84": {
+      "lat": "48.9289011137592",
+      "long": "8.27262138406804"
+    }
+  },
+  {
+    "name": "Bietigheim (Baden)",
+    "triasID": "de:08216:1820",
+    "triasName": "Bietigheim (Baden)",
+    "coordPositionWGS84": {
+      "lat": "48.9104425025422",
+      "long": "8.25792494601984"
+    }
+  },
+  {
+    "name": "Ötigheim",
+    "triasID": "de:08216:1821",
+    "triasName": "Ötigheim",
+    "coordPositionWGS84": {
+      "lat": "48.8885277004109",
+      "long": "8.24048864635508"
+    }
+  },
+  {
+    "name": "Muggensturm Badesee",
+    "triasID": "de:08216:1850",
+    "triasName": "Muggensturm Badesee",
+    "coordPositionWGS84": {
+      "lat": "48.8799800363656",
+      "long": "8.28666205195883"
+    }
+  },
+  {
+    "name": "Muggensturm",
+    "triasID": "de:08216:1843",
+    "triasName": "Muggensturm",
+    "coordPositionWGS84": {
+      "lat": "48.876789794309",
+      "long": "8.27438208202491"
+    }
+  },
+  {
+    "name": "Rastatt",
+    "triasID": "de:08216:1844",
+    "triasName": "Rastatt",
+    "coordPositionWGS84": {
+      "lat": "48.8606227740264",
+      "long": "8.21516513849575"
+    }
+  },
+  {
+    "name": "Rastatt Beinle",
+    "triasID": "de:08216:31994",
+    "triasName": "Rastatt Beinle",
+    "coordPositionWGS84": {
+      "lat": "48.8520053204702",
+      "long": "8.22517237076084"
+    }
+  },
+  {
+    "name": "Kuppenheim",
+    "triasID": "de:08216:34763",
+    "triasName": "Kuppenheim",
+    "coordPositionWGS84": {
+      "lat": "48.8341155279987",
+      "long": "8.25613729860445"
+    }
+  },
+  {
+    "name": "Bischweier (Baden)",
+    "triasID": "de:08216:34764",
+    "triasName": "Bischweier (Baden)",
+    "coordPositionWGS84": {
+      "lat": "48.8321759993923",
+      "long": "8.27751720236649"
+    }
+  },
+  {
+    "name": "Bad Rotenfels Schloss",
+    "triasID": "de:08216:32825",
+    "triasName": "Bad Rotenfels Schloss",
+    "coordPositionWGS84": {
+      "lat": "48.8203243218254",
+      "long": "8.29675911575233"
+    }
+  },
+  {
+    "name": "Bad Rotenfels Bf/Rotherma",
+    "triasID": "de:08216:34762",
+    "triasName": "Bad Rotenfels Bahnhof/Rotherma",
+    "coordPositionWGS84": {
+      "lat": "48.8158289405712",
+      "long": "8.30313715426958"
+    }
+  },
+  {
+    "name": "Bad Rotenfels Weinbrennerstr.",
+    "triasID": "de:08216:32826",
+    "triasName": "Bad Rotenfels Weinbrennerstr.",
+    "coordPositionWGS84": {
+      "lat": "48.8114987974809",
+      "long": "8.31215623972214"
+    }
+  },
+  {
+    "name": "Gaggenau",
+    "triasID": "de:08216:32160",
+    "triasName": "Gaggenau",
+    "coordPositionWGS84": {
+      "lat": "48.8053578714098",
+      "long": "8.32007938052807"
+    }
+  },
+  {
+    "name": "Gaggenau Mercedes-Benz Werk",
+    "triasID": "de:08216:32158",
+    "triasName": "Gaggenau Mercedes-Benz Werk",
+    "coordPositionWGS84": {
+      "lat": "48.7980564085537",
+      "long": "8.32742759955217"
+    }
+  },
+  {
+    "name": "Ottenau",
+    "triasID": "de:08216:32827",
+    "triasName": "Ottenau",
+    "coordPositionWGS84": {
+      "lat": "48.7929731582151",
+      "long": "8.33810856828035"
+    }
+  },
+  {
+    "name": "Hörden",
+    "triasID": "de:08216:32828",
+    "triasName": "Hörden",
+    "coordPositionWGS84": {
+      "lat": "48.7815857554055",
+      "long": "8.34516034326069"
+    }
+  },
+  {
+    "name": "Gernsbach",
+    "triasID": "de:08216:32142",
+    "triasName": "Gernsbach",
+    "coordPositionWGS84": {
+      "lat": "48.7682892915565",
+      "long": "8.33669821328428"
+    }
+  },
+  {
+    "name": "Gernsbach Mitte",
+    "triasID": "de:08216:32829",
+    "triasName": "Gernsbach Mitte",
+    "coordPositionWGS84": {
+      "lat": "48.7628595803836",
+      "long": "8.33909671509288"
+    }
+  },
+  {
+    "name": "Obertsrot",
+    "triasID": "de:08216:32153",
+    "triasName": "Obertsrot",
+    "coordPositionWGS84": {
+      "lat": "48.7459805035106",
+      "long": "8.34746003038804"
+    }
+  },
+  {
+    "name": "Hilpertsau",
+    "triasID": "de:08216:34766",
+    "triasName": "Hilpertsau",
+    "coordPositionWGS84": {
+      "lat": "48.7399796620295",
+      "long": "8.34864580656307"
+    }
+  },
+  {
+    "name": "Weisenbach",
+    "triasID": "de:08216:34768",
+    "triasName": "Weisenbach",
+    "coordPositionWGS84": {
+      "lat": "48.7274721510481",
+      "long": "8.35532927227692"
+    }
+  },
+  {
+    "name": "Au im Murgtal",
+    "triasID": "de:08216:32830",
+    "triasName": "Au im Murgtal",
+    "coordPositionWGS84": {
+      "lat": "48.7187962375258",
+      "long": "8.36230019888169"
+    }
+  },
+  {
+    "name": "Langenbrand",
+    "triasID": "de:08216:34670",
+    "triasName": "Langenbrand",
+    "coordPositionWGS84": {
+      "lat": "48.7023647932966",
+      "long": "8.355607750015"
+    }
+  },
+  {
+    "name": "Gausbach",
+    "triasID": "de:08216:32998",
+    "triasName": "Gausbach",
+    "coordPositionWGS84": {
+      "lat": "48.6866337139053",
+      "long": "8.36244392932715"
+    }
+  },
+  {
+    "name": "Forbach (Schwarzwald)",
+    "triasID": "de:08216:32191",
+    "triasName": "Forbach (Schwarzwald)",
+    "coordPositionWGS84": {
+      "lat": "48.680910485098",
+      "long": "8.36133900152768"
+    }
+  },
+  {
+    "name": "Raumünzach",
+    "triasID": "de:08216:32184",
+    "triasName": "Raumünzach",
+    "coordPositionWGS84": {
+      "lat": "48.6449252506142",
+      "long": "8.35139465133248"
+    }
+  },
+  {
+    "name": "Kirschbaumwasen",
+    "triasID": "de:08216:32187",
+    "triasName": "Kirschbaumwasen",
+    "coordPositionWGS84": {
+      "lat": "48.6230308177511",
+      "long": "8.3557604636133"
+    }
+  },
+  {
+    "name": "Baden-Baden Haueneberstein",
+    "triasID": "de:08211:35110",
+    "triasName": "Baden-Baden Haueneberstein",
+    "coordPositionWGS84": {
+      "lat": "48.811859657023",
+      "long": "8.20903862825806"
+    }
+  },
+  {
+    "name": "Baden-Baden",
+    "triasID": "de:08211:1847",
+    "triasName": "Baden-Baden",
+    "coordPositionWGS84": {
+      "lat": "48.7901975689936",
+      "long": "8.1910363899643"
+    }
+  },
+  {
+    "name": "Baden-Baden Rebland",
+    "triasID": "de:08211:35113",
+    "triasName": "Baden-Baden Rebland",
+    "coordPositionWGS84": {
+      "lat": "48.7339129301936",
+      "long": "8.14662368231743"
+    }
+  },
+  {
+    "name": "Landau (Pfalz) Hbf",
+    "triasID": "de:07313:8304",
+    "triasName": "Landau, Hauptbahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1977424493221",
+      "long": "8.1262049759094"
+    }
+  },
+  {
+    "name": "Wörth (Rhein)",
+    "triasID": "de:07334:1731",
+    "triasName": "Wörth (Rhein)",
+    "coordPositionWGS84": {
+      "lat": "49.0457454067204",
+      "long": "8.27306155855726"
+    }
+  },
+  {
+    "name": "Wörth (Rhein) Zügelstraße",
+    "triasID": "de:07334:1741",
+    "triasName": "Wörth (Rhein) Zügelstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0529754232749",
+      "long": "8.26200329740974"
+    }
+  },
+  {
+    "name": "Maximiliansau West",
+    "triasID": "de:07334:1723",
+    "triasName": "Maximiliansau West",
+    "coordPositionWGS84": {
+      "lat": "49.0389088948615",
+      "long": "8.29189923006524"
+    }
+  },
+  {
+    "name": "Maximiliansau Eisenbahnstraße",
+    "triasID": "de:07334:1721",
+    "triasName": "Maximiliansau Eisenbahnstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0371952032463",
+      "long": "8.29849286425068"
+    }
+  },
+  {
+    "name": "Maximiliansau Im Rüsten",
+    "triasID": "de:07334:1724",
+    "triasName": "Maximiliansau Im Rüsten",
+    "coordPositionWGS84": {
+      "lat": "49.0350633120247",
+      "long": "8.27971807481258"
+    }
+  },
+  {
+    "name": "Hagenbach",
+    "triasID": "de:07334:1725",
+    "triasName": "Hagenbach Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.016484901949",
+      "long": "8.25324472338958"
+    }
+  },
+  {
+    "name": "Neuburg (Rhein)",
+    "triasID": "de:07334:32465",
+    "triasName": "Neuburg (Rhein)",
+    "coordPositionWGS84": {
+      "lat": "48.992158734331",
+      "long": "8.23827879075615"
+    }
+  },
+  {
+    "name": "Berg (Pfalz)",
+    "triasID": "de:07334:35129",
+    "triasName": "Berg (Pfalz)",
+    "coordPositionWGS84": {
+      "lat": "48.9807871270244",
+      "long": "8.21303613127239"
+    }
+  },
+  {
+    "name": "Wörth Alte Bahnmeisterei",
+    "triasID": "de:07334:1714",
+    "triasName": "Wörth (Rhein) Alte Bahnmeisterei",
+    "coordPositionWGS84": {
+      "lat": "49.0486716882762",
+      "long": "8.26632419392636"
+    }
+  },
+  {
+    "name": "Wörth Bienwaldhalle",
+    "triasID": "de:07334:1734",
+    "triasName": "Wörth (Rhein) Bienwaldhalle",
+    "coordPositionWGS84": {
+      "lat": "49.0498021171282",
+      "long": "8.26079955492903"
+    }
+  },
+  {
+    "name": "Wörth Bürgerpark",
+    "triasID": "de:07334:1735",
+    "triasName": "Wörth (Rhein) Bürgerpark",
+    "coordPositionWGS84": {
+      "lat": "49.0508559833767",
+      "long": "8.25457423001008"
+    }
+  },
+  {
+    "name": "Wörth Rathaus",
+    "triasID": "de:07334:1736",
+    "triasName": "Wörth (Rhein) Rathaus",
+    "coordPositionWGS84": {
+      "lat": "49.052351375357",
+      "long": "8.24977722639288"
+    }
+  },
+  {
+    "name": "Wörth Badallee",
+    "triasID": "de:07334:1739",
+    "triasName": "Wörth (Rhein) Badallee",
+    "coordPositionWGS84": {
+      "lat": "49.0559483741931",
+      "long": "8.24988502422697"
+    }
+  },
+  {
+    "name": "Wörth Badepark",
+    "triasID": "de:07334:1738",
+    "triasName": "Wörth (Rhein) Badepark",
+    "coordPositionWGS84": {
+      "lat": "49.058567955856",
+      "long": "8.24403699172736"
+    }
+  },
+  {
+    "name": "Wörth Mozartstr.",
+    "triasID": "de:07334:1740",
+    "triasName": "Wörth Mozartstraße",
+    "coordPositionWGS84": {
+      "lat": "49.0550300162543",
+      "long": "8.25205894721454"
+    }
+  },
+  {
+    "name": "Jockgrim Bf",
+    "triasID": "de:07334:35004",
+    "triasName": "Jockgrim Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0917746313217",
+      "long": "8.27226205795439"
+    }
+  },
+  {
+    "name": "Rheinzabern Alte Römerstr.",
+    "triasID": "de:07334:1743",
+    "triasName": "Rheinzabern Alte Römerstraße",
+    "coordPositionWGS84": {
+      "lat": "49.1094252097494",
+      "long": "8.27301664279305"
+    }
+  },
+  {
+    "name": "Rheinzabern Rappengasse",
+    "triasID": "de:07334:1744",
+    "triasName": "Rheinzabern Rappengasse",
+    "coordPositionWGS84": {
+      "lat": "49.1144351596236",
+      "long": "8.27323223846124"
+    }
+  },
+  {
+    "name": "Rheinzabern Bf",
+    "triasID": "de:07334:35003",
+    "triasName": "Rheinzabern Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1197856036607",
+      "long": "8.27422038527377"
+    }
+  },
+  {
+    "name": "Rülzheim Freizeitzentrum",
+    "triasID": "de:07334:32451",
+    "triasName": "Rülzheim Freizeitzentrum",
+    "coordPositionWGS84": {
+      "lat": "49.1607767111652",
+      "long": "8.2902553130953"
+    }
+  },
+  {
+    "name": "Rülzheim Bf",
+    "triasID": "de:07334:32451",
+    "triasName": "Rülzheim Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1607767111652",
+      "long": "8.2902553130953"
+    }
+  },
+  {
+    "name": "Bellheim Bf",
+    "triasID": "de:07334:32660",
+    "triasName": "Bellheim Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1885080064887",
+      "long": "8.2945492601534"
+    }
+  },
+  {
+    "name": "Bellheim Am Mühlbuckel",
+    "triasID": "de:07334:1746",
+    "triasName": "Bellheim Am Mühlbuckel",
+    "coordPositionWGS84": {
+      "lat": "49.1926998235584",
+      "long": "8.29752268374383"
+    }
+  },
+  {
+    "name": "Sondernheim",
+    "triasID": "de:07334:35002",
+    "triasName": "Sondernheim",
+    "coordPositionWGS84": {
+      "lat": "49.1952417468992",
+      "long": "8.36030593895094"
+    }
+  },
+  {
+    "name": "Kandel",
+    "triasID": "de:07334:32490",
+    "triasName": "Kandel Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0790842167245",
+      "long": "8.19788155242929"
+    }
+  },
+  {
+    "name": "Winden (Pfalz)",
+    "triasID": "de:07334:35000",
+    "triasName": "Winden (Pfalz)",
+    "coordPositionWGS84": {
+      "lat": "49.0958452315888",
+      "long": "8.12257578216155"
+    }
+  },
+  {
+    "name": "Steinweiler (Pfalz)",
+    "triasID": "de:07334:33058",
+    "triasName": "Steinweiler Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1208967773478",
+      "long": "8.13062468710727"
+    }
+  },
+  {
+    "name": "Germersheim Süd/Nolte",
+    "triasID": "de:07334:1747",
+    "triasName": "Germersheim Süd / Nolte",
+    "coordPositionWGS84": {
+      "lat": "49.2083132706935",
+      "long": "8.3736638872258"
+    }
+  },
+  {
+    "name": "Germersheim Mitte/Rhein",
+    "triasID": "de:07334:1748",
+    "triasName": "Germersheim Mitte / Rhein",
+    "coordPositionWGS84": {
+      "lat": "49.2201139996393",
+      "long": "8.37931429036291"
+    }
+  },
+  {
+    "name": "Germersheim",
+    "triasID": "de:07334:32637",
+    "triasName": "Germersheim",
+    "coordPositionWGS84": {
+      "lat": "49.2255879709018",
+      "long": "8.36507599310962"
+    }
+  },
+  {
+    "name": "Lingenfeld",
+    "triasID": "de:07334:35001",
+    "triasName": "Lingenfeld Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2525676038948",
+      "long": "8.34951717238867"
+    }
+  },
+  {
+    "name": "Rohrbach/ (Pfalz)",
+    "triasID": "de:07337:8306",
+    "triasName": "Rohrbach/Pf, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1380198135323",
+      "long": "8.14152125150363"
+    }
+  },
+  {
+    "name": "Insheim",
+    "triasID": "de:07337:8305",
+    "triasName": "Insheim, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1571638043064",
+      "long": "8.15213035500909"
+    }
+  },
+  {
+    "name": "Knöringen-Essingen",
+    "triasID": "de:07337:8303",
+    "triasName": "Knöringen-Essingen, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2374901518278",
+      "long": "8.14823166667601"
+    }
+  },
+  {
+    "name": "Edesheim (Pfalz)",
+    "triasID": "de:07337:8302",
+    "triasName": "Edesheim, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2637363755815",
+      "long": "8.13907783393083"
+    }
+  },
+  {
+    "name": "Edenkoben",
+    "triasID": "de:07337:8301",
+    "triasName": "Edenkoben, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2820523780149",
+      "long": "8.14062293621952"
+    }
+  },
+  {
+    "name": "Maikammer-Kirrweiler",
+    "triasID": "de:07337:8300",
+    "triasName": "Maikammer-Kirrweiler, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.3055806539243",
+      "long": "8.14718063779359"
+    }
+  },
+  {
+    "name": "Rinnthal",
+    "triasID": "de:07337:8055",
+    "triasName": "Rinnthal, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2170745983989",
+      "long": "7.92791984324569"
+    }
+  },
+  {
+    "name": "Annweiler am Trifels",
+    "triasID": "de:07337:8054",
+    "triasName": "Annweiler, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2053846575401",
+      "long": "7.96615214173782"
+    }
+  },
+  {
+    "name": "Annweiler-Sarnstall",
+    "triasID": "de:07337:7901",
+    "triasName": "Annweiler-Sarnstall, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2087240843165",
+      "long": "7.93719045697781"
+    }
+  },
+  {
+    "name": "Albersweiler",
+    "triasID": "de:07337:8053",
+    "triasName": "Albersweiler, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2184711032604",
+      "long": "8.02446178683002"
+    }
+  },
+  {
+    "name": "Siebeldingen-Birkweiler",
+    "triasID": "de:07337:8052",
+    "triasName": "Siebeldingen-Birkw., Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2092698742784",
+      "long": "8.04256283980503"
+    }
+  },
+  {
+    "name": "Landau (Pfalz), Süd",
+    "triasID": "de:07313:15081",
+    "triasName": "Landau, Süd",
+    "coordPositionWGS84": {
+      "lat": "49.1891655699082",
+      "long": "8.11417653425504"
+    }
+  },
+  {
+    "name": "Godramstein",
+    "triasID": "de:07313:8051",
+    "triasName": "Godramstein, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.2068519202817",
+      "long": "8.07602508413848"
+    }
+  },
+  {
+    "name": "Landau (Pfalz) West",
+    "triasID": "de:07313:8050",
+    "triasName": "Landau, Westbahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1957465937239",
+      "long": "8.10705289405197"
+    }
+  },
+  {
+    "name": "Schaidt (Pfalz)",
+    "triasID": "de:07334:35005",
+    "triasName": "Schaidt Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0612815791348",
+      "long": "8.07987885670735"
+    }
+  },
+  {
+    "name": "Steinfeld (Pfalz)",
+    "triasID": "de:07337:4617",
+    "triasName": "Steinfeld/Pf, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0446737675783",
+      "long": "8.0393738205464"
+    }
+  },
+  {
+    "name": "Kapsweyer",
+    "triasID": "de:07337:4685",
+    "triasName": "Kapsweyer, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0388794504869",
+      "long": "8.02218006600836"
+    }
+  },
+  {
+    "name": "Schweighofen (Pfalz)",
+    "triasID": "de:07337:4626",
+    "triasName": "Schweighofen/Pf, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.0326898560321",
+      "long": "7.99921912734626"
+    }
+  },
+  {
+    "name": "Bad Bergzabern",
+    "triasID": "de:07337:4561",
+    "triasName": "Bad Bergzabern, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.1032091109988",
+      "long": "8.00278543902422"
+    }
+  },
+  {
+    "name": "Kapellen-Drusweiler",
+    "triasID": "de:07337:5654",
+    "triasName": "Kapellen-Drusweiler",
+    "coordPositionWGS84": {
+      "lat": "49.1056203675767",
+      "long": "8.03074999381886"
+    }
+  },
+  {
+    "name": "Barbelroth",
+    "triasID": "de:07337:2715",
+    "triasName": "Barbelroth, Bahnhof",
+    "coordPositionWGS84": {
+      "lat": "49.104120697382",
+      "long": "8.07030281577864"
+    }
+  },
+  {
+    "name": "Lauterbourg",
+    "triasID": "fr:24067:551",
+    "triasName": "Lauterbourg (fr)",
+    "coordPositionWGS84": {
+      "lat": "48.9752566051964",
+      "long": "8.19549203377353"
+    }
+  },
+  {
+    "name": "Wissembourg",
+    "triasID": "fr:24067:40382",
+    "triasName": "Wissembourg (fr)",
+    "coordPositionWGS84": {
+      "lat": "49.0270826318641",
+      "long": "7.97876448832686"
+    }
+  },
+  {
+    "name": "Eppingen",
+    "triasID": "de:08125:5404",
+    "triasName": "Eppingen",
+    "coordPositionWGS84": {
+      "lat": "49.136144973638",
+      "long": "8.91454850294701"
+    }
+  },
+  {
+    "name": "Eppingen West",
+    "triasID": "de:08125:1110",
+    "triasName": "Eppingen West",
+    "coordPositionWGS84": {
+      "lat": "49.1327301143876",
+      "long": "8.90508924300523"
+    }
+  },
+  {
+    "name": "Vaihingen (Enz)",
+    "triasID": "de:08111:6002",
+    "triasName": "Stuttgart Vaihingen",
+    "coordPositionWGS84": {
+      "lat": "48.7269803189207",
+      "long": "9.11391161395165"
+    }
+  },
+  {
+    "name": "Brötzingen Sandweg",
+    "triasID": "de:08231:3994",
+    "triasName": "Pforzheim Sandweg",
+    "coordPositionWGS84": {
+      "lat": "48.8857928431475",
+      "long": "8.6624003858475"
+    }
+  },
+  {
+    "name": "Brötzingen Wohnlichstr.",
+    "triasID": "de:08231:3995",
+    "triasName": "Pforzheim Wohnlichstraße",
+    "coordPositionWGS84": {
+      "lat": "48.8821185661959",
+      "long": "8.65423469991485"
+    }
+  },
+  {
+    "name": "Birkenfeld (Württ)",
+    "triasID": "de:08236:1090",
+    "triasName": "Birkenfeld",
+    "coordPositionWGS84": {
+      "lat": "48.8733216522296",
+      "long": "8.64540426067196"
+    }
+  },
+  {
+    "name": "Neuenbürg (Württ)",
+    "triasID": "de:08236:1490",
+    "triasName": "Neuenbürg",
+    "coordPositionWGS84": {
+      "lat": "48.8491088610468",
+      "long": "8.60038069863189"
+    }
+  },
+  {
+    "name": "Neuenbürg (Württ) Süd",
+    "triasID": "de:08236:1491",
+    "triasName": "Neuenbürg Süd",
+    "coordPositionWGS84": {
+      "lat": "48.8439716668444",
+      "long": "8.59943746758356"
+    }
+  },
+  {
+    "name": "Neuenbürg (Württ) Freibad",
+    "triasID": "de:08236:1492",
+    "triasName": "Neuenbürg Freibad",
+    "coordPositionWGS84": {
+      "lat": "48.8369300762092",
+      "long": "8.59032855060259"
+    }
+  },
+  {
+    "name": "Rotenbach",
+    "triasID": "de:08236:1494",
+    "triasName": "Rotenbach",
+    "coordPositionWGS84": {
+      "lat": "48.830419715116",
+      "long": "8.57906367693973"
+    }
+  },
+  {
+    "name": "Neuenbürg (Württ) Eyachbrücke",
+    "triasID": "de:08236:1493",
+    "triasName": "Neuenbürg Eyachbrücke",
+    "coordPositionWGS84": {
+      "lat": "48.8169705690005",
+      "long": "8.57771620401355"
+    }
+  },
+  {
+    "name": "Bad Herrenalb Steinhäusle",
+    "triasID": "de:08235:9703",
+    "triasName": "Bad Herrenalb Steinhäusle",
+    "coordPositionWGS84": {
+      "lat": "48.8201173065441",
+      "long": "8.44506198600762"
+    }
+  },
+  {
+    "name": "Bad Herrenalb Kullenmühle",
+    "triasID": "de:08235:9711",
+    "triasName": "Bad Herrenalb Kullenmühle",
+    "coordPositionWGS84": {
+      "lat": "48.8089431277069",
+      "long": "8.44401994027804"
+    }
+  },
+  {
+    "name": "Bad Herrenalb",
+    "triasID": "de:08235:9558",
+    "triasName": "Bad Herrenalb",
+    "coordPositionWGS84": {
+      "lat": "48.8024468807294",
+      "long": "8.43907022306254"
+    }
+  },
+  {
+    "name": "Sinzheim (b. Bühl)",
+    "triasID": "de:08216:35112",
+    "triasName": "Sinzheim (b. Bühl)",
+    "coordPositionWGS84": {
+      "lat": "48.7600290292533",
+      "long": "8.15860720820759"
+    }
+  },
+  {
+    "name": "Sinzheim (b. Bühl) Nord",
+    "triasID": "de:08216:35111",
+    "triasName": "Sinzheim (b. Bühl) Nord",
+    "coordPositionWGS84": {
+      "lat": "48.7706102103464",
+      "long": "8.16962055359089"
+    }
+  },
+  {
+    "name": "Bühl (Baden)",
+    "triasID": "de:08216:32227",
+    "triasName": "Bühl (Baden)",
+    "coordPositionWGS84": {
+      "lat": "48.6969279576062",
+      "long": "8.12991501803281"
+    }
+  },
+  {
+    "name": "Airpark Terminal (FKB)",
+    "triasID": "de:08216:31041",
+    "triasName": "Airpark Terminal (FKB)",
+    "coordPositionWGS84": {
+      "lat": "48.7780754995777",
+      "long": "8.08809844155705"
+    }
+  }
+]

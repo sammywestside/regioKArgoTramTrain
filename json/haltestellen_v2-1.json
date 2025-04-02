@@ -108,7 +108,7 @@
     }
   },
   {
-    "name": "Durlach Bahnhof",
+    "name": "Durlach Bf",
     "triasID": "de:08212:802",
     "triasName": "Durlach Bahnhof",
     "coordPositionWGS84": {
@@ -360,7 +360,7 @@
     }
   },
   {
-    "name": "Ettlinger Tor/",
+    "name": "Ettlinger Tor/Staatstheater (U)",
     "triasID": "de:08212:1012",
     "triasName": "KA Ettlinger Tor/Staatstheater (U)",
     "coordPositionWGS84": {
@@ -369,7 +369,7 @@
     }
   },
   {
-    "name": "Europaallee/Europabad",
+    "name": "Europahalle/Europabad",
     "triasID": "de:08212:605",
     "triasName": "KA Europahalle/Europabad",
     "coordPositionWGS84": {
@@ -384,6 +384,15 @@
     "coordPositionWGS84": {
       "lat": "49.0098270304856",
       "long": "8.39487311108386"
+    }
+  },
+  {
+    "name": "Europaplatz/Postgalerie (Karlstr.)",
+    "triasID": "de:08212:37:4",
+    "triasName": "KA Europaplatz/Postgalerie",
+    "coordPositionWGS84": {
+      "lat": "49.0094086743179",
+      "long": "8.39489107738954"
     }
   },
   {
@@ -630,7 +639,7 @@
     }
   },
   {
-    "name": "Hbf",
+    "name": "Karlsruhe Hbf",
     "triasID": "de:08212:90",
     "triasName": "Karlsruhe Hauptbahnhof",
     "coordPositionWGS84": {
@@ -1233,7 +1242,7 @@
     }
   },
   {
-    "name": "Oberreuut Zentrum",
+    "name": "Oberreut Zentrum",
     "triasID": "de:08212:609",
     "triasName": "Oberreut Zentrum",
     "coordPositionWGS84": {
@@ -1278,7 +1287,7 @@
     }
   },
   {
-    "name": "Rüppur Ostendorfplatz",
+    "name": "Rüppurr Ostendorfplatz",
     "triasID": "de:08212:1208",
     "triasName": "Rüppurr Ostendorfplatz",
     "coordPositionWGS84": {
@@ -1341,7 +1350,7 @@
     }
   },
   {
-    "name": "osteroder Str.",
+    "name": "Osteroder Str.",
     "triasID": "de:08212:411",
     "triasName": "Waldstadt Osteroder Straße",
     "coordPositionWGS84": {
@@ -1772,7 +1781,7 @@
     }
   },
   {
-    "name": "Philippsburg Bahnhof",
+    "name": "Philippsburg (Baden)",
     "triasID": "de:08215:32589",
     "triasName": "Philippsburg Bahnhof",
     "coordPositionWGS84": {
@@ -1870,7 +1879,7 @@
     }
   },
   {
-    "name": "zeutern Sportplatz",
+    "name": "Zeutern Sportplatz",
     "triasID": "de:08215:32554",
     "triasName": "Zeutern Sportplatz",
     "coordPositionWGS84": {
@@ -2446,7 +2455,7 @@
     }
   },
   {
-    "name": "Mörsch Rösselbrünnle",
+    "name": "Mörsch Rösselsbrünnle",
     "triasID": "de:08215:215",
     "triasName": "Mörsch Rösselsbrünnle",
     "coordPositionWGS84": {
@@ -2860,7 +2869,7 @@
     }
   },
   {
-    "name": "Wilferdingen Singen",
+    "name": "Wilferdingen-Singen",
     "triasID": "de:08236:1612",
     "triasName": "Wilferingen Bahnhof",
     "coordPositionWGS84": {
@@ -3184,7 +3193,7 @@
     }
   },
   {
-    "name": "Wörth (Rhein) Zügelstraße",
+    "name": "Wörth (Rhein) Zügelstr.",
     "triasID": "de:07334:1741",
     "triasName": "Wörth (Rhein) Zügelstraße",
     "coordPositionWGS84": {
@@ -3202,7 +3211,7 @@
     }
   },
   {
-    "name": "Maximiliansau Eisenbahnstraße",
+    "name": "Maximiliansau Eisenbahnstr.",
     "triasID": "de:07334:1721",
     "triasName": "Maximiliansau Eisenbahnstraße",
     "coordPositionWGS84": {

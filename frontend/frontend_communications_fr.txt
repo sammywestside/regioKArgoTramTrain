@@ -17,3 +17,7 @@ commit message =styleguide:
     revert    Setzt einen vorherigen Commit zurück
  + Example:
     style: created folder structure
+
+For Lukas:
+Da die Ordnerstruktur jettz anders ist, müssten die links zu den Doukemnten auch angepasst werden. In der html file hab ich 
+das auch schon gemacht, nur in der javaScript file noch nicht.

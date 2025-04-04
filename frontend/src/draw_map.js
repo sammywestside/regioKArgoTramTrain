@@ -19,7 +19,7 @@ let last_point = [0,0];
 let last_line_color = ""; 
 
 //read json for lines
-fetch("json/lines_v2.json")
+fetch("../json/lines_v2.json") //changes to correct file path
   .then(response => response.json())
   .then(data => {
     data.lines.forEach(line => {

@@ -1,0 +1,4 @@
+Hallo liebe Frontend-Developer, 
+Ich(Code-Architect) Habe euch mal eine super Ordnerstrukture angelegt. 
+Damit könnt ihr super arbeiten.
+Viel Spaß :))

@@ -2,3 +2,18 @@ Hallo liebe Frontend-Developer,
 Ich(Code-Architect) Habe euch mal eine super Ordnerstrukture angelegt. 
 Damit könnt ihr super arbeiten.
 Viel Spaß :))
+
+commit message =styleguide:
+    Typ    Bedeutung
+    feat    Fügt ein neues Feature hinzu
+    fix    Behebt einen Bug
+    docs    Änderungen an der Dokumentation
+    style    Code-Formatierung (keine Logik-Änderungen)
+    refactor    Code-Verbesserung ohne Änderung des Verhaltens
+    perf    Performance-Optimierung
+    test    Fügt Tests hinzu oder aktualisiert sie
+    chore    Wartungsarbeiten, z. B. Dependency-Updates
+    ci    Änderungen an CI/CD-Pipelines oder Build-Prozessen
+    revert    Setzt einen vorherigen Commit zurück
+ + Example:
+    style: created folder structure

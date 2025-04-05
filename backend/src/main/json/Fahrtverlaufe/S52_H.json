@@ -1,0 +1,35 @@
+val stopPointArray_S52H: Array[StopPoint] = Array(
+    StopPoint(Seq("Karlsruhe, Tullastraße (Durlacher Allee)"), 2, 98, Array(49.00613778622591, 8.432398899939564), "de:08212:7", "2018-08-05T07:34:00Z"),
+    //same as S5 @ detour
+    StopPoint(Seq("Karlsruhe, Schl. Gottesaue/HfM"), 19, 52, Array(49.003632951686654, 8.427453339058705), "de:08212:624", "2018-08-05T07:33:00Z"),
+    StopPoint(Seq("Karlsruhe, Wolfartsweierer Str"), 12, 65, Array(49.003560169911275, 8.423159760873038), "de:08212:623", "2018-08-05T07:32:00Z"),
+    StopPoint(Seq("Karlsruhe, Ostendstraße"), 31, 163, Array(49.00503709872523, 8.416318126638853), "de:08212:622", "2018-08-05T07:31:00Z"),
+    StopPoint(Seq("Karlsruhe, Philipp-Reis-Str./die neue welle"), 34, 44, Array(49.00453033162934, 8.41155728676972),"de:08212:621", "2018-08-05T07:30:00Z"),
+    StopPoint(Seq("Karlsruhe, Rüppurrer Tor"), 24, 90, Array(49.00502820124297, 8.410404080435134), "de:08212:85", "2018-08-05T07:29:00Z"),
+    //same as S4
+    StopPoint(Seq("Karlsruhe Werderstraße"),10,110, Array(49.00047, 8.41062), "de:08212:83", "2021-03-17T13:39:00Z"),
+    StopPoint(Seq("Karlsruhe Tivoli"),10,60, Array(48.99682, 8.41055), "de:08212:84", "2021-03-17T13:38:00Z"),
+    StopPoint(Seq("Karlsruhe Poststraße"),10,120, Array(48.99516, 8.40359), "de:08212:98", "2021-03-17T13:36:00Z"),
+    StopPoint(Seq("Karlsruhe, Hauptbahnhof (Vorplatz)"),60,30, Array(48.99437, 8.39967), "de:08212:89", "2021-03-17T13:35:00Z"),
+    StopPoint(Seq("Karlsruhe Albtalbahnhof"),10,230, Array(48.99366, 8.39609), "de:08212:1201", "2021-03-17T13:33:00Z"),
+    //only S52
+    StopPoint(Seq("KA West"),10,110, Array(49.00231, 8.36277), "de:08212:6005","2021-03-17T15:52:00Z"),
+    StopPoint(Seq("KA-Mühlburg"),20,100, Array(49.01457, 8.35112), "de:08212:32587","2021-03-17T15:54:00Z"),
+    StopPoint(Seq("KA-Knielingen"),10,170, Array(49.02666, 8.3412), "de:08212:32586","2021-03-17T15:56:00Z"),
+    StopPoint(Seq("Maximiliansau Eisenbahnstraße"),10,110, Array(49.0372, 8.29849), "de:07334:1721", "2021-03-17T15:59:00Z"),
+    StopPoint(Seq("Maximiliansau West"),20,100, Array(49.03891, 8.2919), "de:07334:1723", "2021-03-17T16:01:00Z"),
+    //same as S51
+    StopPoint(Seq("Wörth (Rhein) Zügelstraße"),0,180, Array(49.05298, 8.262), "de:07334:1741", "2021-03-17T16:05:00Z"),
+    StopPoint(Seq("Jockgrim Bahnhof"),10,110, Array(49.09177, 8.27226), "de:07334:35004", "2021-03-17T15:24:00Z"),
+    StopPoint(Seq("Rheinzabern Alte Römerstraße"),10,50, Array(49.10943, 8.27302), "de:07334:1743", "2021-03-17T15:26:00Z"),
+    StopPoint(Seq("Rheinzabern Rappengasse"),10,50, Array(49.11444, 8.27323), "de:07334:1744", ""),
+    StopPoint(Seq("Rheinzabern Bahnhof"),10,110, Array(49.11979, 8.27422), "de:07334:35003", "2021-03-17T15:28:00Z"),
+    StopPoint(Seq("Rülzheim Freizeitzentrum"),10,110, Array(49.15158, 8.27937), "de:07334:1745", ""),
+    StopPoint(Seq("Rülzheim Bahnhof"),10,230, Array(49.16078, 8.29026), "de:07334:32451", "2021-03-17T15:32:00Z"),
+    StopPoint(Seq("Bellheim Bahnhof"),10,110, Array(49.18851, 8.29455), "de:07334:32660", "2021-03-17T15:36:00Z"),
+    StopPoint(Seq("Bellheim Am Mühlbuckel"),10,110, Array(49.1927, 8.29752), "de:07334:1746", ""),
+    StopPoint(Seq("Sondernheim"),10,110, Array(49.19524, 8.36031), "de:07334:35002", "2021-03-17T15:40:00Z"),
+    StopPoint(Seq("Germersheim Süd/Nolte"),10,110, Array(49.20831, 8.37366), "de:07334:1747", ""),
+    StopPoint(Seq("Germersheim Mitte/Rhein"),10,110, Array(49.22011, 8.37931), "de:07334:1748", "2021-03-17T15:44:00Z"),
+    StopPoint(Seq("Germersheim"),null,null, Array(49.22559, 8.36508), "de:07334:32637", "2021-03-17T15:46:00Z")
+  )

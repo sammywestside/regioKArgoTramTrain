@@ -1,6 +1,0 @@
-val stopPointArray_S81R: Array[StopPoint] = Array(
-    StopPoint(Seq("Ettlingen, West"), 10, 90, [48.94713, 8.38787], "de:08215:1840", "s_81", "Malsch (Kr Karlsruhe), Malsch Sued"),
-    StopPoint(Seq("Bruchhausen (Kr KA), Bahnhof Bruchhausen"), 10, 60, [48.924, 8.37394], "de:08215:1841", "s_81", "Malsch (Kr Karlsruhe), Malsch Sued"),
-    StopPoint(Seq("Malsch (Kr Karlsruhe), Bahnhof"), 10, 90, [48.88946, 8.32338], "de:08215:8306", "s_81", "Malsch (Kr Karlsruhe), Malsch Sued"),
-    StopPoint(Seq("Malsch (Kr Karlsruhe), Malsch Sued"), None, None, [48.88752, 8.31591], "de:08215:8301", "s_81", "Malsch (Kr Karlsruhe), Malsch Sued")
-)

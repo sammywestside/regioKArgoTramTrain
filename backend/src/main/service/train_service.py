@@ -1,14 +1,13 @@
 import sys
-import os
+from src.main.repository.train_repository import TrainRepository
+from src.main.model.models import LineData, Station, Coordinates
 
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../src')))
-
-from main.repository.train_repository import TrainRepository
 
 class TrainService:
+
     def __init__(self, train_repo: TrainRepository):
         self.train_repo = train_repo
-    
+
     def get_station_name(self, station_id):
         stations_data = self.train_repo.load_stations_data()
 
@@ -19,43 +18,38 @@ class TrainService:
                 station_name = station["name"]
         
         return station_name
-
     
-    def get_station_id(self, line_number, station_number):
-        stations_data = self.train_repo.load_lines_v2()
+    def get_station_coords(self, station_id) -> Coordinates:
+        try:
+            stations_data = self.train_repo.load_stations_data()
 
-        # line_name = [item["stations"] for item in stations_data["lines"] if item["number"] == line_number]
-        station_id = None
+            for station in stations_data:
+                if station["triasID"] == station_id:
+                    station_coords = station["coordPositionWGS84"]
+                    coords = Coordinates(lat=station_coords["lat"], long=station_coords["long"])
 
-        for item in stations_data["lines"]:
-            if item["number"] == line_number:
-                line_name = item["stations"]
-                station_id = line_name[station_number]
-                break
+            return coords
+        except Exception as e: 
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
 
-        return station_id
+    def get_all_line_stations(self, line: str) -> LineData:
+        try:
+            stations = []
 
-    def get_all_line_station_coords(self, number):
-        line_coord_data = self.train_repo.load_kvv_lines()
+            line_json= self.train_repo.load_lines_v2()
 
-        line_coordinates = []
-
-        features = line_coord_data["features"]
-        for entry in features:
-
-            line_name = entry["properties"]["name"]
-            if line_name == number:
-                print(f"Correct line: {line_name}")
-                coordinates = entry["geometry"]["coordinates"]
-
-                for index, coords in enumerate(coordinates):
-                    station_id = self.get_station_id(line_name, index)
-                    station_name = self.get_station_name(station_id)
-                    print(station_id, coords)
-                    line_coordinates.append([station_name, coords])
-
-        return "done."
-
+            for item in line_json["lines"]:
+                if item["number"] == line:
+                    line_stations = item["stations"]
+                    for station_id in line_stations:
+                        station_name = self.get_station_name(station_id)
+                        station_coords = self.get_station_coords(station_id)
+                        stations.append(Station(name=station_name, coordinates=station_coords))
+                    
+            return LineData(line_name=line, stations=stations)
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
     
-
-
+    

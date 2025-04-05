@@ -1,7 +1,0 @@
-val stopPointArray_S9R: Array[StopPoint] = Array(
-    StopPoint(Seq("Graben-Neudorf Bf"),2,170, Array(49.16178, 8.49062), "de:08215:32585", "2021-03-17T16:06:00Z"),
-    StopPoint(Seq("Friedrichstal Bf"),10,160, Array(49.10063, 8.4741), "de:08215:33000",""),
-    StopPoint(Seq("Blankenloch Bf"),20,165, Array(49.06629, 8.46484), "de:08215:32239", ""),
-    StopPoint(Seq("KA-Hagsfeld"),15,175, Array(49.02748, 8.45384), "de:08212:3102", ""),
-    StopPoint(Seq("Karlsruhe, Hauptbahnhof"),null,null, Array(48.99335, 8.40104), "de:08212:90", "2021-03-17T15:54:00Z")
-  )

@@ -1,5 +1,15 @@
-für schnelle hilfe fals chatgpt dumm ist:
+für schnelle hilfe falls chatgpt dumm ist:
     https://www.w3schools.com/python/default.asp
+
+an Lukas: 
+    Hab schon einen Test implementiert, war nicht zu vermeiden damit ich an meinen Algorithmen anfangen konnte
+    können aber gemeinsam Besprechen wie das hier in python funktioniert!
+    Dann kannst du weitere Tests implementieren!
+
+an Dennis:
+    Hab auch schon ein paar Klasses erstellt. Ohne diese hätte ich nicht arbeiten können.
+    Es bleiben aber noch genug klassen für dich zum erstellen. Können das auch besprechen wie genau das 
+    hier klappt!
 
 commit message =styleguide:
     Typ    Bedeutung

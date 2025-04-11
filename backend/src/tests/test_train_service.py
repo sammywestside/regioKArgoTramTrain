@@ -5,10 +5,13 @@ def test_get_line_data():
     repo = TrainRepository()
     service = TrainService(repo)
     result = service.get_all_line_stations("1")
+    draw_result = service.get_line_draw_coords("1")
     
     first_station = result.stations[0]
     print("Station: ", first_station.name)
     print("Coordinates: ", first_station.coordinates.lat, first_station.coordinates.long)
+
+    print(draw_result)
 
     assert result.line_name == "1"
     assert all(isinstance(station.name, str) for station in result.stations)

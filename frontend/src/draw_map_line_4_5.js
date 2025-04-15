@@ -19,7 +19,7 @@ let last_point = [0,0];
 let last_line_color = ""; 
 
 //read json for lines
-fetch("../../json/lines_v2.json") //changes to correct file path
+fetch("../../backend/src/main/json/lines_v2.json") //changes to correct file path
   .then(response => response.json())
   .then(data => {
     data.lines.forEach(line => {
@@ -32,7 +32,7 @@ fetch("../../json/lines_v2.json") //changes to correct file path
 
         line.stations.forEach(station => {
           //console.log(`Station: ${station}`);
-          fetch('../../json/haltestellen_v2-1.json')
+          fetch('../../backend/src/main/json/haltestellen_v2-1.json')
               .then(response => response.json())
               .then(data => {
               let stations = data.find(stations => stations.triasID === station);

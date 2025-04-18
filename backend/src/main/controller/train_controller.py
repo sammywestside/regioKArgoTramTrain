@@ -40,15 +40,21 @@ def get_route(start: str = Query(...), target: str = Query(...)):
 # get the line by station_id
 @router.get("/station/{station_id}/line", response_model=LineData)
 def get_line_by_station(station_id: str):
+    # Validierung der station_id
+    if not station_id.startswith("de:"):
+        raise HTTPException(status_code=400, detail="Invalid station_id format")
+    
     try:
         line_name = train_service.get_line(station_id)
         if not line_name:
             raise HTTPException(status_code=404, detail="Line not found")
         return line_name
     except Exception as e:
-        raise HTTPException(status_code=500, detail=str(e))
+        print(f"Error occurred in get_line_by_station: {e}")
+        raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
     
 
+#**IS WORKIMG**
 # get all stations from a line
 @router.get("/line/stations/{lines_id}", response_model=LineData)
 def get_all_line_stations(line_id: str):

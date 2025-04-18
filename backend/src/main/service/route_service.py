@@ -1,6 +1,8 @@
 import sys
 import heapq
 from collections import defaultdict
+
+from fastapi import HTTPException
 from src.main.repository.train_repository import TrainRepository
 from src.main.model import models
 from src.main.service.train_service import TrainService
@@ -12,6 +14,7 @@ class RouteService:
         self.train_service = train_service
 
     # Create a python readable visualisation of the linesystem
+    @staticmethod
     def build_graph(lines: list[models.LineData]) -> defaultdict:
         graph = defaultdict(list)
 
@@ -44,9 +47,14 @@ class RouteService:
             return graph
 
         except Exception as e:
-            exc_tb = sys.exc_info()
-            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
-
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            if exc_tb is not None:  # Prüfen, ob exc_tb vorhanden ist
+                print(f"An error occurred on line: {exc_tb.tb_lineno}: {e}")
+            else:
+                print(f"Error occurred: {e}")
+            raise HTTPException(status_code=500, detail=str(e))
+    
+    
     def find_fastest_route(graph: defaultdict, start_id: str, dest_id: str):
         if start_id == dest_id:
             return [], 0

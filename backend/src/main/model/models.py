@@ -25,3 +25,4 @@ class Route(BaseModel):
     transfer: List[Station]
     travel_time: float
     transfer_time: float
+

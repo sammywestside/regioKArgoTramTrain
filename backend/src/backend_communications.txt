@@ -1,9 +1,4 @@
 für schnelle hilfe falls chatgpt dumm ist:
     https://www.w3schools.com/python/default.asp
 
-Questions:
-    - bauen wir eine sqlite3 datenbank? Ist echt leicht mit python und spart zeit
-        (wir müssten die json datein nur einmal in die datenbank lesen/sortieren
-        anstatt diese immer wieder beim starten der applikation in memory zu lesen)
-    - oder lassen wir die dateien so und lesen diese beim start der app einmalig aus und haben Dann
-        listen und dictionaries in memory. 
+

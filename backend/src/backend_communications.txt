@@ -1,3 +1,15 @@
+STARTEN DER APP:
+
+1. /c/projects_hfu/regioKArgoTramTrain/backend
+
+2. PYTHONPATH=src python -m uvicorn main.main:app --reload
+
+
+Controller testen bei:
+http://127.0.0.1:8000/docs
+
+
+
 für schnelle hilfe falls chatgpt dumm ist:
     https://www.w3schools.com/python/default.asp
 

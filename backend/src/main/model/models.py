@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Optional
 
 
 class Coordinates(BaseModel):
@@ -16,7 +16,7 @@ class Station(BaseModel):
 class LineData(BaseModel):
     line_name: str
     stations: List[Station]
-    travel_time: int
+    travel_time: Optional[int] = None
 
 
 class Route(BaseModel):

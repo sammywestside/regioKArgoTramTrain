@@ -76,7 +76,7 @@ class RobotService:
     def get_robot_status(self, robot: Robot) -> str:
         return (
             f"Robot '{robot.name}'\n"
-            f"   • Position: ({robot.position.lat}, {robot.position.long})\n"
+            # f"   • Position: ({robot.position.lat}, {robot.position.long})\n"
             f"   • Battery: {robot.battery_level:.1f}%\n"
             f"   • Packages: {len(robot.packages)} (Total weight: {sum(p.weight for p in robot.packages):.1f} kg)\n"
             f"   • Status: {robot.status}"

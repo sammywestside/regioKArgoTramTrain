@@ -39,10 +39,10 @@ class Package(BaseModel):
 class Robot(BaseModel):
     id: str
     name: str
-    position: Coordinates
+    # position: Coordinates
     battery_level: float = 100.0
     status: str  # 'idle', 'moving', 'charging', etc.
-    assigned_route: Route
+    # assigned_route: Route
     packages: List[Package] = []  # jetzt als Liste von echten Packages
     dis_charge_time: float
     dissipation_factor: float

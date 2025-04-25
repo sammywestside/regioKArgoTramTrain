@@ -1,3 +1,5 @@
+import { Route, Station } from './classes.js';
+
 const headersCollection = {
 
   routeCalc: {
@@ -34,7 +36,7 @@ function selectedStationToJson(start = "start", destination= "destination") {
 }
 
 
-function packageAnalyzer(incomingData) {
+/* function packageAnalyzer(incomingData) {
 
     const idType = incomingData?.metadata?.type;
   
@@ -53,7 +55,7 @@ function packageAnalyzer(incomingData) {
       default:
         return incomingData;
     }
-  }
+  } */
   
 
 function sendData(jsonPackage, header) {
@@ -69,7 +71,7 @@ function sendData(jsonPackage, header) {
         return response.json();
     })
     .then(data => {
-        let a = packageAnalyzer(data);
+        const route = Route.fromJSON(data);
         
     })
     .catch(error => {
@@ -89,6 +91,43 @@ function testRun(){
 
   console.log("End");
 }
+
+/* This might be useful in the future
+
+let timeoutId;
+const search = document.getElementById("search");
+const suggestions = document.getElementById("suggestions");
+
+let options = []; // to be loaded
+
+// Load data once
+fetch('/data/options.json')
+  .then(res => res.json())
+  .then(data => options = data);
+
+search.addEventListener("input", () => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    const input = search.value.toLowerCase();
+    const matches = options.filter(option =>
+      option.toLowerCase().includes(input)
+    );
+    
+    suggestions.innerHTML = matches
+      .slice(0, 10)
+      .map(match => `<li>${match}</li>`)
+      .join("");
+
+    document.querySelectorAll("#suggestions li").forEach(li => {
+      li.onclick = () => {
+        search.value = li.textContent;
+        suggestions.innerHTML = "";
+      };
+    });
+  }, 200); // debounce delay
+});
+
+*/
 
 
 

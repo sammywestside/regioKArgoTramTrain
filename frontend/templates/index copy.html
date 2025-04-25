@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>regioKArgoTramTrain Simulation Application - Map </title>
+    <link rel="stylesheet" href="/frontend/static/style_copy.css">
+    <script src="/frontend/src/classes.js" defer></script>
+    <script src="/frontend/src/ui_generation.js" defer></script>
+    <script src="/frontend/src/ui_handler.js" defer></script>
+    
+</head>
+<body>
+    <div class="grid_container">
+
+    <div class="canvas_container">
+      <canvas id="overview_map"></canvas>
+    </div>
+
+    <div class="info_container">
+        <p id="title">
+            Delivery Robot info: 
+          </p>
+          <div id="robot_info">
+            <p id="robot_info_start" class="robot_info">Start: </p>
+            <p id="robot_info_destination" class="robot_info">Destination: </p>
+            <p id="robot_info_deliveryRoute" class="robot_info">Delivery Route: </p>
+            <p id="robot_info_maxNumberOfPackages" class="robot_info">Max Number of Packages: </p>
+            <p id="robot_info_cargo" class="robot_info">Cargo: </p>
+          </div>
+    </div>
+
+    <div class="settings_container">  
+
+      <div class="dropdown">
+        <select class="dropdown-content" id="start_content">
+       
+        </select>
+      </div> 
+
+       <div class="dropdown">
+  <select class="dropdown-content" id="destination_content">
+   
+  </select>
+</div> 
+
+      <button id="submit_button"> Submit</button>
+    
+    </div>
+    
+</div>
+   <script src="../src/draw_map_line_4_5.js"></script>
+   <!-- <script src="../src/draw_map_whole.js"></script> -->
+
+   
+</body>
+</html>

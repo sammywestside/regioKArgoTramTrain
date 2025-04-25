@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, Query
 from src.main.service.route_service import RouteService
 from src.main.service.train_service import TrainService
 from src.main.repository.train_repository import TrainRepository
-from src.main.model.models import LineData, Route
+from src.main.model.models import Coordinates, LineData, Route, Station
 
 
 router = APIRouter()
@@ -12,6 +12,9 @@ train_service = TrainService(train_repo)
 route_service = RouteService(train_repo, train_service)
 
 
+# ROUTE CONTROLLERS:
+
+# get route
 @router.get("/route", response_model=Route)
 def get_route(start: str = Query(...), target: str = Query(...)):
     try:
@@ -36,6 +39,44 @@ def get_route(start: str = Query(...), target: str = Query(...)):
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+    
+
+# calculates the fastest route between two stations and returns the route steps along with the total travel time.
+@router.get("/route/steps")
+def get_route_steps(start: str = Query(...), end: str = Query(...)):
+    try:
+        all_lines = []
+
+        # Load all train lines and create LineData
+        for line in train_repo.load_lines_v2()["lines"]:
+            stations = train_service.get_all_line_stations(line["number"])
+            stations.travel_time = 10
+            all_lines.append(stations)
+
+        # Build graph from the line data
+        graph = route_service.build_graph(all_lines)
+        # Find the fastest route from start to end
+        route, total_time = route_service.find_fastest_route(graph, start, end)
+
+        if not route:
+            raise HTTPException(status_code=404, detail="no route found.")
+        
+        return {"steps": route, "total time": total_time}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+# lINE CONTROLLERS:
+
+# get all lines
+@router.get("/lines")
+def get_all_lines():
+    try:
+        lines_data = train_repo.load_lines_v2()
+        return lines_data.get("lines", [])
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+
 
 # get the line by station_id
 @router.get("/station/{station_id}/line", response_model=LineData)
@@ -54,7 +95,42 @@ def get_line_by_station(station_id: str):
         raise HTTPException(status_code=500, detail=f"Internal Server Error: {str(e)}")
     
 
-#**IS WORKIMG**
+# get line coords
+@router.get("/line/coords/{line_id}")
+def get_line_coords(line_id: str):
+    try:
+        coords = train_service.get_line_draw_coords(line_id)
+        if not coords:
+            raise HTTPException(status_code=404, detail="Line not found or has no coordinates.")
+        return {"lines_id": line_id, "coordinates": coords}
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+
+# STATION CONTROLLERS:
+
+# get all stations
+@router.get("/stations", response_model=list[Station])
+def get_all_stations():
+    try:
+        stations_data = train_service.train_repo.load_stations_data()
+        stations = [
+            Station(
+                id=station["triasID"],
+                name=station["name"],
+                coordinates=Coordinates(
+                    lat=station["coordPositionWGS84"]["lat"],
+                    long=station["coordPositionWGS84"]["long"]
+                )
+            )
+            for station in stations_data
+        ]
+        return stations
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    
+
+# **IS WORKING**
 # get all stations from a line
 @router.get("/line/stations/{lines_id}", response_model=LineData)
 def get_all_line_stations(line_id: str):
@@ -67,3 +143,14 @@ def get_all_line_stations(line_id: str):
         raise HTTPException(status_code=500, detail=str(e))
 
 
+# get station informations
+@router.get("/station/{station_id}", response_model=Station)
+def get_station_info(station_id: str):
+    try:
+        name = train_service.get_station_name(station_id)
+        coords = train_service.get_station_coords(station_id)
+        if not name or not coords:
+            raise HTTPException(status_code=404, detail="Station not found.")
+        return Station(id=station_id, name=name, coordinates=coords)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))

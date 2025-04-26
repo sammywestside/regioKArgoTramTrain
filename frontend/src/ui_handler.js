@@ -1,9 +1,16 @@
-
+import { Route, Station, Parcel, DeliveryRobot } from "./presets.js";
+import * as communication from "./frontend_communication.js"
 
 function readDropdownValue(id){
     let dropdownValue = document.getElementById(id).value; 
     return dropdownValue;
 }; 
+
+function readDropdownName(id){
+    let select = document.getElementById(id);
+    let selectedText = select.options[select.selectedIndex].text; 
+    return selectedText; 
+};
 
 function fillDeliveryRobotInfo(start, destination, deliveryRoute, maxNumberOfPackages, cargo){
     
@@ -46,13 +53,16 @@ function handleUiInput(){
     const destinationDropdownID = "destination_content"; 
     let startID = readDropdownValue(startDropdownID); 
     let destinationID = readDropdownValue(destinationDropdownID); 
+    let startName = readDropdownName(startDropdownID);
+    let destinationName = readDropdownName(destinationDropdownID); 
     console.log("Start ID: ", startID);
     console.log("Destination ID: ", destinationID);
-    fillDeliveryRobotInfo(startID, destinationID, "None", 10, "This cargo"); 
-
-    const DeliveryRobot = new DeliveryRobot(startID, destinationID, 10); 
-
-    console.log("Delivery Robot: ", DeliveryRobot);
+    console.log("Start Name: ", startName);
+    console.log("Destination Name: ", destinationName); 
+    fillDeliveryRobotInfo(startName, destinationName, "None", 10, "This cargo"); 
+    let startDestinationJSON = communication.selectedStationToJson(startName, destinationName);  
+    let route = communication.sendData(startDestinationJSON, communication.headersCollection.routeCalc); 
+    console.log("Route: ", route); 
 
 };
 

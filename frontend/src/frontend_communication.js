@@ -1,6 +1,6 @@
-import { Route, Station } from './classes.js';
+import { Route, Station } from './presets.js';
 
-const headersCollection = {
+export const headersCollection = {
 
   routeCalc: {
       "Content-Type": "application/json",
@@ -9,7 +9,7 @@ const headersCollection = {
 };
 
 
-function stationNameHandler(id) {
+export function stationNameHandler(id) {
 
   let element = document.getElementById(id);
 
@@ -24,16 +24,16 @@ function stationNameHandler(id) {
   }
 
   return {};
-}
+};
 
 
-function selectedStationToJson(start = "start", destination= "destination") { 
+export function selectedStationToJson(start = "start", destination= "destination") { 
 
   let startObject = stationNameHandler(start); 
   let destinationObject = stationNameHandler(destination);
 
   return JSON.stringify([startObject, destinationObject]);
-}
+};
 
 
 /* function packageAnalyzer(incomingData) {
@@ -58,8 +58,8 @@ function selectedStationToJson(start = "start", destination= "destination") {
   } */
   
 
-function sendData(jsonPackage, header) {
-    fetch("http://127.0.0.1:8000/transfer", {
+export function sendData(jsonPackage, header) {
+    fetch("http://127.0.0.1:8000/api/route", {
         method: "POST",
         headers: header,
         body: jsonPackage
@@ -77,20 +77,7 @@ function sendData(jsonPackage, header) {
     .catch(error => {
         console.error("Fetch error:", error);
     });
-}
- 
-function testRun(){
-
-  console.log("Starting progress...")
-
-  let stations = selectedStationToJson();
-
-  console.log(stations);
-
-  sendData(stations, headersCollection.routeCalc);
-
-  console.log("End");
-}
+};
 
 /* This might be useful in the future
 

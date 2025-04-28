@@ -8,7 +8,7 @@ from src.main.model.models import Coordinates, LineData, Route, Station
 router = APIRouter()
 
 train_repo = TrainRepository()
-train_service = TrainService(train_repo)    
+train_service = TrainService(train_repo)
 route_service = RouteService(train_service)
 
 

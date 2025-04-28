@@ -1,4 +1,6 @@
-const headersCollection = {
+import { Route, Station } from './presets.js';
+
+export const headersCollection = {
 
   routeCalc: {
       "Content-Type": "application/json",
@@ -7,7 +9,7 @@ const headersCollection = {
 };
 
 
-function stationNameHandler(id) {
+export function stationNameHandler(id) {
 
   let element = document.getElementById(id);
 
@@ -22,19 +24,19 @@ function stationNameHandler(id) {
   }
 
   return {};
-}
+};
 
 
-function selectedStationToJson(start = "start", destination= "destination") { 
+export function selectedStationToJson(start = "start", destination= "destination") { 
 
   let startObject = stationNameHandler(start); 
   let destinationObject = stationNameHandler(destination);
 
   return JSON.stringify([startObject, destinationObject]);
-}
+};
 
 
-function packageAnalyzer(incomingData) {
+/* function packageAnalyzer(incomingData) {
 
     const idType = incomingData?.metadata?.type;
   
@@ -53,11 +55,11 @@ function packageAnalyzer(incomingData) {
       default:
         return incomingData;
     }
-  }
+  } */
   
 
-function sendData(jsonPackage, header) {
-    fetch("http://127.0.0.1:8000/transfer", {
+export function sendData(jsonPackage, header) {
+    fetch("http://127.0.0.1:8000/api/route", {
         method: "POST",
         headers: header,
         body: jsonPackage
@@ -69,26 +71,50 @@ function sendData(jsonPackage, header) {
         return response.json();
     })
     .then(data => {
-        let a = packageAnalyzer(data);
+        const route = Route.fromJSON(data);
         
     })
     .catch(error => {
         console.error("Fetch error:", error);
     });
-}
- 
-function testRun(){
+};
 
-  console.log("Starting progress...")
+/* This might be useful in the future
 
-  let stations = selectedStationToJson();
+let timeoutId;
+const search = document.getElementById("search");
+const suggestions = document.getElementById("suggestions");
 
-  console.log(stations);
+let options = []; // to be loaded
 
-  sendData(stations, headersCollection.routeCalc);
+// Load data once
+fetch('/data/options.json')
+  .then(res => res.json())
+  .then(data => options = data);
 
-  console.log("End");
-}
+search.addEventListener("input", () => {
+  clearTimeout(timeoutId);
+  timeoutId = setTimeout(() => {
+    const input = search.value.toLowerCase();
+    const matches = options.filter(option =>
+      option.toLowerCase().includes(input)
+    );
+    
+    suggestions.innerHTML = matches
+      .slice(0, 10)
+      .map(match => `<li>${match}</li>`)
+      .join("");
+
+    document.querySelectorAll("#suggestions li").forEach(li => {
+      li.onclick = () => {
+        search.value = li.textContent;
+        suggestions.innerHTML = "";
+      };
+    });
+  }, 200); // debounce delay
+});
+
+*/
 
 
 

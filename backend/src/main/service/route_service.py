@@ -19,7 +19,7 @@ class RouteService:
         self.train_service = train_service
 
     # Create a python readable visualisation of the linesystem
-    def build_graph(lines: list[models.LineData]) -> defaultdict:
+    def build_graph(self, lines: list[models.LineData]) -> defaultdict:
         graph = defaultdict(list)
 
         try:
@@ -57,7 +57,7 @@ class RouteService:
             exc_tb = sys.exc_info()
             print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
 
-    def find_fastest_route(graph: defaultdict, start_id: str, dest_id: str):
+    def find_fastest_route(self, graph: defaultdict, start_id: str, dest_id: str):
         if start_id == dest_id:
             print("start- and dest-station are the same...")
             return [], 0

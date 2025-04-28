@@ -8,8 +8,8 @@ from src.main.model.models import Coordinates, LineData, Route, Station
 router = APIRouter()
 
 train_repo = TrainRepository()
-train_service = TrainService(train_repo)
-route_service = RouteService(train_repo, train_service)
+train_service = TrainService(train_repo)    
+route_service = RouteService(train_service)
 
 
 # ROUTE CONTROLLERS:
@@ -66,7 +66,7 @@ def get_route_steps(start: str = Query(...), end: str = Query(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# lINE CONTROLLERS:
+# LINE CONTROLLERS:
 
 # get all lines
 @router.get("/lines")

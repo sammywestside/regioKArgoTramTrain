@@ -1,10 +1,8 @@
 import sys
 import heapq
 import itertools
-import pdb
 from collections import defaultdict
 
-from fastapi import HTTPException
 from src.main.repository.train_repository import TrainRepository
 from src.main.model import models
 from src.main.service.train_service import TrainService
@@ -140,4 +138,3 @@ class RouteService:
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             print(f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
-   

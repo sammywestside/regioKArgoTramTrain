@@ -11,7 +11,6 @@ class TrainService:
         self.train_repo = train_repo
         self.lines: list[LineData] = self.load_all_line_data()
 
-
     def get_station_id(self, station_name):
         station_data = self.train_repo.load_stations_data()
 
@@ -22,7 +21,6 @@ class TrainService:
                 station_id = station["triasID"]
 
         return station_id
-    
 
     def get_station_name(self, station_id):
         stations_data = self.train_repo.load_stations_data()
@@ -34,7 +32,6 @@ class TrainService:
                 station_name = station["name"]
 
         return station_name
-
 
     def get_station_coords(self, station_id) -> Coordinates:
         try:
@@ -51,6 +48,8 @@ class TrainService:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
 
+    def get_station_by_id(self, station_id) -> Station:
+        return Station(id=station_id, name=self.get_station_name(station_id), coordinates=self.get_station_coords(station_id))
 
     def get_line(self, station_id):
         try:
@@ -59,13 +58,13 @@ class TrainService:
             if not line_data or "lines" not in line_data:
                 print("Error: No lines found in the loaded data")
                 return None
-            
+
             for line in line_data["lines"]:
                 line_stations = line.get("stations", [])
                 for id in line_stations:
                     if id == station_id:
                         return line["name"]
-            
+
             print(f"Error: Station {station_id} not found in any line")
             return None
         except KeyError as e:
@@ -74,7 +73,6 @@ class TrainService:
             exc_tb = sys.exc_info()
             print(f"An error occurred on line: {exc_tb.tb_lineno}: {e}")
             return None
-
 
     def get_line_travel_time(self, line_name) -> int:
         try:
@@ -124,7 +122,7 @@ class TrainService:
             for line in all_lines_json["lines"]:
                 number = line["number"]
                 all_lines.append(self.get_all_line_stations(number))
-            
+
             return all_lines
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -137,7 +135,7 @@ class TrainService:
             for line in self.lines:
                 for station in line.stations:
                     station_map[station.id] = station
-            
+
             return station_map
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()

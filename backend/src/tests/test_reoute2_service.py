@@ -25,7 +25,7 @@ def test_route2(test_lines):
     graph, station_coords = service.build_graph(lines)
 
     pickup_station_one = Station(id="de:08212:608", name="Albert-Braun-Str.", coordinates=Coordinates(lat=48.9891289173621,
-                                                                                                      long="8.36354885712662"))
+                                                                                                      long=8.36354885712662))
     dropoff_station_one = Station(id="de:08212:622", name="Ostendstr.", coordinates=Coordinates(lat=49.0050363474168,
                                                                                                 long=8.41629793061011))
 

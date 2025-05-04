@@ -33,16 +33,17 @@ class Package(BaseModel):
     id: str
     destination: Station
     weight: float   # in kg
-    size: float     # optional: in Litern, cm³ etc.
+    size: list     # optional: in Litern, cm³ etc.
 
 
 class Robot(BaseModel):
     id: str
     name: str
-    # position: Coordinates
+    position: str = ""
     battery_level: float = 100.0
-    status: str  # 'idle', 'moving', 'charging', etc.
-    # assigned_route: Route
+    status: str  = "idle"         # 'idle', 'moving', 'charging', etc.
+    route: Route = {}
     packages: List[Package] = []  # jetzt als Liste von echten Packages
-    dis_charge_time: float
-    dissipation_factor: float
+    num_packages: int = 0
+    # dis_charge_time: float
+    # dissipation_factor: float

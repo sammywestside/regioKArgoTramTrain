@@ -6,16 +6,17 @@ from src.main.model import models
 from src.main.service.train_service import TrainService
 
 TRANSFER_PENALTY = 5
+counter = itertools.count()
 
 
 class Route2Service:
-    def __init__(self, train_service: TrainService):
+    def __init__(self, train_service: TrainService, reload_stations: list[str]):
         self.train_service = train_service
         self.graph = {}
-        self.station_coords = {}
+        self.reload_stations = set(reload_stations)
         self.current_route = []
         self.current_station_index = 0
-        self.pickup_drop_stations = set()
+        self.station_coords = {}
 
     def build_graph(self, lines: list[models.LineData]):
         graph = defaultdict(list)
@@ -56,7 +57,7 @@ class Route2Service:
                         graph[current_station].append(
                             (next_station, segment_time, line_name))
                         graph[next_station].append(
-                            (current_station, segment_time, line_name))
+                            (current_station, segment_time, line_name))     #Might not be necessary
 
             self.graph = graph
             self.station_coords = station_coords
@@ -67,113 +68,158 @@ class Route2Service:
             print(
                 f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
 
-    def dijkstra(self, start_id, dest_id):
-        try:
-            heap = [(0, start_id, [])]
-            visited = set()
+### NEW APPROACH!!!
+    def _dijkstra_all(self, start_id: str) -> dict[str, float]:
+        heap = [(0, next(counter), start_id)]
+        visited = set()
+        distances = {}
 
-            while heap:
-                (cost, node, path) = heapq.heappop(heap)
+        while heap:
+            cost, _, node = heapq.heappop(heap)
 
-                if node in visited:
+            if node in visited:
+                continue
+
+            visited.add(node)
+            distances[node] = cost
+            
+            for neighbor, weight, _ in self.graph.get(node, []):
+                if neighbor not in visited:
+                    heapq.heappush(heap, (cost + weight, next(counter), neighbor))
+        
+        return distances
+    
+    def _count_line_changes(self, path) -> int:
+        changes = 0
+        last_line = None
+        for _, line in path:
+            if last_line is not None and line != last_line:
+                changes += 1
+            
+            last_line = line
+        
+        return changes
+
+    def _build_distance_matrix(self, stations: list[str]) -> dict[tuple[str, str], float]:
+        distance_matrix = {}
+
+        for start in stations:
+            # distances = self._dijkstra_all(start)
+            for dest in stations:
+                if start == dest:
                     continue
+                cost, path = self._dijkstra(start, dest)
+                line_changes = self._count_line_changes(path)
+                adjusted_cost = cost + line_changes * TRANSFER_PENALTY
+                distance_matrix[(start, dest)] = adjusted_cost
+        
+        return distance_matrix
 
-                path = path + [node]
-                if node == dest_id:
-                    return cost, path
-                visited.add(node)
-
-                for neighbor, weight, line in self.graph.get(node, []):
-                    if neighbor not in visited:
-                        heapq.heappush(heap, (cost + weight, neighbor, path))
-
-            return float('inf'), []
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            print(f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
-
-    def build_distance_matrix(self, stations):
-        try:
-            matrix = {}
-            for i in stations:
-                matrix[i] = {}
-                for j in stations:
-                    if i != j:
-                        dist, _ = self.dijkstra(i, j)
-                        matrix[i][j] = dist
-            return matrix
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            print(
-                f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
-
-    def tsp_brute_force(self, matrix: dict, start: str):
-        nodes = list(matrix.keys())
-        nodes.remove(start)
+    def _solve_tsp(self, start: str, targets: list[str], distances: dict[tuple[str, str], float]) -> list[str]:
         best_cost = float("inf")
         best_path = []
 
-        for perm in itertools.permutations(nodes):
-            cost = 0
+        for perm in itertools.permutations(targets):
+            cost = 0.0
             path = [start]
             current = start
 
             for node in perm:
-                cost += matrix[current][node]
+                cost += distances[(current, node)]
                 current = node
                 path.append(node)
 
             if cost < best_cost:
                 best_cost = cost
                 best_path = path
+        
+        return best_path
 
-        return best_path, best_cost
+    def _dijkstra(self, start_id: str, dest_id: str):
+        heap = [(0,next(counter), start_id)]
+        visited = set()
+        parent = {}
+        cost_map = {start_id: 0}
 
-    def calculate_travel_order(self, pick_up_station: models.Station, drop_off_station: models.Station):
-        try:
-            pick_up_station_id = pick_up_station.id
-            drop_off_station_id = drop_off_station.id
+        if start_id not in self.graph:
+            print(f"Start node {start_id} missing in graph")
+        if dest_id not in self.graph:
+            print(f"Destination node {dest_id} missing in graph")
 
-            self.pickup_drop_stations.add(pick_up_station_id)
-            self.pickup_drop_stations.add(drop_off_station_id)
 
-            if not self.current_route:
-                start_station = pick_up_station_id
-                self.current_route = [pick_up_station_id]
-                self.current_station_index = 0
-            else:
-                start_station = self.current_route[self.current_station_index]
+        while heap:
+            (cost, _, node) = heapq.heappop(heap)
 
-            important_stations = list(self.pickup_drop_stations)
-            if start_station not in important_stations:
-                important_stations.insert(0, start_station)
+            if node in visited:
+                continue
+            
+            visited.add(node)
+            
+            if node == dest_id:
+                path = []
+                while node in parent:
+                    prev_node, line = parent[node]
+                    path.append((node, line))
+                    node = prev_node
+                return cost, path[::-1]
 
-            distance_matrix = self.build_distance_matrix(important_stations)
+            for neighbor, weight, neighbor_line in self.graph.get(node, []):
+                new_cost = cost + weight
+                if neighbor not in cost_map or new_cost < cost_map[neighbor]:
+                    cost_map[neighbor] = new_cost
+                    parent[neighbor] = (node, neighbor_line)
+                    heapq.heappush(heap, (new_cost, next(counter), neighbor))
 
-            travel_order, _ = self.tsp_brute_force(
-                distance_matrix, start_station)
+        print(f"Dijkstra failed: no path from {start_id} to {dest_id}")
+        return float("inf"), []
 
-            full_path = []
+    def _get_shortest_path(self, start: str, end: str) -> list[str]:
+        _, path = self._dijkstra(start, end)
+        return path
+            
+    def calculate_delivery_route(self, current_station_id: str, delivery_targets: list[str]):
+        all_stations = [current_station_id] + delivery_targets
+        distances = self._build_distance_matrix(all_stations)
+        tsp_order = self._solve_tsp(current_station_id, delivery_targets, distances)
 
-            for i in range(len(travel_order) - 1):
-                _, segment = self.dijkstra(
-                    travel_order[i], travel_order[i + 1])
-                if i > 0:
-                    segment = segment[1:]
+        delivery_path: list[tuple] = []
+        prev_station = None
+        for station in tsp_order:
+            if prev_station == None:
+                prev_station = station
+                continue
 
-                full_path.extend(segment)
+            _, segment_path = self._dijkstra(prev_station, station)
+            delivery_path.extend(segment_path)
+            prev_station = station
 
-            self.current_route = full_path
-            self.current_station_index = 0
+        return delivery_path
 
-            return full_path
+    def calculate_reload_route(self, current_station_id: str, station_package_counts: dict[str, int], remaining_capacity: int) -> list[str]:
+        candidates = [
+            s for s in self.reload_stations if station_package_counts.get(s, 0) > 0
+        ]
+        if not candidates:
+            return []
+        
+        best = None
+        best_score = -1
+        best_path = []
 
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            print(
-                f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
+        for s in candidates:
+            path_cost, path = self._dijkstra(current_station_id, s)
+            packages = station_package_counts[s]
+            score = packages / path_cost
 
-    def build_route_object(self, full_path: list[str]) -> models.Route:
+            if score > best_score:
+                best_score = score
+                best = s
+                best_path = path
+        
+        path_to_best = best_path
+        return path_to_best
+
+    def build_route_object(self, full_path: list[tuple]) -> models.Route:
         try:
             stations: list[models.Station] = []
             transfer: list[models.Station] = []
@@ -181,31 +227,29 @@ class Route2Service:
             last_line = None
 
             for i in range(len(full_path)):
-                station_id = full_path[i]
+                station_id, line = full_path[i]
                 stations.append(
                     self.train_service.get_station_by_id(station_id))
 
                 if i < len(full_path) - 1:
-                    next_station = full_path[i+1]
+                    next_station, next_line = full_path[i+1]
 
-                    next_hops = self.graph[station_id]
                     edge_data = next(
-                        filter(lambda x: x[0] == next_station, next_hops), None)
+                        (e for e in self.graph[station_id] if e[0] == next_station))
 
                     if edge_data:
                         segment_time = edge_data[1]
-                        line_name = edge_data[2]
                         travel_time += segment_time
                     else:
                         print(
                             f"No segment found between {station_id} and {next_station}")
                         continue
 
-                    if last_line is not None and line_name != last_line:
+                    if last_line is not None and line != last_line:
                         transfer.append(
                             self.train_service.get_station_by_id(station_id))
 
-                    last_line = line_name
+                    last_line = line
 
             route = models.Route(
                 stations=stations,

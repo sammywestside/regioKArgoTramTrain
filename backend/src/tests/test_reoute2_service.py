@@ -1,5 +1,5 @@
 import pytest
-from src.main.model.models import Station, Coordinates, Route, Package
+from src.main.model.models import Station, Package
 from src.main.service.route_service_2 import Route2Service
 from src.main.service.train_service import TrainService
 from src.main.repository.train_repository import TrainRepository
@@ -11,8 +11,9 @@ def test_lines():
     service = TrainService(repo)
 
     lines = []
-    for line_name in ["4", "5"]:
-        lines.append(service.get_all_line_stations(line_name))
+    # for line_name in ["4", "5"]:
+    #     lines.append(service.get_all_line_stations(line_name))
+    lines = service.load_all_line_data()
 
     return lines, service
 
@@ -25,11 +26,6 @@ def test_route2(test_lines):
 
     package_one = Package(id="pkg_one", destination=train_service.get_station_by_id(train_service.get_station_id("Ostendstr.")), weight=2.0, size=(10, 10, 2))
     package_two = Package(id="pkg_two", destination=train_service.get_station_by_id(train_service.get_station_id("Wilhelm-Leuschner-Str.")), weight=0.5, size=(5, 5, 2))
-
-
-    # path = service.calculate_travel_order(pickup_station_one, package_one)
-    # path = service.calculate_travel_order(pickup_station_two, package_two)
-    # route = service.build_route_object(path)
 
     delivery_route = service.calculate_delivery_route("de:08212:606", [package_one.destination.id, package_two.destination.id])
     reload_route = service.calculate_reload_route(delivery_route[-1][0], {"de:08212:606": 3}, 4)

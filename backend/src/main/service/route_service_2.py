@@ -57,7 +57,7 @@ class Route2Service:
                         graph[current_station].append(
                             (next_station, segment_time, line_name))
                         graph[next_station].append(
-                            (current_station, segment_time, line_name))     #Might not be necessary
+                            (current_station, segment_time, line_name))
 
             self.graph = graph
             self.station_coords = station_coords

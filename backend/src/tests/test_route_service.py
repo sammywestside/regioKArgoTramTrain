@@ -41,8 +41,3 @@ def test_route(test_lines):
     print("Transfers:", [s.name for s in route.transfer])
     print("Total time:", route.travel_time)
     print("Transfer time:", route.transfer_time)
-
-    # MANY CONFUSING ERRORS 
-    # ASK CHATGPT IN A NEW CHAT ABOUT DIJKAS-ALGORITHM
-    # ASK FOR EXPLENATIONS ON NODES,EDGES AND DISTANCES
-    # TRANSLATE THOUGHS TO OUR CLASS VARIABLES

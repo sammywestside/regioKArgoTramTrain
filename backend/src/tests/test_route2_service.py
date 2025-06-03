@@ -27,12 +27,13 @@ def test_route2(test_lines):
     package_one = Package(id="pkg_one", destination=train_service.get_station_by_id(train_service.get_station_id("Ostendstr.")), weight=2.0, size=(10, 10, 2))
     package_two = Package(id="pkg_two", destination=train_service.get_station_by_id(train_service.get_station_id("Wilhelm-Leuschner-Str.")), weight=0.5, size=(5, 5, 2))
 
-    delivery_route = service.calculate_delivery_route("de:08212:606", [package_one.destination.id, package_two.destination.id])
-    reload_route = service.calculate_reload_route(delivery_route[-1][0], {"de:08212:606": 3}, 4)
+    delivery_route, delivery_time = service.calculate_delivery_route("de:08212:606", [package_one.destination.id, package_two.destination.id])
+    reload_route, reload_time = service.calculate_reload_route(delivery_route[-1][0], {"de:08212:606": 3}, 4)
     full_route = delivery_route
     full_route.extend(reload_route)
+    full_time = delivery_time + reload_time
 
-    route = service.build_route_object(full_route)
+    route = service.build_route_object(full_route, full_time)
 
     assert graph is not None
     assert station_coords is not None

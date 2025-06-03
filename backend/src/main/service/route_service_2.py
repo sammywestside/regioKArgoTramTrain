@@ -5,9 +5,9 @@ from collections import defaultdict
 from src.main.model import models
 from src.main.service.train_service import TrainService
 
+
 TRANSFER_PENALTY = 5
 counter = itertools.count()
-
 
 class Route2Service:
     def __init__(self, train_service: TrainService, reload_stations: list[str]):
@@ -136,10 +136,10 @@ class Route2Service:
         return best_path
 
     def _dijkstra(self, start_id: str, dest_id: str):
-        heap = [(0,next(counter), start_id)]
+        heap = [(0,next(counter), start_id, None)]
         visited = set()
         parent = {}
-        cost_map = {start_id: 0}
+        cost_map = {}
 
         if start_id not in self.graph:
             print(f"Start node {start_id} missing in graph")
@@ -148,27 +148,33 @@ class Route2Service:
 
 
         while heap:
-            (cost, _, node) = heapq.heappop(heap)
+            cost, _, node, current_line = heapq.heappop(heap)
 
-            if node in visited:
+            if (node, current_line) in visited:
                 continue
             
-            visited.add(node)
+            visited.add((node, current_line))
             
             if node == dest_id:
                 path = []
-                while node in parent:
-                    prev_node, line = parent[node]
-                    path.append((node, line))
-                    node = prev_node
+                key = (node, current_line)
+                while key in parent:
+                    prev_node, prev_line = parent[key]
+                    path.append((key[0], key[1]))
+                    key = (prev_node, prev_line)
                 return cost, path[::-1]
 
             for neighbor, weight, neighbor_line in self.graph.get(node, []):
-                new_cost = cost + weight
-                if neighbor not in cost_map or new_cost < cost_map[neighbor]:
-                    cost_map[neighbor] = new_cost
-                    parent[neighbor] = (node, neighbor_line)
-                    heapq.heappush(heap, (new_cost, next(counter), neighbor))
+                line_changed = current_line is not None and neighbor_line != current_line
+                transfer_cost = TRANSFER_PENALTY if line_changed else 0
+
+                new_cost = cost + weight + transfer_cost
+                neighbor_key = (neighbor, neighbor_line)
+
+                if neighbor_key not in cost_map or new_cost < cost_map[neighbor_key]:
+                    cost_map[neighbor_key] = new_cost
+                    parent[neighbor_key] = (node, current_line)
+                    heapq.heappush(heap, (new_cost, next(counter), neighbor, neighbor_line))
 
         print(f"Dijkstra failed: no path from {start_id} to {dest_id}")
         return float("inf"), []
@@ -184,16 +190,19 @@ class Route2Service:
 
         delivery_path: list[tuple] = []
         prev_station = None
+        total_cost = 0.0
+
         for station in tsp_order:
             if prev_station == None:
                 prev_station = station
                 continue
 
-            _, segment_path = self._dijkstra(prev_station, station)
+            segment_cost, segment_path = self._dijkstra(prev_station, station)
             delivery_path.extend(segment_path)
             prev_station = station
+            total_cost += segment_cost
 
-        return delivery_path
+        return delivery_path, total_cost
 
     def calculate_reload_route(self, current_station_id: str, station_package_counts: dict[str, int], remaining_capacity: int) -> list[str]:
         candidates = [
@@ -205,6 +214,7 @@ class Route2Service:
         best = None
         best_score = -1
         best_path = []
+        best_path_cost = 0.0
 
         for s in candidates:
             path_cost, path = self._dijkstra(current_station_id, s)
@@ -213,17 +223,16 @@ class Route2Service:
 
             if score > best_score:
                 best_score = score
-                best = s
-                best_path = path
+                best_path = path 
+                best_path_cost = path_cost
         
         path_to_best = best_path
-        return path_to_best
+        return path_to_best, best_path_cost
 
-    def build_route_object(self, full_path: list[tuple]) -> models.Route:
+    def build_route_object(self, full_path: list[tuple], total_cost) -> models.Route:
         try:
             stations: list[models.Station] = []
             transfer: list[models.Station] = []
-            travel_time = 0.0
             last_line = None
 
             for i in range(len(full_path)):
@@ -232,18 +241,6 @@ class Route2Service:
                     self.train_service.get_station_by_id(station_id))
 
                 if i < len(full_path) - 1:
-                    next_station, next_line = full_path[i+1]
-
-                    edge_data = next(
-                        (e for e in self.graph[station_id] if e[0] == next_station))
-
-                    if edge_data:
-                        segment_time = edge_data[1]
-                        travel_time += segment_time
-                    else:
-                        print(
-                            f"No segment found between {station_id} and {next_station}")
-                        continue
 
                     if last_line is not None and line != last_line:
                         transfer.append(
@@ -255,8 +252,8 @@ class Route2Service:
                 stations=stations,
                 stops=len(stations) - 1,
                 transfer=transfer,
-                travel_time=travel_time,
-                transfer_time=TRANSFER_PENALTY
+                travel_time=total_cost,
+                transfer_time=TRANSFER_PENALTY * len(transfer)
             )
 
             return route

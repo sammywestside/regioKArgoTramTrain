@@ -6,7 +6,7 @@ from src.main.model.models import Robot, Package
 
 class RobotService:
     MAX_CARRY_WEIGHT = 100.0  # Maximum weight in kg
-    MAX_NUMBER_PACKAGES = 9
+    MAX_NUMBER_PACKAGES = 10
 
     def __init__(self, robot: Robot):
         self.robot = robot
@@ -81,7 +81,6 @@ class RobotService:
     def charge_robot(self) -> bool:
         self.robot.battery_level = 100.0
         return True
-        print(f"🔌 {robot.name} is now fully charged.")
 
     # Returns a formatted status string of the robot
     def get_robot_information(self) -> dict:

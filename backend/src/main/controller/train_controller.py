@@ -1,6 +1,8 @@
+from ast import Return
 from fastapi import APIRouter, HTTPException, Query
 from src.main.service.route_service import RouteService
 from src.main.service.train_service import TrainService
+from src.main.service.robot_service import RobotService
 from src.main.repository.train_repository import TrainRepository
 from src.main.model.models import Coordinates, LineData, Route, Station
 
@@ -154,3 +156,91 @@ def get_station_info(station_id: str):
         return Station(id=station_id, name=name, coordinates=coords)
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+
+# gets all robot info 
+@router.get("/allRobotInfo")
+def get_robot_ids():
+    return "Does nothing"
+
+
+# get robot id for communication
+@router.get("/robotId")
+def get_robot_ids():
+    return "Does nothing"
+
+
+# gets current batterie capacity of robots
+@router.get("/batterieCapacity")
+def get_batterie_capacity():
+    return "Does nothing"
+
+
+# gets current batterie start
+@router.get("/batterieCharge")
+def get_batterie_capacity():
+    return "Does nothing"
+
+
+# gets current load capacity 
+@router.get("/loadCapacity")
+def get_load_capacity(): 
+    return "Does nothing"
+
+
+# gets current cargo 
+@router.get("/cargo")
+def get_cargo(): 
+    return "Does nothing"
+
+
+#  gets nhext stops of the robots
+@router.get("/nextStop")
+def get_next_stop(): 
+    return "Does nothing"
+
+
+# gets cargo stations
+@router.get("/cargoStations")
+def get_cargo_stations():
+    return "Does nothing"
+
+
+# new parcels (packages, but parcels is a term that is not part of normal informatics language) for the simulation get posted here
+@router.post("/newParcel")
+def add_new_package_to_simulation():
+    return "Does nothing"
+
+
+# robot configuration changes are posted here
+@router.post("/robotConfig")
+def change_robot_config(): 
+    return "Does nothing"
+
+
+# simulation speeed changes are posted here
+@router.post("/simSpeed")
+def change_simulation_speed():
+    return "Does nothing"
+
+
+# request simulation stop
+@router.post("/stop")
+def stop_simulation(): 
+    return "Does nothing"
+
+
+# request simulation start
+@router.post("/start")
+def start_simulation():
+    return "Does nothing"
+
+@router.post("/pause")
+def pause_simulation():
+    return "Does nothing"
+
+
+# request simulation restart
+@router.post("/restart")
+def restart_simulation():
+    return "Does nothing"

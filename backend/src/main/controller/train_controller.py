@@ -160,25 +160,13 @@ def get_station_info(station_id: str):
 
 # gets all robot info 
 @router.get("/allRobotInfo")
-def get_robot_ids():
-    return "Does nothing"
-
-
-# get robot id for communication
-@router.get("/robotId")
-def get_robot_ids():
-    return "Does nothing"
-
-
-# gets current batterie capacity of robots
-@router.get("/batterieCapacity")
-def get_batterie_capacity():
+def get_robot_Info(id: int):
     return "Does nothing"
 
 
 # gets current batterie start
 @router.get("/batterieCharge")
-def get_batterie_capacity():
+def get_batterie_charge(id: int):
     return "Does nothing"
 
 
@@ -188,7 +176,7 @@ def get_load_capacity():
     return "Does nothing"
 
 
-# gets current cargo 
+# gets current cargo from all robots
 @router.get("/cargo")
 def get_cargo(): 
     return "Does nothing"
@@ -199,6 +187,10 @@ def get_cargo():
 def get_next_stop(): 
     return "Does nothing"
 
+#post cargo stations before simulation
+@router.post("/addCargoStations")
+def add_cargo_stations():
+    return "TBD"
 
 # gets cargo stations
 @router.get("/cargoStations")
@@ -215,32 +207,4 @@ def add_new_package_to_simulation():
 # robot configuration changes are posted here
 @router.post("/robotConfig")
 def change_robot_config(): 
-    return "Does nothing"
-
-
-# simulation speeed changes are posted here
-@router.post("/simSpeed")
-def change_simulation_speed():
-    return "Does nothing"
-
-
-# request simulation stop
-@router.post("/stop")
-def stop_simulation(): 
-    return "Does nothing"
-
-
-# request simulation start
-@router.post("/start")
-def start_simulation():
-    return "Does nothing"
-
-@router.post("/pause")
-def pause_simulation():
-    return "Does nothing"
-
-
-# request simulation restart
-@router.post("/restart")
-def restart_simulation():
     return "Does nothing"

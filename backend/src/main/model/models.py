@@ -38,7 +38,6 @@ class Package(BaseModel):
 
 class Robot(BaseModel):
     id: str
-    name: str
     position: Station = None
     battery_level: float = 100.0
     status: str  = "idle"         # 'idle', 'moving', 'charging', etc.

@@ -86,7 +86,7 @@ class RobotService:
     def get_robot_information(self) -> dict:
         status = {
             "id": self.robot.id,
-            "name": self.robot.name,
+            "name": self.robot.position.name if self.robot.position else None,
             "position": self.robot.position,
             "battery": self.robot.battery_level,
             "num_packages": self.robot.num_packages,
@@ -94,5 +94,7 @@ class RobotService:
             "status": self.robot.status,
             "route": self.robot.route
         }
-
         return status
+    
+    def get_all_robots(self) -> list[Robot]:
+        return list(self.robots.values())

@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
+from src.main.repository.robot_repository import RobotRepository
 
+robot_repo = RobotRepository()
 
 class TrainRepository:
     def __init__(self):

@@ -1,16 +1,21 @@
 from ast import Return
-from fastapi import APIRouter, HTTPException, Query
+from typing import List
+from fastapi import APIRouter, HTTPException, Query, Depends
+from src.main.repository import robot_repository
 from src.main.service.route_service import RouteService
 from src.main.service.train_service import TrainService
 from src.main.service.robot_service import RobotService
 from src.main.repository.train_repository import TrainRepository
-from src.main.model.models import Coordinates, LineData, Route, Station
+from src.main.repository.robot_repository import RobotRepository
+from src.main.model.models import CargoStationInput, Coordinates, LineData, Package, Route, Station, Robot, RobotConfigInput, PackageSize
+import uuid
 
 
 router = APIRouter()
-
 train_repo = TrainRepository()
+robot_repo = RobotRepository()
 train_service = TrainService(train_repo)
+route_service = RouteService(train_service)
 route_service = RouteService(train_service)
 
 
@@ -157,54 +162,236 @@ def get_station_info(station_id: str):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
+@router.post("/init_robots")
+def init_robots():
+    # Lade Stationen der Linie S1
+    stations_data = train_service.get_all_line_stations("S1")
+    stations = stations_data.stations[:5] if stations_data else []
 
-# gets all robot info 
-@router.get("/allRobotInfo")
-def get_robot_Info(id: int):
-    return "Does nothing"
+    if len(stations) < 2:
+        raise HTTPException(status_code=400, detail="Nicht genügend Stationen in Linie S1")
+
+    # Roboterposition auf erste Station setzen
+    start_station = stations[0]
+    reverse_start_station = stations[-1]
+
+    # Roboter anlegen mit gültiger Position
+    robot1 = Robot(
+        id="1",
+        position=start_station,
+        battery_level=100.0,
+        status="idle",
+        route=Route(stations=stations, stops=0, transfer=[], travel_time=0, transfer_time=0),
+        packages=[],
+        num_packages=0
+    )
+    robot2 = Robot(
+        id="2",
+        position=reverse_start_station,
+        battery_level=100.0,
+        status="idle",
+        route=Route(stations=stations[::-1], stops=0, transfer=[], travel_time=0, transfer_time=0),
+        packages=[],
+        num_packages=0
+    )
+
+    # Roboter zum Repository hinzufügen
+    robot_repo.add_robot(robot1)
+    robot_repo.add_robot(robot2)
+
+    return {"message": "2 robots initialized with stations from line S1"}
+
+
+# gets info of all robots
+@router.get("/AllRobotInfo")
+def get_all_robot_info():
+    all_robots = robot_repo.get_all_robots()
+    if not all_robots:
+        raise HTTPException(status_code=404, detail="No robots found")
+
+    result = []
+    for robot in all_robots:
+        service = RobotService(robot)
+        result.append(service.get_robot_information())
+
+    return result
+
+
+# gets robot info 
+@router.get("/RobotInfo")
+def get_robot_Info(id: str = Query(..., description="Robot ID")):
+    try:
+        robot = robot_repo.get_robot_by_id(id)
+        if not robot:
+            raise HTTPException(status_code=404, detail=f"Robot with id {id} not found")
+
+        service = RobotService(robot)
+        return service.get_robot_information()
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
 
 
 # gets current batterie start
 @router.get("/batterieCharge")
-def get_batterie_charge(id: int):
-    return "Does nothing"
+def get_batterie_charge(id: str = Query(..., description="Robot ID")):
+    robot = robot_repo.get_robot_by_id(id)
+    if not robot:
+        raise HTTPException(status_code=404, detail=f"Robot with id {id} not found")
+
+    service = RobotService(robot)
+    return {"battery_level": service.robot.battery_level}
 
 
 # gets current load capacity 
 @router.get("/loadCapacity")
-def get_load_capacity(): 
-    return "Does nothing"
+def get_load_capacity(id: str = Query(..., description="Robot ID")):
+    robot = robot_repo.get_robot_by_id(id)
+    if not robot:
+        raise HTTPException(status_code=404, detail=f"Robot with id {id} not found")
+    
+    service = RobotService(robot)
+    
+    return {
+        "robot_id": robot.id,
+        "current_num_packages": robot.num_packages,
+        "max_packages": service.get_capacity(),
+        "available_capacity": service.get_capacity() - robot.num_packages,
+        "total_weight": service.get_total_package_weight()
+    } # wie machen wir das mit dem Akku verlust? 
 
 
 # gets current cargo from all robots
 @router.get("/cargo")
-def get_cargo(): 
-    return "Does nothing"
+def get_cargo():
+    all_cargo = []
+    
+    for robot in robot_repo.get_all_robots().values():
+        for pkg in robot.packages:
+            all_cargo.append({
+                "robot_id": robot.id,
+                "package_id": pkg.id,
+                "weight": pkg.weight,
+                "destination": pkg.destination.name if pkg.destination else None
+            })
 
+    return {"total_packages": len(all_cargo), "cargo": all_cargo}
 
 #  gets nhext stops of the robots
 @router.get("/nextStop")
-def get_next_stop(): 
-    return "Does nothing"
+def get_next_stop():
+    robots = robot_repo.get_all_robots()
+    next_stops = []
+
+    for robot_id, robot in robots.items():
+        if robot.route.stations and len(robot.route.stations) > 0:
+            next_station = robot.route.stations[0]
+            next_stops.append({
+                "robot_id": robot_id,
+                "next_stop_id": next_station.id,
+                "next_stop_name": next_station.name
+            })
+        else:
+            next_stops.append({
+                "robot_id": robot_id,
+                "message": "No stops remaining"
+            })
+
+    return {
+        "next_stops": next_stops 
+    }
 
 #post cargo stations before simulation
 @router.post("/addCargoStations")
-def add_cargo_stations():
-    return "TBD"
+def add_cargo_stations(data: List[CargoStationInput], train_repo: TrainRepository = Depends()):
+    updated_robots = []
+
+    for entry in data:
+        robot = robot_repository.get_robot_by_id(entry.robot_id)
+        if not robot:
+            continue  # oder Fehler werfen
+
+        valid_stations = []
+        for station in entry.stations:
+            # Nur wenn Station in TrainRepository existiert
+            known_station = train_repo.get_station_by_id(station.id)
+            if known_station:
+                valid_stations.append(known_station)
+            else:
+                raise HTTPException(status_code=400, detail=f"Station ID '{station.id}' existiert nicht.")
+
+        robot.route.stations.extend(valid_stations)
+        robot_repository.update_robot(robot.id, robot)
+        updated_robots.append(robot.id)
+
+    return {"updated_robots": updated_robots}
 
 # gets cargo stations
 @router.get("/cargoStations")
 def get_cargo_stations():
-    return "Does nothing"
+    all_stations = []
+
+    for robot in robot_repo.get_all_robots().values():
+        for station in robot.route.stations:
+            all_stations.append({
+                "robot_id": robot.id,
+                "station_id": station.id,
+                "station_name": station.name,
+                "coordinates": {
+                    "lat": station.coordinates.lat,
+                    "long": station.coordinates.long
+                }
+            })
+
+    return {
+        "total_stations": len(all_stations),
+        "cargo_stations": all_stations
+    }
 
 
 # new parcels (packages, but parcels is a term that is not part of normal informatics language) for the simulation get posted here
-@router.post("/newParcel")
-def add_new_package_to_simulation():
-    return "Does nothing"
+@router.post("/addPackage")
+def add_new_package_to_simulation(
+    robot_id: str = Query(...),
+    weight: float = Query(...),
+    size: PackageSize = Query(PackageSize.M),
+    count: int = Query(1, ge=1)
+):
+    robot = robot_repo.get_robot_by_id(robot_id)
+    if not robot:
+        raise HTTPException(status_code=404, detail=f"Robot with id {robot_id} not found")
+
+    package_ids = []
+    for _ in range(count):
+        package = Package(
+            id=str(uuid.uuid4()),
+            weight=weight,
+            size=size,
+            destination=None
+        )
+        robot.packages.append(package)
+        robot.num_packages += 1
+        package_ids.append(package.id)
+
+    robot_repo.update_robot(robot.id, robot)
+
+    return {
+        "message": f"{count} package(s) added to robot {robot.id}",
+        "package_ids": package_ids
+    }
 
 
 # robot configuration changes are posted here
 @router.post("/robotConfig")
-def change_robot_config(): 
-    return "Does nothing"
+def change_robot_config(config: RobotConfigInput):
+    robot = robot_repo.get_robot_by_id(config.robot_id)
+    if not robot:
+        raise HTTPException(status_code=404, detail=f"Robot with id {config.robot_id} not found")
+
+    # Werte aktualisieren, wenn sie übergeben wurden
+    if config.battery_level is not None:
+        robot.battery_level = config.battery_level
+    if config.status is not None:
+        robot.status = config.status
+
+    robot_repo.update_robot(robot.id, robot)
+    return {"message": f"Configuration updated for robot {robot.id}"}

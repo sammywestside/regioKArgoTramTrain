@@ -1,6 +1,6 @@
 import pytest
 from collections import defaultdict
-from src.main.model.models import Station, Route, Robot, Package
+from src.main.model.models import Station, Route, Robot, Package, PackageSize
 from src.main.service.route_service_2 import Route2Service
 from src.main.service.train_service import TrainService
 from src.main.repository.train_repository import TrainRepository
@@ -31,9 +31,6 @@ def test_app(test_lines):
     # then build graph for the application
     graph, station_coords = route_service.build_graph(lines)
 
-    # define reload-stations
-    reload_stations = ["de:08212:606", "de:08215:35082", "de:08236:1793"]
-
     # create robots for simulation
     robot_one = Robot(id="1", name="hermes",
                       position=Station(id=reload_stations[0],
@@ -47,24 +44,19 @@ def test_app(test_lines):
                                            reload_stations[1]),
                                        coordinates=train_service.get_station_coords(reload_stations[1])),
                       battery_level=100.0, status="ready", num_packages=0)
-    robot_three = Robot(id="3", name="Emia",
-                        position=Station(id=reload_stations[2],
-                                         name=train_service.get_station_name(
-                                             reload_stations[2]),
-                                         coordinates=train_service.get_station_coords(reload_stations[2])),
-                        battery_level=100.0, status="ready", num_packages=0)
 
     # add packages to the simulation
-    package_one = Package(id="pkg_one", destination=train_service.get_station_by_id(train_service.get_station_id("Ostendstr.")), weight=2.0, size=(10, 10, 2))
-    package_two = Package(id="pkg_two", destination=train_service.get_station_by_id(train_service.get_station_id("Wilhelm-Leuschner-Str.")), weight=0.5, size=(5, 5, 2))
+    package_one = Package(id="pkg_one", start=train_service.get_station_by_id(reload_stations[0]), destination=train_service.get_station_by_id(train_service.get_station_id("Ostendstr.")), weight=2.0, size=PackageSize.M)
+    package_two = Package(id="pkg_two", start=train_service.get_station_by_id(reload_stations[2]), destination=train_service.get_station_by_id(train_service.get_station_id("Wilhelm-Leuschner-Str.")), weight=0.5, size=PackageSize.S)
 
     #calculate route for package delivery
-    delivery_route = route_service.calculate_delivery_route("de:08212:606", [package_one.destination.id, package_two.destination.id])
-    reload_route = route_service.calculate_reload_route(delivery_route[-1][0], {"de:08212:606": 3}, 4)
+    delivery_route, delivery_time = route_service.calculate_delivery_route(reload_stations[0], [package_one.destination.id, package_two.destination.id])
+    reload_route, reload_time = route_service.calculate_reload_route(delivery_route[-1][0], {reload_stations[0]: 3, reload_stations[1]: 4, reload_stations[2]: 2})
     full_route = delivery_route
     full_route.extend(reload_route)
+    full_time = delivery_time + reload_time
 
-    route = route_service.build_route_object(full_route)
+    route = route_service.build_route_object(full_route, full_time)
 
     #test results
     assert graph is not None

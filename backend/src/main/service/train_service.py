@@ -22,6 +22,22 @@ class TrainService:
 
         return station_id
 
+    def get_station_id_by_coords(self, coords: Coordinates):
+        station_data = self.train_repo.load_stations_data()
+
+        station_id = ""
+
+        for station in station_data: 
+            coordinates = station["coordPositionWGS84"]
+            station_coords = Coordinates(lat=coordinates["lat"], long=coordinates["long"])
+            
+            if coords == station_coords:
+                station_id = station["triasID"]
+                break
+        
+        return station_id
+    
+    
     def get_station_name(self, station_id):
         stations_data = self.train_repo.load_stations_data()
 

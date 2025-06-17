@@ -36,6 +36,7 @@ class PackageSize(str, Enum):
 
 class Package(BaseModel):
     id: str
+    start: Optional[Station]
     destination: Optional[Station] = None # optional
     weight: float   # in kg
     size: PackageSize

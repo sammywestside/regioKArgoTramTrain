@@ -204,7 +204,7 @@ class Route2Service:
 
         return delivery_path, total_cost
 
-    def calculate_reload_route(self, current_station_id: str, station_package_counts: dict[str, int], remaining_capacity: int) -> list[str]:
+    def calculate_reload_route(self, current_station_id: str, station_package_counts: dict[str, int]) -> list[str]:
         candidates = [
             s for s in self.reload_stations if station_package_counts.get(s, 0) > 0
         ]

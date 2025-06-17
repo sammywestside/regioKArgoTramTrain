@@ -4,7 +4,6 @@ from src.main.service.route_service_2 import Route2Service
 from src.main.service.train_service import TrainService
 from src.main.repository.train_repository import TrainRepository
 
-
 @pytest.fixture
 def test_lines():
     repo = TrainRepository()
@@ -27,8 +26,9 @@ def test_route2(test_lines):
     package_one = Package(id="pkg_one", destination=train_service.get_station_by_id(train_service.get_station_id("Ostendstr.")), weight=2.0, size=(10, 10, 2))
     package_two = Package(id="pkg_two", destination=train_service.get_station_by_id(train_service.get_station_id("Wilhelm-Leuschner-Str.")), weight=0.5, size=(5, 5, 2))
 
-    delivery_route, delivery_time = service.calculate_delivery_route("de:08212:606", [package_one.destination.id, package_two.destination.id])
-    reload_route, reload_time = service.calculate_reload_route(delivery_route[-1][0], {"de:08212:606": 3}, 4)
+    delivery_route, delivery_time = service.calculate_delivery_route(reload_stations[0], [package_one.destination.id, package_two.destination.id])
+    reload_route, reload_time = service.calculate_reload_route(delivery_route[-1][0], {reload_stations[0]: 3})
+    
     full_route = delivery_route
     full_route.extend(reload_route)
     full_time = delivery_time + reload_time

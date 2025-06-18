@@ -35,19 +35,22 @@ class RobotService:
             print(f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
 
     # Removes a package from the robot based on its ID
-    def remove_package_from_robot(self, package_id: str) -> int:
-        try:
-            for pkg in self.robot.packages:
-                if pkg.id == package_id:
-                    self.robot.packages.remove(pkg)
-                    self.robot.num_packages -= 1
-                    print(f"Package {package_id} removed from robot {self.robot.name}.")
-                    return self.robot.num_packages
-            print(f"Package {package_id} not found on robot {self.robot.name}.")
-            return self.robot.num_packages
-        except Exception as e:
-            exc_type, exc_obj, exc_tb = sys.exc_info()
-            print(f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}")
+    def remove_one_package_from_robot(self) -> int:
+        if self.robot.packages:
+            removed_package = self.robot.packages.pop()  # entfernt das letzte Paket, du kannst hier andere Logik machen
+            self.robot.num_packages -= 1
+            print(f"Package {removed_package.id} removed from robot {self.robot.name}.")
+        else:
+            print(f"No packages to remove from robot {self.robot.name}.")
+        return self.robot.num_packages
+    
+    # Removes all packages from the robot
+    def remove_all_packages_from_robot(self) -> int:
+        count = len(self.robot.packages)
+        self.robot.packages.clear()
+        self.robot.num_packages = 0
+        print(f"All {count} packages removed from robot {self.robot.name}.")
+        return self.robot.num_packages
         
     # Returns a total weight of current packages
     def get_total_package_weight(self) -> float:
@@ -56,26 +59,6 @@ class RobotService:
     # Finds a package by ID
     def get_package_by_id(self, package_id: str) -> Optional[Package]:
         return next((p for p in self.robot.packages if p.id == package_id), None)
-
-    # Simulates battery drain based on time and dissipation factor
-    # def discharge_robot(self, robot: Robot):
-    #     try: 
-    #         if self.robot.dis_charge_time < 0:
-    #             print(f"Warning: discharge time < 0 on robot {robot.name}, skipping battery calculation.")
-    #             return
-
-    #         original = robot.battery_level
-    #         robot.battery_level *= (1 - self.robot.dissipation_factor * math.sqrt(robot.dis_charge_time))
-    #         robot.battery_level = max(robot.battery_level, 0)
-
-    #         print(f"{robot.name}: Battery went from {original:.2f}% → {robot.battery_level:.2f}%")
-
-    #         if robot.battery_level <= 10:
-    #             print(f"{robot.name} is running low on battery!")
-    #         if robot.battery_level == 0:
-    #             print(f"{robot.name} has no battery left!")
-    #     except Exception as e:
-    #         print(f"Error during battery discharge: {e}")
 
     # fully recharges the robot
     def charge_robot(self) -> bool:
@@ -96,5 +79,6 @@ class RobotService:
         }
         return status
     
+    # Get all robots
     def get_all_robots(self) -> list[Robot]:
         return list(self.robots.values())

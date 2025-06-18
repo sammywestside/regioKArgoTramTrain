@@ -3,51 +3,44 @@ from typing import List
 from fastapi import APIRouter, Depends, HTTPException, Query
 import uuid
 from src.main.repository.train_repository import TrainRepository
+from src.main.service.train_service import TrainService
 from src.main.repository.repository_container import robot_repo_singleton as robot_repo
-from src.main.model.models import CargoStationInput, Package, PackageSize, Station, Coordinates
+from src.main.model.models import PakcageCreate, Package, Coordinates
 
 router = APIRouter()
+train_repo = TrainRepository()
+train_service = TrainService(train_repo)
 
 # New parcels (packages, but parcels is a term that is not part of normal informatics language) for the simulation get posted here
 @router.post("/addPackage")
-def add_new_package_to_simulation(
-    robot_id: str = Query(...),
-    weight: float = Query(...),
-    size: PackageSize = Query(PackageSize.M),
-    count: int = Query(1, ge=1)
-):
-    robot = robot_repo.get_robot_by_id(robot_id)
-    if not robot:
-        raise HTTPException(status_code=404, detail=f"Robot with id {robot_id} not found")
+def add_new_package_to_simulation(data: PakcageCreate):
+    start_id = train_service.get_station_id_by_coords(data.start)
+    start_station = train_service.get_station_by_id(start_id)
 
-    package_ids = []
-    for _ in range(count):
-        package = Package(
-            id=str(uuid.uuid4()),
-            weight=weight,
-            size=size,
-            start=Station(
-                id=f"start-{robot.id}",
-                name="Start Position",
-                coordinates=Coordinates(lat=robot.position.lat, long=robot.position.long)
-            ),
-            destination=None
-        )
+    dest_id = train_service.get_station_id_by_coords(data.destination)
+    dest_station = train_service.get_station_by_id(dest_id)
 
-        #TODO Die Pakete werden nicht direkt den Robotern angehängt sondern den Beladestationen!
-        robot.packages.append(package)
-        robot.num_packages += 1
-        package_ids.append(package.id)
+    print(f"STart: {start_station.name}, dest: {dest_station.name}")
 
-    robot_repo.update_robot(robot.id, robot)
+    package = Package(
+        id=str(uuid.uuid4()),
+        weight=data.weight,
+        size=data.size,
+        start=start_station,
+        destination=dest_station
+    )
+
+    #TODO Die Pakete werden nicht direkt den Robotern angehängt sondern den Beladestationen!
+    train_service.add_package(start_id, [package])
 
     return {
-        "message": f"{count} package(s) added to robot {robot.id}",
-        "package_ids": package_ids
+        "message": f"Package added to CargoStation {start_station.name}",
+        "package_id": package.id
     }
 
-
 # Remove one package from robot
+#TODO Eigentlich haben wir uns drauf geeinigt das Pakete nucht entfernt werden können. 
+# Nur CargoStations und Roboter
 @router.delete("/removePackage")
 def remove_package_from_robot(robot_id: str = Query(...)):
     robot = robot_repo.get_robot_by_id(robot_id)
@@ -105,51 +98,22 @@ def get_cargo():
 
 # Post cargo stations before simulation
 @router.post("/addCargoStations")
-def add_cargo_stations(data: List[CargoStationInput], train_repo: TrainRepository = Depends()):
-    updated_robots = []
+def add_cargo_stations(station_name: str = Query(...)):
+    station_id = train_service.get_station_id(station_name)
 
-    for entry in data:
-        robot = robot_repo.get_robot_by_id(entry.robot_id)
-        if not robot:
-            continue  # oder Fehler werfen
+    train_service.add_cargo_station(station_id)
 
-        valid_stations = []
-        for station in entry.stations:
-            # Nur wenn Station in TrainRepository existiert
-            known_station = train_repo.get_station_by_id(station.id)
-            if known_station:
-                valid_stations.append(known_station)
-            else:
-                raise HTTPException(status_code=400, detail=f"Station ID '{station.id}' existiert nicht.")
-
-        # TODO Warum wird die Beladestation an die Route des Roboters angehängt? 
-        # TODO Die Beladestationen sollten in die Listen-Variable angefügt werden
-        # TODO Die Variable die oben im RouteController genutzt wird.
-        robot.route.stations.extend(valid_stations)
-        robot_repo.update_robot(robot.id, robot)
-        updated_robots.append(robot.id)
-
-    return {"updated_robots": updated_robots}
+    return {"message": "New Cargo-Station created."}
 
 
 # Gets cargo stations
 @router.get("/cargoStations")
 def get_cargo_stations():
-    all_stations = []
+    cargo_station_ids = train_service.get_cargo_station_ids()
 
-    for robot in robot_repo.get_all_robots().values():
-        for station in robot.route.stations:
-            all_stations.append({
-                "robot_id": robot.id,
-                "station_id": station.id,
-                "station_name": station.name,
-                "coordinates": {
-                    "lat": station.coordinates.lat,
-                    "long": station.coordinates.long
-                }
-            })
-
-    return {
-        "total_stations": len(all_stations),
-        "cargo_stations": all_stations
-    }
+    stations = []
+    for id in cargo_station_ids:
+        name = train_service.get_station_name(id)
+        stations.append(name)
+    
+    return stations

@@ -53,6 +53,13 @@ class RobotCreate(BaseModel):
     id: str
     name: str
     battery_level: float
+    position: RobotPosition
+
+class PakcageCreate(BaseModel):
+    start: Coordinates
+    weight: float
+    size: PackageSize
+    destination: Coordinates
 
 class StationInput(BaseModel):
     robot_id: str

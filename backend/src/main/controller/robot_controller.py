@@ -104,7 +104,7 @@ def init_robots():
 # Add new robot
 @router.post("/addRobot")
 def add_robot(robot_data: RobotCreate):
-    position = RobotPosition(lat=0, long=0)
+    position = robot_data.position
     route = Route(
         stations=[],
         stops=0,
@@ -126,6 +126,17 @@ def add_robot(robot_data: RobotCreate):
     robot_repo.add_robot(robot)
     return {"message": f"Robot with id {robot.id} added."}
 
+
+@router.post("/addPackagesToRobot")
+def add_packages_to_robot(robot_id: str = Query(...)):
+    robot = robot_repo.get_robot_by_id(robot_id)
+    cargo_station = train_service.get_station_id_by_coords(robot.position)
+    packages = train_service.get_cargo_station_packages_by_id(cargo_station)
+
+    robot.packages.extend(packages)
+    robot.num_packages += len(packages)
+
+    return {"message": f"Added {len(packages)} Packages to Robot {robot.name}"}
 
 # Delete robot
 @router.delete("/removeRobot")

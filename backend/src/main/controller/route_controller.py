@@ -2,14 +2,12 @@ from ast import Return
 from fastapi import APIRouter, HTTPException, Query
 from src.main.service.route_service_2 import Route2Service
 from src.main.service.train_service import TrainService
-from src.main.repository.robot_repository import RobotRepository
-from src.main.service.robot_service import RobotService
+from src.main.repository.repository_container import robot_repo_singleton as robot_repo
 from src.main.repository.repository_container import train_repo_singleton as train_repo
-from src.main.model.models import Route, Coordinates, Package, Robot
+from src.main.model.models import Route
 
 router = APIRouter()
 train_service = TrainService(train_repo)
-robot_repo = RobotRepository()
 RELOAD_STATIONS = ["de:08212:606"]
 route_service = Route2Service(train_service, RELOAD_STATIONS)
 
@@ -87,23 +85,30 @@ def get_start_information():
 
 #calculate route
 @router.get("/route", response_model=Route)
-def get_route(start_coords: Coordinates = Query(...), robot: Robot = Query(...)):
+def get_route(robot_id: str = Query(...)):
     try:
         all_lines = train_service.load_all_line_data()
-        start_station_id = train_service.get_station_id_by_coords(start_coords)
+
+        robot = robot_repo.get_robot_by_id(robot_id)
+        print(f"Robot: {robot}")
+        start_station_id = train_service.get_station_id_by_coords(robot.position)
 
         ready = route_service.build_graph(all_lines)
         if ready: 
             packages = robot.packages
 
             delivery_targets = []
+            #TODO Package is only the packages id as string
+            # Need to rethink how I save package information in the json.
             for package in packages:
                 package_destination = package.destination.id
                 delivery_targets.append(package_destination)
             
             delivery_route, delivery_time = route_service.calculate_delivery_route(start_station_id, delivery_targets)
-            #TODO Der 2. Paramter muss ein dictionary werden, mit Struktur: {BeladeStation: AnzahlPakete}
-            reload_route, reload_time = route_service.calculate_reload_route(delivery_route[-1][0], None)
+
+            cargo_stations = train_service.get_cargo_stations()
+        
+            reload_route, reload_time = route_service.calculate_reload_route(delivery_route[-1][0], cargo_stations)
 
             full_route = delivery_route
             full_route.extend(reload_route)

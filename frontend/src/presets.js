@@ -12,7 +12,7 @@ export class Parcel{
         return this.weight; 
     }
 }
-
+//todo: models check
 export class DeliveryRobot{
     constructor(start, destination, maxNumberOfParcels){
         this.start = start;

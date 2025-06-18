@@ -33,6 +33,8 @@ def add_new_package_to_simulation(
             ),
             destination=None
         )
+
+        #TODO Die Pakete werden nicht direkt den Robotern angehängt sondern den Beladestationen!
         robot.packages.append(package)
         robot.num_packages += 1
         package_ids.append(package.id)
@@ -120,6 +122,9 @@ def add_cargo_stations(data: List[CargoStationInput], train_repo: TrainRepositor
             else:
                 raise HTTPException(status_code=400, detail=f"Station ID '{station.id}' existiert nicht.")
 
+        # TODO Warum wird die Beladestation an die Route des Roboters angehängt? 
+        # TODO Die Beladestationen sollten in die Listen-Variable angefügt werden
+        # TODO Die Variable die oben im RouteController genutzt wird.
         robot.route.stations.extend(valid_stations)
         robot_repo.update_robot(robot.id, robot)
         updated_robots.append(robot.id)

@@ -5,7 +5,7 @@ from src.main.service.train_service import TrainService
 from src.main.service.robot_service import RobotService
 from src.main.repository.repository_container import robot_repo_singleton as robot_repo
 from src.main.repository.repository_container import train_repo_singleton as train_repo
-from src.main.model.models import Robot, RobotConfigInput, Route, RobotCreate, RobotPosition
+from src.main.model.models import Package, Robot, RobotConfigInput, Route, RobotCreate, RobotPosition, Coordinates
 
 router = APIRouter()
 train_service = TrainService(train_repo)
@@ -38,10 +38,16 @@ def get_all_robot_info():
 
 # Get information of one robot
 @router.get("/RobotInfo")
-def get_robot_Info(id: str = Query(..., description="Robot ID")):
+def get_robot_Info(id: str = Query(..., description="Robot ID"), 
+                   lat: float = Query(...), long: float = Query(...)):
+    
     robot = robot_repo.get_robot_by_id(id)
     if not robot:
         raise HTTPException(status_code=404, detail=f"Robot with id {id} not found")
+    
+    robot_service = RobotService(robot)
+    pos_coords = Coordinates(lat=lat, long=long)
+    robot_service.calculate_changes(pos_coords)
 
     return {
         "id": robot.id,
@@ -58,8 +64,8 @@ def get_robot_Info(id: str = Query(..., description="Robot ID")):
     }
 
 
-# Init two robots
-@router.post("/init_robots")
+# Init two robots if none are manually created
+@router.post("/init_basic_robots")
 def init_robots():
     stations_data = train_service.get_all_line_stations("S1")
     stations = stations_data.stations[:5] if stations_data else []
@@ -72,6 +78,7 @@ def init_robots():
 
     robot1 = Robot(
         id="1",
+        name="R2D2",
         position=RobotPosition(
             lat=start_station.coordinates.lat,
             long=start_station.coordinates.long
@@ -84,6 +91,7 @@ def init_robots():
     )
     robot2 = Robot(
         id="2",
+        name="Flash",
         position=RobotPosition(
             lat=reverse_start_station.coordinates.lat,
             long=reverse_start_station.coordinates.long
@@ -104,7 +112,9 @@ def init_robots():
 # Add new robot
 @router.post("/addRobot")
 def add_robot(robot_data: RobotCreate):
-    position = robot_data.position
+    start_pos_id = train_service.get_station_id(robot_data.start_position)
+    start_pos_station = train_service.get_station_by_id(start_pos_id)
+    start_pos_coords = start_pos_station.coordinates
     route = Route(
         stations=[],
         stops=0,
@@ -115,7 +125,7 @@ def add_robot(robot_data: RobotCreate):
     robot = Robot(
         id=robot_data.id,
         name=robot_data.name,
-        position=position,
+        position=start_pos_coords,
         battery_level=robot_data.battery_level,
         status="idle",
         route=route,
@@ -131,9 +141,10 @@ def add_robot(robot_data: RobotCreate):
 @router.post("/addPackagesToRobot")
 def add_packages_to_robot(robot_id: str = Query(...)):
     robot = robot_repo.get_robot_by_id(robot_id)
-    cargo_station = train_service.get_station_id_by_coords(robot.position)
+    pos_coords = Coordinates(lat=robot.position.lat, long=robot.position.long)
+    cargo_station = train_service.get_station_id_by_coords(pos_coords)
     packages = train_service.get_cargo_station_packages_by_id(cargo_station)
-
+    
     robot.packages.extend(packages)
     robot.num_packages += len(packages)
 

@@ -196,7 +196,7 @@ class Route2Service:
             if prev_station == None:
                 prev_station = station
                 continue
-
+            
             segment_cost, segment_path = self._dijkstra(prev_station, station)
             delivery_path.extend(segment_path)
             prev_station = station

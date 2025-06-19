@@ -1,7 +1,11 @@
 import math
 import sys
 from typing import Optional
-from src.main.model.models import Robot, Package
+from src.main.model.models import Robot, Package, RobotPosition, Coordinates
+from src.main.service.train_service import TrainService
+from src.main.repository.repository_container import train_repo_singleton as train_repo
+from src.main.repository.repository_container import robot_repo_singleton as robot_repo
+
 
 
 class RobotService:
@@ -10,6 +14,7 @@ class RobotService:
 
     def __init__(self, robot: Robot):
         self.robot = robot
+        self.train_service = TrainService(train_repo)
 
     def get_capacity(self):
         return self.MAX_NUMBER_PACKAGES
@@ -64,6 +69,37 @@ class RobotService:
     def charge_robot(self) -> bool:
         self.robot.battery_level = 100.0
         return True
+    
+    def calculate_changes(self, current_pos: Coordinates):
+        try:
+            current_station_id = self.train_service.get_station_id_by_coords(Coordinates(lat=current_pos.lat, long=current_pos.long))
+
+            self.robot.position = current_pos
+
+            if self.robot.route.stations != []:
+                self.robot.battery_level -= 0.5
+
+                self.robot.route.stations.pop(0)
+                segments = self.robot.route.segments 
+                for segment in segments:
+                    if segment:
+                        segment.pop(0)
+                        break
+            
+            if self.robot.packages != []:
+                for package in self.robot.packages:
+                    if package.destination.id == current_station_id:
+                        self.robot.packages = [
+                            p for p in self.robot.packages if p.id != package.id
+                        ]
+                        self.robot.num_packages -= 1
+                        self.robot.status = "delivering"
+                    else:
+                        self.robot.status = "moving"
+        
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}; Type: {exc_type}: {e}") 
 
     # Returns a formatted status string of the robot
     def get_robot_information(self) -> dict:

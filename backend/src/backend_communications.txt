@@ -2,25 +2,10 @@ STARTEN DER APP:
 
 1. /c/projects_hfu/regioKArgoTramTrain/backend
 
-2. PYTHONPATH=src python -m uvicorn main.main:app --reload
-
+2. 
+PYTHONPATH=src python -m uvicorn main.main:app --reload
 
 Controller testen bei:
 http://127.0.0.1:8000/docs
 
-
-
-für schnelle hilfe falls chatgpt dumm ist:
-    https://www.w3schools.com/python/default.asp
-
-
-pseudo-code für Controller um Route zu berechnen:
-
-FOR each package in Robot
-    ADD destination from Package to a list
-CALL calculate_delivery_route with destination_list in parameter
-CALL build_route_object -> Route
-IF Route is done THEN 
-    CALL calculate_reload_route with current_station and dictionary of relaod_stations with current packages at each station and robot_capacity
-CALL build_route_object -> Route
 

@@ -14,13 +14,11 @@ train_service = TrainService(train_repo)
 # New parcels (packages, but parcels is a term that is not part of normal informatics language) for the simulation get posted here
 @router.post("/addPackage")
 def add_new_package_to_simulation(data: PakcageCreate):
-    start_id = train_service.get_station_id_by_coords(data.start)
+    start_id = train_service.get_station_id(data.start)
     start_station = train_service.get_station_by_id(start_id)
 
-    dest_id = train_service.get_station_id_by_coords(data.destination)
+    dest_id = train_service.get_station_id(data.destination)
     dest_station = train_service.get_station_by_id(dest_id)
-
-    print(f"STart: {start_station.name}, dest: {dest_station.name}")
 
     package = Package(
         id=str(uuid.uuid4()),
@@ -30,7 +28,6 @@ def add_new_package_to_simulation(data: PakcageCreate):
         destination=dest_station
     )
 
-    #TODO Die Pakete werden nicht direkt den Robotern angehängt sondern den Beladestationen!
     train_service.add_package(start_id, [package])
 
     return {
@@ -38,49 +35,8 @@ def add_new_package_to_simulation(data: PakcageCreate):
         "package_id": package.id
     }
 
-# Remove one package from robot
-#TODO Eigentlich haben wir uns drauf geeinigt das Pakete nucht entfernt werden können. 
-# Nur CargoStations und Roboter
-@router.delete("/removePackage")
-def remove_package_from_robot(robot_id: str = Query(...)):
-    robot = robot_repo.get_robot_by_id(robot_id)
-    if not robot:
-        raise HTTPException(status_code=404, detail=f"Robot with id {robot_id} not found")
-
-    from src.main.service.robot_service import RobotService
-    robot_service = RobotService(robot)
-    before = robot.num_packages
-
-    robot_service.remove_one_package_from_robot()
-    robot_repo.update_robot(robot.id, robot)
-
-    if before == robot.num_packages:
-        raise HTTPException(status_code=404, detail=f"No packages found on robot {robot_id}")
-    return {"message": f"One package removed from robot {robot_id}."}
-
-
-# Remove all packages from robot
-@router.delete("/removeAllPackages")
-def remove_all_packages_from_robot(robot_id: str = Query(...)):
-    robot = robot_repo.get_robot_by_id(robot_id)
-    if not robot:
-        raise HTTPException(status_code=404, detail=f"Robot with id {robot_id} not found")
-
-    from src.main.service.robot_service import RobotService
-    robot_service = RobotService(robot)
-
-    count_before = robot.num_packages
-    robot_service.remove_all_packages_from_robot()
-    robot_repo.update_robot(robot.id, robot)
-
-    if count_before == 0:
-        return {"message": f"No packages to remove on robot {robot_id}."}
-    else:
-        return {"message": f"All {count_before} packages removed from robot {robot_id}."}
-
-
 # Gets current cargo from all robots
-@router.get("/cargo")
+@router.get("/cargoOnDelivery")
 def get_cargo():
     all_cargo = []
     
@@ -100,11 +56,24 @@ def get_cargo():
 @router.post("/addCargoStations")
 def add_cargo_stations(station_name: str = Query(...)):
     station_id = train_service.get_station_id(station_name)
+    
+    if station_id:
+        train_service.add_cargo_station(station_id)
 
-    train_service.add_cargo_station(station_id)
+        return {"message": "New Cargo-Station created."}
+    else:
+        raise HTTPException(status_code=404, detail=f"{station_name} not found.")
 
-    return {"message": "New Cargo-Station created."}
+@router.post("/deleteCargoStation")
+def delete_cargo_station(station_name: str = Query(...)):
+    station_id = train_service.get_station_id(station_name)
+    print(f"Station to remove: {station_id}")
+    if station_id:
+        train_service.remove_cargo_station(station_id)
 
+        return {"message": f"{station_name} as CargoStation deleted."}
+    else:  
+        raise HTTPException(status_code=404, detail=f"{station_name} not found.")
 
 # Gets cargo stations
 @router.get("/cargoStations")

@@ -114,6 +114,7 @@ def add_robot(robot_data: RobotCreate):
     )
     robot = Robot(
         id=robot_data.id,
+        name=robot_data.name,
         position=position,
         battery_level=robot_data.battery_level,
         status="idle",
@@ -135,6 +136,8 @@ def add_packages_to_robot(robot_id: str = Query(...)):
 
     robot.packages.extend(packages)
     robot.num_packages += len(packages)
+
+    train_service.remove_package(cargo_station, robot.packages)
 
     return {"message": f"Added {len(packages)} Packages to Robot {robot.name}"}
 

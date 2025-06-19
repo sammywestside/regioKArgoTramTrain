@@ -23,6 +23,7 @@ class Route(BaseModel):
     transfer: List[Station]
     travel_time: float
     transfer_time: float
+    segments: Optional[List[List[Station]]] = None
 
 class PackageSize(str, Enum):
     S = "S"

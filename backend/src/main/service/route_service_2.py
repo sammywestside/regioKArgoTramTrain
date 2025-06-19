@@ -62,7 +62,7 @@ class Route2Service:
             self.graph = graph
             self.station_coords = station_coords
 
-            return graph, station_coords
+            return True
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             print(

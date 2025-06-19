@@ -7,18 +7,15 @@ class Coordinates(BaseModel):
     lat: float
     long: float
 
-
 class Station(BaseModel):
     id: str
     name: str
     coordinates: Coordinates
 
-
 class LineData(BaseModel):
     line_name: str
     stations: List[Station]
     travel_time: Optional[int] = None
-
 
 class Route(BaseModel):
     stations: List[Station]
@@ -26,7 +23,6 @@ class Route(BaseModel):
     transfer: List[Station]
     travel_time: float
     transfer_time: float
-
 
 class PackageSize(str, Enum):
     S = "S"
@@ -37,21 +33,33 @@ class PackageSize(str, Enum):
 class Package(BaseModel):
     id: str
     start: Optional[Station]
-    destination: Optional[Station] = None # optional
-    weight: float   # in kg
+    destination: Optional[Station] = None  # optional
+    weight: float  # in kg
     size: PackageSize
 
+RobotPosition = Coordinates
 
 class Robot(BaseModel):
     id: str
-    position: Station = None
+    name: str = ""
+    position: RobotPosition = RobotPosition(lat=0, long=0)
     battery_level: float = 100.0
-    status: str  = "idle"         # 'idle', 'moving', 'charging', etc.
-    route: Route = {}
-    packages: List[Package] = []  # jetzt als Liste von echten Packages
+    status: str = "idle"
+    route: Optional[Route] = None
+    packages: List[Package] = []
     num_packages: int = 0
-    # dis_charge_time: float
-    # dissipation_factor: float
+
+class RobotCreate(BaseModel):
+    id: str
+    name: str
+    battery_level: float
+    position: RobotPosition
+
+class PakcageCreate(BaseModel):
+    start: Coordinates
+    weight: float
+    size: PackageSize
+    destination: Coordinates
 
 class StationInput(BaseModel):
     robot_id: str
@@ -63,5 +71,5 @@ class CargoStationInput(BaseModel):
 
 class RobotConfigInput(BaseModel):
     robot_id: str
-    battery_level: float | None = None
-    status: str | None = None
+    battery_level: Optional[float] = None
+    status: Optional[str] = None

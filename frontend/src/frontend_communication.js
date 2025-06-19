@@ -1,3 +1,18 @@
+export function initialFetch(){
+
+  fetch('http://127.0.0.1:8000/', {
+  method: 'GET',
+  headers: {
+  }
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+
+  
+}
+
+
 export function sendNewParcel(station, destination, weight, volume){
 
 station = setNullOnEmptyVar(station); 
@@ -33,6 +48,7 @@ volume = setNullOnEmptyVar(destination);
 
 }
 
+//Name, station, drain over time minutes, 
 export function sendRobotConfig(batteryCapcity, drainPerUnitTraveled, cargoCapacity, weightCapacity){
 
   batteryCapcity = setNullOnEmptyVar(batteryCapcity);
@@ -68,143 +84,8 @@ export function sendRobotConfig(batteryCapcity, drainPerUnitTraveled, cargoCapac
 
 }
 
-export function sendSimulationSpeed(simulationSpeed){
 
-  simulationSpeed = setNullOnEmptyVar(simulationSpeed); 
-
-  fetch('http://127.0.0.1:8000/simSpeed', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    simulationSpeed: simulationSpeed
-  })
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-})
-.then(data => {
-  console.log('Success:', data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
-  
-}
-
-export function sendStopRequest(){
-
-  fetch('http://127.0.0.1:8000/stop', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    request: 'stop'
-  })
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-})
-.then(data => {
-  console.log('Success:', data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
-  
-}
-
-export function sendStartRequest(){
-
-  fetch('http://127.0.0.1:8000/start', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    request: 'start'
-  })
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-})
-.then(data => {
-  console.log('Success:', data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
-  
-}
-
-export function sendPauseRequest(){
-
-  fetch('http://127.0.0.1:8000/pause', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    request: 'pause'
-  })
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-})
-.then(data => {
-  console.log('Success:', data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
-  
-}
-
-export function sendRestartRequest(){
-
-  fetch('http://127.0.0.1:8000/restart', {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    request: 'restart'
-  })
-})
-.then(response => {
-  if (!response.ok) {
-    throw new Error('Network response was not ok');
-  }
-  return response.json();
-})
-.then(data => {
-  console.log('Success:', data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
-  
-}
-
+//todo: add url parameter robot name
 export function getAllRobotInfo(){
 
   fetch('http://127.0.0.1:8000/allRobotInfo', {
@@ -233,6 +114,7 @@ export function getCurrentBatterieCapacity(){
   
 }
 
+//robot parameter
 export function getCurrentBatterieCharge(){
   
   fetch('http://127.0.0.1:8000/batterieCharge', {
@@ -302,19 +184,53 @@ export function getFastestRoute(){
   
 }
 
-export function getLines(){
-
-  fetch('http://127.0.0.1:8000/lines', {
-  method: 'GET',
-  headers: {
+export async function getLines() {
+  try {
+    const response = await fetch('http://127.0.0.1:8000/api/lines');
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error; 
   }
-})
-.then(response => response.json())
-.then(data => console.log(data))
-.catch(error => console.error('Error:', error));
-
-  
 }
+
+
+export async function getLineCoords(id) {
+  
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/api/lines/coords/${encodeURIComponent(id)}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error; 
+  }
+}
+
+
+export async function getLineStations(id) {
+  console.log(id); 
+  try {
+    const response = await fetch(`http://127.0.0.1:8000/api/line/stations/{lines_id}?line_id=${id}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error);
+    throw error; 
+  }
+}
+
+
 
 export function getNextStop(){
 

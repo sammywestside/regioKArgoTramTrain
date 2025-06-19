@@ -208,10 +208,10 @@ class Route2Service:
         candidates = [
             s for s in self.reload_stations if station_package_counts.get(s, 0) > 0
         ]
+        print(f"candidates: {candidates}")
         if not candidates:
             return []
         
-        best = None
         best_score = -1
         best_path = []
         best_path_cost = 0.0
@@ -233,27 +233,33 @@ class Route2Service:
         try:
             stations: list[models.Station] = []
             transfer: list[models.Station] = []
+            segments = []
+            current_segment = []
             last_line = None
 
-            for i in range(len(full_path)):
-                station_id, line = full_path[i]
-                stations.append(
-                    self.train_service.get_station_by_id(station_id))
+            for i, (station_id, line) in enumerate(full_path):
+                station = self.train_service.get_station_by_id(station_id)
+                stations.append(station)
 
-                if i < len(full_path) - 1:
+                if last_line is None or line == last_line:
+                    current_segment.append(station)
+                else:
+                    segments.append(current_segment)
+                    current_segment = [station]
+                    transfer.append(station)
 
-                    if last_line is not None and line != last_line:
-                        transfer.append(
-                            self.train_service.get_station_by_id(station_id))
-
-                    last_line = line
+                last_line = line
+            
+            if current_segment:
+                segments.append(current_segment)
 
             route = models.Route(
                 stations=stations,
                 stops=len(stations) - 1,
                 transfer=transfer,
                 travel_time=total_cost,
-                transfer_time=TRANSFER_PENALTY * len(transfer)
+                transfer_time=TRANSFER_PENALTY * len(transfer),
+                segments=segments
             )
 
             return route

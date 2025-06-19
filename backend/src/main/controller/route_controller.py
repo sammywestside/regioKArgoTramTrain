@@ -1,3 +1,4 @@
+import traceback
 from ast import Return
 from fastapi import APIRouter, HTTPException, Query
 from src.main.service.route_service_2 import Route2Service
@@ -9,7 +10,6 @@ from src.main.model.models import Route
 router = APIRouter()
 train_service = TrainService(train_repo)
 RELOAD_STATIONS = ["de:08212:606"]
-route_service = Route2Service(train_service, RELOAD_STATIONS)
 
 
 # Get all the informationen needed to start the application
@@ -18,6 +18,8 @@ def get_start_information():
     try:
         lines_data = train_repo.load_lines_v2()
         lines = lines_data.get("lines", [])
+
+        route_service = Route2Service(train_service, RELOAD_STATIONS)
 
         stations_data = train_service.train_repo.load_stations_data()
         coordinates = [
@@ -93,6 +95,10 @@ def get_route(robot_id: str = Query(...)):
         print(f"Robot: {robot}")
         start_station_id = train_service.get_station_id_by_coords(robot.position)
 
+        reload_stations = train_service.get_cargo_station_ids()
+
+        route_service = Route2Service(train_service, reload_stations)
+
         ready = route_service.build_graph(all_lines)
         if ready: 
             packages = robot.packages
@@ -101,8 +107,9 @@ def get_route(robot_id: str = Query(...)):
             #TODO Package is only the packages id as string
             # Need to rethink how I save package information in the json.
             for package in packages:
-                package_destination = package.destination.id
-                delivery_targets.append(package_destination)
+                package_destination = package["destination"]
+                dest_id = train_service.get_station_id(package_destination)
+                delivery_targets.append(dest_id)
             
             delivery_route, delivery_time = route_service.calculate_delivery_route(start_station_id, delivery_targets)
 
@@ -116,12 +123,12 @@ def get_route(robot_id: str = Query(...)):
             full_time = delivery_time + reload_time
 
             route = route_service.build_route_object(full_route, full_time)
-            print("DEBUG: route object:", route)
-            print("DEBUG: route.stations:", getattr(route, "stations", "not present"))
             return route
 
         raise HTTPException(status_code=404, detail="Could not build graph of all lines.")
     except Exception as e:
+        print("Exception occurred:")
+        traceback.print_exc()
         raise HTTPException(status_code=500, detail=str(e))
 
 
@@ -129,6 +136,8 @@ def get_route(robot_id: str = Query(...)):
 @router.get("/route/steps")
 def get_route_steps(start: str = Query(...), end: str = Query(...)):
     try:
+        route_service = Route2Service(train_service, RELOAD_STATIONS)
+
         all_lines = []
         for line in train_repo.load_lines_v2()["lines"]:
             stations = train_service.get_all_line_stations(line["number"])

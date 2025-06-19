@@ -219,7 +219,15 @@ class TrainService:
 
             for station in data:
                 if station["id"] == station_id:
-                    station["packages"].extend([pkg.id for pkg in packages])
+                    station["packages"].extend([
+                        {                        
+                            "id": pkg.id,
+                            "destination": self.get_station_by_id(self.get_station_id_by_coords(pkg.destination.coordinates)).name,
+                            "size": pkg.size,
+                            "weight": pkg.weight
+                        } 
+                        for pkg in packages
+                        ])
                     self.train_repo.save_cargo_station_data(data)
                     return
 
@@ -263,8 +271,9 @@ class TrainService:
             stations = {}
 
             for station in data:
-                stations[station["id"]: len(station["packages"])]
+                stations[station["id"]] = len(station["packages"])
 
+            print(f"cargo_stations: {stations}")
             return stations
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()

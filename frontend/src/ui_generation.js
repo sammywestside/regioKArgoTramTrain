@@ -68,7 +68,7 @@ async function loadHaltestellenData() {
     }
 
     const data = await response.json();
-    console.log('Data loaded:', data);
+    //console.log('Data loaded:', data);
     return data;
 
   } catch (error) {
@@ -108,13 +108,13 @@ function populateDropdown(dropdownId, data) {
 (async () => {
   const data = await loadHaltestellenData();
   let onlyStationIDsOnLineFourAndFive = stations_line4.concat(stations_line_5); 
-  console.log("File 1: ", stations_line4);
-  console.log("File 2: ", stations_line_5)
-  console.log("Joined files: ", onlyStationIDsOnLineFourAndFive); 
+  //console.log("File 1: ", stations_line4);
+  //console.log("File 2: ", stations_line_5)
+  //console.log("Joined files: ", onlyStationIDsOnLineFourAndFive); 
   let strippedArrayNamesAndIDs = discardIrrelevantInfo(data); 
-  console.log("Stripped data: ", strippedArrayNamesAndIDs); 
+  //console.log("Stripped data: ", strippedArrayNamesAndIDs); 
   let finalSet = filterByMatchingIds(strippedArrayNamesAndIDs, onlyStationIDsOnLineFourAndFive); 
-  console.log("Final refined data: ", finalSet);
+  //console.log("Final refined data: ", finalSet);
   populateDropdown('start_content', finalSet);
   populateDropdown('destination_content', finalSet); 
 })();

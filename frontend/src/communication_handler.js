@@ -5,34 +5,34 @@ export async function getAllLines() {
   try {
     const rawData = await frontendComms.getLines();
 
-    console.log("raw: ", rawData); 
+    //console.log("raw: ", rawData); 
 
     const filteredLines = rawData.map(line => ({
       color: line.color,
       name: line.name,
-      number: line.number 
+      number: line.number, 
+      stations: []
     }));
 
-
-    filteredLines.forEach(async line => {
-
-        let fullStations = await frontendComms.getLineStations(line.number); 
-
-        line.stations = fullStations.stations; 
-
-    }); 
+   
+    await Promise.all(
+    filteredLines.map(async line => {
+      let fullStations = await frontendComms.getLineStations(line.number);
+      line.stations = fullStations.stations; 
+    })
+  );
 
      const rawLines = rawData.map(line => ({
         stations: line.stations 
     }));
 
-    console.log("rawLines: ", rawLines); 
+    //console.log("rawLines: ", rawLines); 
 
-    console.log("look ", filteredLines); 
+    //console.log("look ", filteredLines); 
 
     return filteredLines;
   } catch (error) {
-    console.error("Error fetching lines:", error);
+    //console.error("Error fetching lines:", error);
     return []; // Optional fallback
   }
 }

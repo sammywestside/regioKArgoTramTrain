@@ -100,4 +100,9 @@ canvas {
   #title {
     text-align: center;
   }
+
+  #map{
+    max-width: 80vw;
+    max-height: 80vh; 
+  }
  

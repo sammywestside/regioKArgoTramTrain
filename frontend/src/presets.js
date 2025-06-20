@@ -14,9 +14,9 @@ export class Parcel{
 }
 //todo: models check
 export class DeliveryRobot{
-    constructor(start, destination, maxNumberOfParcels){
-        this.start = start;
-        this.destination = destination
+    constructor(id, name, postition, batterieLevel, route, packages){
+
+        this.id = id
         this.deliveryRoute = []
         this.maxNumberOfParcels = maxNumberOfParcels; 
         this.cargo = []; 
@@ -28,10 +28,6 @@ export class DeliveryRobot{
 
     getStart(){
         return this.start; 
-    }
-
-    getDestination(){
-        return this.destination; 
     }
 
     getMaxNumberOfParcelsCarried(){

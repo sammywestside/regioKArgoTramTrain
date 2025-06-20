@@ -1,5 +1,7 @@
 import * as frontendComms from './frontend_communication.js';
 
+let robots = []; 
+
 //returns all filtered data for all lines. Data includes color as hexcode, name, number and an array of all stations.
 export async function getAllLines() {
   try {
@@ -33,6 +35,24 @@ export async function getAllLines() {
     return filteredLines;
   } catch (error) {
     console.error("Error fetching lines:", error);
-    return []; // Optional fallback
+    return []; 
+  }
+}
+
+
+export async function getRobotInfo(id){
+
+  if(robots.length != 0){
+
+
+  }
+
+  try {
+    const rawData = await frontendComms.getLines();
+
+    
+  } catch (error) {
+    console.error("Error fetching lines:", error);
+    return []; 
   }
 }

@@ -288,7 +288,6 @@ class TrainService:
             for station in data:
                 stations[station["id"]] = len(station["packages"])
 
-            print(f"cargo_stations: {stations}")
             return stations
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -303,7 +302,6 @@ class TrainService:
             for station in data:
                 if station["id"] == id:
                     for pkg in station["packages"]:
-                        print(pkg)
                         pkg_id = pkg["id"]
                         start = self.get_station_by_id(id)
                         dest = self.get_station_by_id(self.get_station_id(pkg["destination"]))

@@ -119,9 +119,14 @@ def get_reload_route(robot_id: str = Query(...)):
 
         ready = route_service.build_graph(all_lines)
         if ready: 
-            cargo_stations = train_service.get_cargo_stations()
+            cargo_stations_list = train_service.get_cargo_stations()
         
+            cargo_stations = {}
+            for station in cargo_stations_list:
+                cargo_stations[station] = len(train_service.get_cargo_station_packages_by_id(station))
+
             reload_route, reload_time = route_service.calculate_reload_route(start_station_id, cargo_stations)
+
 
             full_route = reload_route
 

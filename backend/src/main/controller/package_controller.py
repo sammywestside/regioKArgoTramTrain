@@ -14,10 +14,10 @@ train_service = TrainService(train_repo)
 # New parcels (packages, but parcels is a term that is not part of normal informatics language) for the simulation get posted here
 @router.post("/addPackage")
 def add_new_package_to_simulation(data: PakcageCreate):
-    start_id = train_service.get_station_id_by_coords(data.start)
+    start_id = train_service.get_station_id(data.start)
     start_station = train_service.get_station_by_id(start_id)
 
-    dest_id = train_service.get_station_id_by_coords(data.destination)
+    dest_id = train_service.get_station_id(data.destination)
     dest_station = train_service.get_station_by_id(dest_id)
 
     print(f"STart: {start_station.name}, dest: {dest_station.name}")
@@ -30,7 +30,6 @@ def add_new_package_to_simulation(data: PakcageCreate):
         destination=dest_station
     )
 
-    #TODO Die Pakete werden nicht direkt den Robotern angehängt sondern den Beladestationen!
     train_service.add_package(start_id, [package])
 
     return {

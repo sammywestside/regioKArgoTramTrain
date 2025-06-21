@@ -273,7 +273,6 @@ class TrainService:
             for station in data:
                 stations[station["id"]] = len(station["packages"])
 
-            print(f"cargo_stations: {stations}")
             return stations
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()

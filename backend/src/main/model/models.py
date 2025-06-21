@@ -23,7 +23,7 @@ class Route(BaseModel):
     transfer: List[Station]
     travel_time: float
     transfer_time: float
-    segments: Optional[List[List[Station]]] = None
+    segments: Optional[List[List[Station]]] = []
 
 class PackageSize(str, Enum):
     S = "S"
@@ -54,13 +54,13 @@ class RobotCreate(BaseModel):
     id: str
     name: str
     battery_level: float
-    position: RobotPosition
+    position: str
 
 class PakcageCreate(BaseModel):
-    start: Coordinates
+    start: str
     weight: float
     size: PackageSize
-    destination: Coordinates
+    destination: str
 
 class StationInput(BaseModel):
     robot_id: str

@@ -5,7 +5,7 @@ from src.main.service.train_service import TrainService
 from src.main.service.robot_service import RobotService
 from src.main.repository.repository_container import robot_repo_singleton as robot_repo
 from src.main.repository.repository_container import train_repo_singleton as train_repo
-from src.main.model.models import Robot, RobotConfigInput, Route, RobotCreate, RobotPosition
+from src.main.model.models import Robot, RobotConfigInput, Route, RobotCreate, RobotPosition, Coordinates
 
 router = APIRouter()
 train_service = TrainService(train_repo)
@@ -38,10 +38,16 @@ def get_all_robot_info():
 
 # Get information of one robot
 @router.get("/RobotInfo")
-def get_robot_Info(id: str = Query(..., description="Robot ID")):
+def get_robot_Info(id: str = Query(..., description="Robot ID"), 
+                   lat: float = Query(...), long: float = Query(...)):
+    
     robot = robot_repo.get_robot_by_id(id)
     if not robot:
         raise HTTPException(status_code=404, detail=f"Robot with id {id} not found")
+
+    robot_service = RobotService(robot)
+    pos_coords = Coordinates(lat=lat, long=long)
+    robot_service.calculate_changes(pos_coords)
 
     return {
         "id": robot.id,
@@ -104,7 +110,10 @@ def init_robots():
 # Add new robot
 @router.post("/addRobot")
 def add_robot(robot_data: RobotCreate):
-    position = robot_data.position
+    position_station_name = robot_data.position
+    position_id = train_service.get_station_id(position_station_name)
+    position_station = train_service.get_station_by_id(position_id)
+    position = position_station.coordinates
     route = Route(
         stations=[],
         stops=0,
@@ -136,6 +145,7 @@ def add_packages_to_robot(robot_id: str = Query(...)):
 
     robot.packages.extend(packages)
     robot.num_packages += len(packages)
+    robot.battery_level = min(100, robot.battery_level + len(packages) * 2)
 
     train_service.remove_package(cargo_station, robot.packages)
 

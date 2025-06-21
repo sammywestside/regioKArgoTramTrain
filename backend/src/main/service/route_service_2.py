@@ -208,7 +208,7 @@ class Route2Service:
         candidates = [
             s for s in self.reload_stations if station_package_counts.get(s, 0) > 0
         ]
-        print(f"candidates: {candidates}")
+
         if not candidates:
             return []
         
@@ -217,6 +217,7 @@ class Route2Service:
         best_path_cost = 0.0
 
         for s in candidates:
+            print(f"Djikstra for {current_station_id} and {s}")
             path_cost, path = self._dijkstra(current_station_id, s)
             packages = station_package_counts[s]
             score = packages / path_cost

@@ -426,7 +426,7 @@ export async function getLineStations(id) {
 //working. id is passed as string. Returns a data package that contains: 1. segments, this is an array of arrays. These arrays describe the stations a robot travels along one tram line. Each array = a line. 2. stations, an array of all stations that the robot travels to. 3. stops the number os stops. 4. transfers, an array of the stations where a robot has to swap to a different line. 5. transfer_time, time it takes the robot to transfer at a line swap. 6. travel_time, the amount of time the robot needs to travel 
 export async function getDeliveryRoute(id) { 
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/delivery_route?robot_id=${id}`);
+    const response = await fetch(`http://127.0.0.1:8000/api/deliveryRoute?robot_id=${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -442,7 +442,7 @@ export async function getDeliveryRoute(id) {
 //working. id is passed as string. returns a data package like in getDeliveryRoute. 
 export async function reloadRoute(id) { 
   try {
-    const response = await fetch(`http://127.0.0.1:8000/api/reload_route?robot_id=${id}`);
+    const response = await fetch(`http://127.0.0.1:8000/api/reloadRoute?robot_id=${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }

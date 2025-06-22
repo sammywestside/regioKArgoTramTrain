@@ -1,5 +1,5 @@
 import { getAllLines } from "./communication_handler.js";
-import { startRoboAnimation } from './animation.js';
+import {startRobotManager} from './animation.js'; 
 
 const fullData  = await getAllLines();
 const map = L.map('map').setView([48.95, 8.55], 11);
@@ -72,11 +72,4 @@ const roboIcon = L.icon({
   iconAnchor: [16, 16]
 });
 
-//Testing of animation
-const line = fullData[0];
-const latlngs = line.stations.map(station => [
-  parseFloat(station.coordinates.lat),
-  parseFloat(station.coordinates.long)
-]);
-
-startRoboAnimation(map, latlngs, roboIcon);
+startRobotManager(map, roboIcon);

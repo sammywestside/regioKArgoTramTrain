@@ -1,54 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>regioKArgoTramTrain Simulation Application - Map</title>
 
   <link rel="stylesheet" href="/frontend/static/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <style>
-    #map {
-      width: 100vw;
-      height: 100vh;
-      z-index: 0;
-    }
-  </style>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"defer></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+  <script src="https://kit.fontawesome.com/45aa22d528.js" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
   <script type="module" src="/frontend/src/presets.js" defer></script>
   <script type="module" src="/frontend/src/ui_generation.js" defer></script>
   <script type="module" src="/frontend/src/ui_handler.js" defer></script>
   <script type="module" src="/frontend/src/communication_handler.js" defer></script>
   <script type="module" src="/frontend/src/frontend_communication.js" defer></script>
+  <script type="module" src="/frontend/src/script.js" defer></script>
 </head>
+
 <body>
+  <div id="sim_panel" class="panel">
+    <div>
+      <label for="sim_speed">Geschwindigkeit</label>
+      <input type="range" id="sim_speed" class="pointer" min="0" max="10" step="1" value="0">
+    </div>
+    <div>
+      <button id="active_button_play" class="pointer"><i class="fas fa-play"></i></button>
+      <button id="active_button_pause" class="pointer"><i class="fas fa-pause"></i></button>
+      <button id="active_button_stop" class="pointer"><i class="fas fa-stop"></i></button>
+      <button id="active_button_rotate" class="pointer"><i class="fas fa-rotate-left"></i></button>
+    </div>
+  </div>
+
+  <div id="add_package" class="pointer panel" title="Neues Paket konfigurieren">
+    <i class="fas fa-box"></i>
+  </div>
+
+  <div id="package_panel" class="panel">
+    <span class="headline">Neues Paket hinzufügen</span>
+    <button class="pointer" id="close_package"><i class="fas fa-xmark"></i></button>
+
+    <form id="package_form">
+
+      <div class="package_div_column">
+        <label for="package_weight">Gewicht</label>
+        <div class="input_span">
+          <input type="text" id="package_weight">
+          <span>Gramm</span>
+        </div>
+
+        <div class="dropdown">
+          <div id="toggle_dropdown_start" class="pointer">
+            <div class="angle_label">
+              <label class="pointer" for="package_start">Beladestation</label>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <input type="text" id="package_start" disabled>
+          </div>
+          <!-- dropdown -->
+          <div id="drop_content_start" class="dropdown-content">
+            <input type="text" placeholder="Suchen..." class="search_input" id="input_start"
+              onkeyup="searchStation(this, 'drop_content_start')">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="package_div_column">
+        <div class="dropdown">
+
+          <div class="pointer" id="toggle_dropdown_size">
+            <div class="angle_label">
+              <label class="pointer" for="package_size">Maße</label>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <input type="text" id="package_size" disabled>
+          </div>
+          <!-- dropdown -->
+          <div id="drop_content_size" class="dropdown-content">
+            <span class="pointer" id="select_from_drop_s">S</span>
+            <span class="pointer" id="select_from_drop_m">M</span>
+            <span class="pointer" id="select_from_drop_l">L</span>
+            <span class="pointer" id="select_from_drop_xl">XL</span>
+          </div>
+        </div>
+        <div class="dropdown">
+
+          <div class="pointer" id="toggle_dropdown_end">
+            <div class="angle_label">
+              <label class="pointer" for="package_end">Zielstation</label>
+              <i class="fas fa-angle-down"></i>
+            </div>
+            <input type="text" id="package_end" disabled>
+          </div>
+          <!-- dropdown -->
+          <div id="drop_content_end" class="dropdown-content">
+            <input type="text" placeholder="Suchen..." class="search_input" id="input_end"
+              onkeyup="searchStation(this, 'drop_content_end')">
+          </div>
+        </div>
+      </div>
+    </form>
+    <button type="submit" class="pointer" id="addpackage_button"><i class="fas fa-plus"></i></button>
+  </div>
+
+  <div id="info_panel" class="panel">
+    <!-- dropdown -->
+    <div id="info_drop_content" class="dropdown-content">
+      <input type="text" placeholder="Suchen..." class="search_input" id="input_info"
+        onkeyup="searchStation(this, 'info_drop_content')">
+    </div>
+  </div>
+
 
   <div id="map"></div>
 
-  <div class="info_container">
-    <p id="title">Delivery Robot info:</p>
-    <div id="robot_info">
-      <p id="robot_info_start" class="robot_info">Start: </p>
-      <p id="robot_info_destination" class="robot_info">Destination: </p>
-      <p id="robot_info_deliveryRoute" class="robot_info">Delivery Route: </p>
-      <p id="robot_info_maxNumberOfPackages" class="robot_info">Max Number of Packages: </p>
-      <p id="robot_info_cargo" class="robot_info">Cargo: </p>
-    </div>
-  </div>
-
-  <div class="settings_container">
-    <div class="dropdown">
-      <select class="dropdown-content" id="start_content"></select>
-    </div>
-    <div class="dropdown">
-      <select class="dropdown-content" id="destination_content"></select>
-    </div>
-    <button id="submit_button">Submit</button>
-  </div>
+  <script>
+    // search in package-panel dropdown for stations
+    // input_id: input-field as HTML-element
+    // content_id: id of div around dropdown-content (like span or input) to search in
+    function searchStation(input, content_id) {
+      console.log("searching");
+      var input, filter, span, i;
+      filter = input.value.toUpperCase();
+      div = document.getElementById(content_id);
+      span = div.getElementsByTagName("span");
+      for (i = 0; i < span.length; i++) {
+        console.log("yes");
+        txtValue = span[i].textContent || span[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          span[i].style.display = "";
+        } else {
+          span[i].style.display = "none";
+        }
+      }
+    }
+  </script>
 
   <script type="module" src="/frontend/src/draw_map.js"></script>
   <script type="module" src="/frontend/src/animation.js"></script>
 
 
 </body>
+
 </html>

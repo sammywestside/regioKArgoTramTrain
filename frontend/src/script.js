@@ -1,6 +1,7 @@
 // Import all functions from the communication module
 import * as communication from "./frontend_communication.js";
 
+
 defaultInfo();
 
 // show last clicked sim-panel button
@@ -39,30 +40,26 @@ function toggleDropdown(drop_id) {
 // item: text of selected element from dropdown
 // input_id: id of input to show selection in
 // drop_id: id of div around dropdown-content (like span or input)
-function selectFromDrop(item, input_id, drop_id) {
+async function selectFromDrop(item, input_id, drop_id) {
     document.getElementById(input_id).value = item;
+
+    if(input_id === "input_info"){
+        await communication.addCargoStationByName(item); 
+    }
     toggleDropdown(drop_id);
 }
 
 // update stations in dropdowns in package-panel
 // drop_id: id of div around dropdown-content (like span or input)
-function updateStationsDrop(drop_id) {
-    const stations_start = [
-        "Karlsruhe Weinbrennerplatz",
-        "Karlsruhe Mühlburger Tor",
-        "Durlach Bahnhof"
-    ];
+async function updateStationsDrop(drop_id) {
+    const stationsData = await communication.getAllStations();
+    let allStations = []; 
+    for (const station of stationsData) {
+        allStations.push(station.name); 
+    }
 
-    const stations_end = [
-        "Karlsruhe Weinbrennerplatz",
-        "Karlsruhe Mühlburger Tor",
-        "Durlach Bahnhof",
-        "Karlsruhe Schillerstraße",
-        "Waldstadt Zentrum",
-        "KA Ettlinger Tor/Staatstheater",
-        "Karlsruhe Ostendstraße"
-    ];
-
+    const cargoStations = await communication.getCargoStations(); 
+ 
     let container;
     let stations;
     let package_type;
@@ -70,11 +67,11 @@ function updateStationsDrop(drop_id) {
     if (drop_id != 'info_drop_content') {
         if (drop_id === 'drop_content_start') {
             container = document.getElementById("drop_content_start");
-            stations = stations_start;
+            stations = cargoStations;
             package_type = "package_start";
         } else if (drop_id === 'drop_content_end') {
             container = document.getElementById("drop_content_end");
-            stations = stations_end;
+            stations = allStations;
             package_type = "package_end";
         }
 
@@ -90,7 +87,7 @@ function updateStationsDrop(drop_id) {
         });
     } else {
         container = document.getElementById("info_drop_content");
-        stations = stations_end;
+        stations = allStations;
 
         const spans = container.querySelectorAll("span");
         spans.forEach(span => span.remove());
@@ -108,7 +105,7 @@ function updateStationsDrop(drop_id) {
 }
 
 // add configured package 
-function addPackage() {
+async function addPackage() {
     const weight = document.getElementById("package_weight").value;
     const size = document.getElementById("package_size").value;
     const start = document.getElementById("package_start").value;
@@ -116,15 +113,17 @@ function addPackage() {
 
     if (weight && weight != null && size && size != null && start && start != null && end && end != null) {
         console.log(weight + size + start + end);
+        await communication.addNewPackage(start, end, size, weight)
     }
 
     toggleConfigurePackage();
 }
 
 // display info in default info-panel (also, when clicked on part of map that is not robot, line, station or other special)
-function defaultInfo() {
+async function defaultInfo() {
     let robot;
-    let start_station;
+    let start_station = await communication.getCargoStations(); 
+    console.log(start_station); 
     const info_panel = document.getElementById("info_panel");
     info_panel.innerHTML = "";
 
@@ -196,12 +195,12 @@ function defaultInfo() {
         let str1 = document.createElement("tr");
         str1.id = "start_station_1";
         let std1 = document.createElement("td");
-        std1.innerHTML = start_station[0].name; //name of startstation
+        std1.innerHTML = start_station[0]; //name of startstation
         let std2 = document.createElement("td");
         let si1 = document.createElement("i");
         si1.id = "station_trash_1";
         si1.classList.add("fas", "fa-trash", "pointer");
-        si1.onclick = () => deleteStart(si1.id);
+        si1.onclick = () => deleteStart(start_station[0]);
 
         info_panel.appendChild(stable1);
         stable1.appendChild(str1);
@@ -213,12 +212,12 @@ function defaultInfo() {
             let str2 = document.createElement("tr");
             str2.id = "start_station_2";
             let std3 = document.createElement("td");
-            std3.innerHTML = start_station[1].name; //name of startstation
+            std3.innerHTML = start_station[1]; //name of startstation
             let std4 = document.createElement("td");
             let si2 = document.createElement("i");
             si2.id = "station_trash_2";
             si2.classList.add("fas", "fa-trash", "pointer");
-            si2.onclick = () => deleteStart(si2.id);
+            si2.onclick = () => deleteStart(start_station[2]);
 
 
             stable1.appendChild(str2);
@@ -230,12 +229,12 @@ function defaultInfo() {
             let str3 = document.createElement("tr");
             str3.id = "start_station_3";
             let std5 = document.createElement("td");
-            std5.innerHTML = start_station[2].name; //name of startstation
+            std5.innerHTML = start_station[2]; //name of startstation
             let std6 = document.createElement("td");
             let si3 = document.createElement("i");
             si3.id = "station_trash_3";
             si3.classList.add("fas", "fa-trash", "pointer");
-            si3.onclick = () => deleteStart(si3.id);
+            si3.onclick = () => deleteStart(start_station[2]);
 
 
             stable1.appendChild(str3);
@@ -247,12 +246,12 @@ function defaultInfo() {
             let str4 = document.createElement("tr");
             str4.id = "start_station_4";
             let std7 = document.createElement("td");
-            std7.innerHTML = start_station[3].name; //name of startstation
+            std7.innerHTML = start_station[3]; //name of startstation
             let std8 = document.createElement("td");
             let si4 = document.createElement("i");
             si4.id = "station_trash_4";
             si4.classList.add("fas", "fa-trash", "pointer");
-            si4.onclick = () => deleteStart(si4.id);
+            si4.onclick = () => deleteStart(start_station[3]);
 
 
             stable1.appendChild(str4);
@@ -264,7 +263,7 @@ function defaultInfo() {
             let si_add = document.createElement("i");
             si_add.id = "open_add_start";
             si_add.classList.add("fas", "fa-plus", "pointer");
-            si_add.onclick = () => toggleDropdown('info_drop_content');
+            si_add.onclick = () => addCargoStationInInfobox(); 
 
             info_panel.appendChild(si_add);
         }
@@ -296,6 +295,38 @@ function showInfo(id) {
         //create elements necessary for displaying the info and append
     }
 }
+
+async function addCargoStationInInfobox() {
+    //build dropdown
+    const info_panel = document.getElementById("info_panel");
+    const container = document.createElement("div");
+    container.id = "info_drop_content";
+    container.classList.add("dropdown-content", "show");
+
+    const searchInput = document.createElement("input");
+    searchInput.type = "text";
+    searchInput.placeholder = "Suchen...";
+    searchInput.classList.add("search_input");
+    searchInput.id = "input_info";
+
+    container.appendChild(searchInput);   
+   
+    const stations =  await communication.getAllStations(); 
+     stations.forEach(station => {
+            const span = document.createElement("span");
+            span.textContent = station.name;
+            span.classList.add("pointer");
+            span.onclick = () => selectFromDrop(span.textContent, "input_info", "info_drop_content");
+            container.appendChild(span);
+        });
+
+    info_panel.appendChild(container);
+
+    searchInput.addEventListener("keyup", function() {
+    searchStation(this, "info_drop_content");   
+    });
+}
+
 
 //start simulation
 function startSim() {
@@ -336,13 +367,12 @@ function deleteRobot() {
 
 // add station as start station
 function addStartStation(station, drop_id) {
-
     toggleDropdown(drop_id);
 }
 
 // delete start station
-function deleteStart() {
-
+async function deleteStart() {
+    await communication.deleteCargoStationByName(stationName); 
 }
 
 //  event listeners for onclick and onkeyup events
@@ -393,6 +423,8 @@ document.getElementById("toggle_dropdown_end").addEventListener("click", () => {
 document.getElementById("addpackage_button").addEventListener("click", () => {
     addPackage();
 });
+
+
 // info panel
 
 // map

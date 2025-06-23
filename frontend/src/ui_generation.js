@@ -94,14 +94,16 @@ function filterByMatchingIds(namesAndIDs, onlyIDs) {
 
 function populateDropdown(dropdownId, data) {
   const dropdownContent = document.getElementById(dropdownId);
-  dropdownContent.innerHTML = ''; // Clear existing content
+  if(dropdownContent != null){
+    dropdownContent.innerHTML = ""; // Clear existing content
 
-  data.forEach(item => {
-      const link = document.createElement('option');
-      link.textContent = item.name;
-      link.setAttribute('value', item.triasID);
-      dropdownContent.appendChild(link);
-  });
+    data.forEach(item => {
+        const link = document.createElement('option');
+        link.textContent = item.name;
+        link.setAttribute('value', item.triasID);
+        dropdownContent.appendChild(link);
+    });
+  }
 }
 
 

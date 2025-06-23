@@ -104,6 +104,16 @@ def add_cargo_stations(station_name: str = Query(...)):
 
     return {"message": "New Cargo-Station created."}
 
+@router.post("/removeCargoStation")
+def remove_cargo_stations(station_name: str = Query(...)):
+    station_id = train_service.get_station_id(station_name)
+
+    if station_id:
+        train_service.remove_cargo_station(station_id)
+
+        return {"message": f"{station_name} as CargoStation deleted."}
+    else:
+        raise HTTPException(status_code=404, detail=f"{station_name} as CargoStation not found.")
 
 # Gets cargo stations
 @router.get("/cargoStations")

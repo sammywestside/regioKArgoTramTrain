@@ -4,8 +4,18 @@ Dies ist das Softwaredesignseminar Projekt an der HFU MIB SoSe25 der Gruppe 2.
 In diesem Projekt wird die Routenberechnung einiger Lieferroboter via öffentlicher Vehrkersmittel in Karlsruhe simuliert. 
 
 ## 1. Requirements
+- pip 
+- uvicorn
 - Live-Server Extension
 - FastAPI Python Import
+
+## 2. Installation
+```
+pip install fastapi
+```
+```
+pip install uvicorn
+```
 
 ## 2. Getting Started
 Open a new ```Git Bash``` terminal and use ```cd backend``` to move into the backend folder. Then type:

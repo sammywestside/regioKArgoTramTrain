@@ -268,7 +268,7 @@ class TrainService:
     def remove_cargo_station(self, station_id: str):
         try:
             data = self.train_repo.load_cargo_stations()
-            data = (station for station in data if station["id"] != station_id)
+            data = [station for station in data if station["id"] != station_id]
 
             self.train_repo.save_cargo_station_data(data)
             return

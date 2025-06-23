@@ -195,7 +195,7 @@ export function sendRobotConfig(id, batterie_level, status){
 //working. name is passed as string. 
 export function deleteCargoStationByName(stationName){
 
-  fetch(`http://127.0.0.1:8000/api/deleteCargoStation?station_name=${stationName}`, {
+  fetch(`http://127.0.0.1:8000/api/removeCargoStation?station_name=${stationName}`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

@@ -129,14 +129,13 @@ async function addPackage() {
             try {
                 // Try to load packages into the robot
                 await communication.addPackagesToRobot(robot.id);
-                console.log("Package loaded into robot");
             } catch (error) {
                 console.warn("Package could not be added:");
             }
           }     
     }
 
-    toggleConfigurePackage();
+   // toggleConfigurePackage();
      
 }
 

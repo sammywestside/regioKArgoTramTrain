@@ -66,5 +66,5 @@ function handleUiInput(){
 
 };
 
-document.getElementById("submit_button").addEventListener("click", handleUiInput); 
+//document.getElementById("submit_button").addEventListener("click", handleUiInput); 
 

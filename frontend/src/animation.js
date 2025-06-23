@@ -51,7 +51,7 @@ async function animateRobotOnce(robot, robotId, map, roboIcon) {
 
   // Get the robot's delivery route
   let route = await communication.getDeliveryRoute(robotId);
-
+  console.log(route)
  
 
   // If route is available and has stations
@@ -61,8 +61,8 @@ async function animateRobotOnce(robot, robotId, map, roboIcon) {
       station.coordinates.lat,
       station.coordinates.long
     ]);
-
-    travel_time = route.travel_time
+    let travel_time = 0; 
+    travel_time = route.travel_time; 
 
     // Identify transfer points between route segments
     const transferPoints = [];

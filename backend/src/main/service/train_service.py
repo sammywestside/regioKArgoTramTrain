@@ -262,7 +262,19 @@ class TrainService:
             return stations
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
-            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")           
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+            
+                       
+    def remove_cargo_station(self, station_id: str):
+        try:
+            data = self.train_repo.load_cargo_stations()
+            data = (station for station in data if station["id"] != station_id)
+
+            self.train_repo.save_cargo_station_data(data)
+            return
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
     
     def get_cargo_stations(self) -> dict[str, int]:
         try:

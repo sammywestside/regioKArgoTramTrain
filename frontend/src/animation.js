@@ -1,10 +1,25 @@
 // Import all functions from the communication module
 import * as communication from "./frontend_communication.js";
+import * as ui from "./script.js";
 
 // Animation speed for robot movement
 let animationSpeed = 0.01; 
-//HIER FEHLT DIE VERLINKUNG ZUM SLIDER NOCH 
+const speedSlider = document.getElementById("sim_speed");
 
+// Listener für Änderung während des Ziehens
+speedSlider.addEventListener("input", () => {
+    const speedValue = parseInt(speedSlider.value);
+    animationSpeed = 0.01; 
+    animationSpeed = animationSpeed*speedValue+0.0001; 
+});
+
+
+document.getElementById("active_button_pause").addEventListener("click", (event) => {
+    animationSpeed = 0;
+});
+document.getElementById("active_button_stop").addEventListener("click", (event) => {
+    animationSpeed = 0; 
+});
 
 
 //**********************************************
@@ -13,18 +28,10 @@ let animationSpeed = 0.01;
 export async function startRobotManager(map, roboIcon) {
   // Get information about all robots
   const robots = await communication.getAllRobotInfo();
+    
 
   // Loop through each robot
   for (const robot of robots) {
-    try {
-      // Try to load packages into the robot
-      await addPackagesToRobot(robot.id);
-      console.log("Package loaded into robot");
-    } catch (error) {
-      console.warn("Package could not be added:");
-    }
-
-    // Start the animation for this robot
     animateRobotOnce(robot, robot.id, map, roboIcon);
   }
 }
@@ -45,15 +52,7 @@ async function animateRobotOnce(robot, robotId, map, roboIcon) {
   // Get the robot's delivery route
   let route = await communication.getDeliveryRoute(robotId);
 
-  // If route is not available, try to reload or add packages
-  if (!route || route.stations.length === 0) {
-    route = await communication.reloadRoute(robotId);
-
-    if (!route || route.stations.length === 0) {
-      await communication.addPackagesToRobot(robotId);
-      route = await communication.getDeliveryRoute(robotId);
-    }
-  }
+ 
 
   // If route is available and has stations
   if (route && route.stations.length > 0) {
@@ -74,11 +73,9 @@ async function animateRobotOnce(robot, robotId, map, roboIcon) {
 
     // Animate from current position to the first station
     await animateSegment(marker, [robot.position.lat, robot.position.long], latlngs[0], robot.id);
-    console.log(latlngs[0])
     communication.getRobotInfoByIdAndCoords(robotId, latlngs[0][0], latlngs[0][1])
     .then(info => {
-      console.log("Robot info:", info);
-      // Trigger a frontend event here if needed
+      ui.showInfo(info.id, info.name, info.position.lat, info.position.long, info.battery_level, info.route.stops)
     });
     // Animate the robot along the entire route
     await animateRoute(robotId, latlngs, marker, transferPoints);
@@ -120,7 +117,6 @@ function animateSegment(marker, startLatLng, endLatLng){
 async function animateRoute(robotId, latlngs, marker, transferPoints) {
   let currentIndex = 0;
   let transferPointsIndex = 0;
-  const speed = 0.01;
 
   return new Promise(resolve => {
     function moveToNextPoint() {
@@ -135,7 +131,7 @@ async function animateRoute(robotId, latlngs, marker, transferPoints) {
       let t = 0;
 
       function animateStep() {
-        t += speed;
+        t += animationSpeed;
 
         // Once we reach the target point
         if (t >= 1) {
@@ -143,10 +139,10 @@ async function animateRoute(robotId, latlngs, marker, transferPoints) {
 
           // Fetch and log robot info at current station
           communication.getRobotInfoByIdAndCoords(robotId, endLat, endLng)
-            .then(info => {
-              console.log("Robot info:", info);
-              // Trigger a frontend event here if needed
-            });
+              .then(info => {
+                console.log(info)
+                ui.showInfo(info.id, info.name, endLat, endLng, info.battery_level, (info.route.stops-currentIndex))
+              });
 
           currentIndex++;
 

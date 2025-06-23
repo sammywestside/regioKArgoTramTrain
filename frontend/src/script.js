@@ -41,13 +41,12 @@ function toggleDropdown(drop_id) {
 // drop_id: id of div around dropdown-content (like span or input)
 async function selectFromDrop(item, input_id, drop_id) {
     document.getElementById(input_id).value = item;
-
     if(input_id === "input_info"){
         await communication.addCargoStationByName(item); 
     }else if(input_id === "input_info_robo"){
         const robots = await communication.getAllRobotInfo();
         if (!robots || robots.length === 0){
-            await communication.addNewRobot(item,"Robot Nr. 1", 100, item)
+            await communication.addNewRobot(item,"Robot Nr. 1", 100, item) 
         }
         else{
             await communication.addNewRobot(item,"Robot Nr. 2", 100,item)
@@ -123,19 +122,28 @@ async function addPackage() {
     const end = document.getElementById("package_end").value;
 
     if (weight && weight != null && size && size != null && start && start != null && end && end != null) {
-        console.log(weight + size + start + end);
         await communication.addNewPackage(start, end, size, weight)
+        const robots = await communication.getAllRobotInfo();
+          // Loop through each robot
+          for (const robot of robots) {
+            try {
+                // Try to load packages into the robot
+                await communication.addPackagesToRobot(robot.id);
+                console.log("Package loaded into robot");
+            } catch (error) {
+                console.warn("Package could not be added:");
+            }
+          }     
     }
 
     toggleConfigurePackage();
+     
 }
 
 // display info in default info-panel (also, when clicked on part of map that is not robot, line, station or other special)
 async function defaultInfo() {
     let robot = await communication.getAllRobotInfo();
-    console.log(robot)
     let start_station = await communication.getCargoStations(); 
-    console.log(start_station); 
     const info_panel = document.getElementById("info_panel");
     info_panel.innerHTML = "";
 
@@ -292,21 +300,71 @@ async function defaultInfo() {
 
 // display info of clicked item from map in info-panel
 // id: id of clicked item
-function showInfo(id) {
-    //get information with id?
-    const info = ["marmelade", "batterie: 50%"];
-
+export function showInfo(id, name, lat, long, battery_level, stop) {
     const info_panel = document.getElementById("info_panel");
-    info_panel.innerHTML = "";
 
-    //span for headline
-    let span = document.createElement("span");
-    span.classList.add("headline");
-    span.innerHTML = "thema";
-    for (let i = 0; i < info.length; i++) {
-        //create elements necessary for displaying the info and append
+    // Prüfe, ob der Container für alle Roboterinfos schon existiert
+    let robotsContainer = document.getElementById("robots-info-container");
+    if (!robotsContainer) {
+        robotsContainer = document.createElement("div");
+        robotsContainer.id = "robots-info-container";
+        info_panel.appendChild(robotsContainer);
+    }
+
+    // Falls schon ein Info-Panel für diesen Roboter existiert, löschen
+    const existing = document.getElementById("robot-info-" + id);
+    if (existing) existing.remove();
+
+    // Neuen Container pro Roboter
+    const container = document.createElement("div");
+    container.id = "robot-info-" + id;
+    container.classList.add("robot-info-box");
+
+    // Headline
+    const headline = document.createElement("span");
+    headline.classList.add("headline");
+    headline.innerText = "Informationen zu " + name;
+    container.appendChild(headline);
+
+    // Datenliste
+    const info = [
+        { label: "ID", value: id },
+        { label: "Batterie", value: battery_level + "%" },
+        { label: "Breitengrad", value: lat },
+        { label: "Längengrad", value: long },
+        { label: "Stops bis Ziel", value: stop }
+    ];
+
+    for (const entry of info) {
+        const row = document.createElement("div");
+        row.classList.add("info-row");
+
+        const label = document.createElement("span");
+        label.classList.add("info-label");
+        label.innerText = entry.label + ":";
+
+        const value = document.createElement("span");
+        value.classList.add("info-value");
+        value.innerText = entry.value;
+
+        row.appendChild(label);
+        row.appendChild(value);
+        container.appendChild(row);
+    }
+
+    // Einfügen nach Sortierung – Robot 1 oben, Robot 2 unten
+    if (name.includes("1")) {
+        robotsContainer.prepend(container);
+    } else if (name.includes("2")) {
+        robotsContainer.appendChild(container);
+    } else {
+        robotsContainer.appendChild(container);
     }
 }
+
+
+
+
 
 async function addCargoStationInInfobox() {
     //build dropdown
@@ -337,6 +395,8 @@ async function addCargoStationInInfobox() {
     searchInput.addEventListener("keyup", function() {
     searchStation(this, "info_drop_content");   
     });
+
+    
 }
 
 // add new robot
@@ -359,7 +419,6 @@ async function addRobot() {
      stations.forEach(station => {
             const span = document.createElement("span");
             span.textContent = station;
-            console.log(station)
             span.classList.add("pointer");
             span.onclick = () => selectFromDrop(span.textContent, "input_info_robo", "info_drop_content");
             container.appendChild(span);
@@ -371,34 +430,6 @@ async function addRobot() {
     searchStation(this, "info_drop_content");   
     });
 }
-
-//start simulation
-function startSim() {
-    const speed = document.getElementById("sim_speed").value;
-    //start
-}
-
-//pause simulation
-function pauseSim() {
-    //pause
-}
-
-//stop simulation
-function stopSim() {
-    //stop
-}
-
-//reset simulation
-function resetSim() {
-    //reset
-}
-
-//change speed
-function changeSimSpeed() {
-    const speed = document.getElementById("sim_speed").value;
-    //speeeeed
-}
-
 
 
 //delete robot
@@ -418,26 +449,9 @@ function addStartStation(station, drop_id) {
 // delete start station
 async function deleteStart(stationName) {
     await communication.deleteCargoStationByName(stationName); 
-    console.log("API hat die funktion atm nicht")
 }
 
-//  event listeners for onclick and onkeyup events
-//  sim panel
-document.getElementById("sim_speed").addEventListener("click", () => {
-    changeSimSpeed();
-});
-document.getElementById("active_button_play").addEventListener("click", (event) => {
-    activeButton(event.currentTarget);
-});
-document.getElementById("active_button_pause").addEventListener("click", (event) => {
-    activeButton(event.currentTarget);
-});
-document.getElementById("active_button_stop").addEventListener("click", (event) => {
-    activeButton(event.currentTarget);
-});
-document.getElementById("active_button_rotate").addEventListener("click", (event) => {
-    activeButton(event.currentTarget);
-});
+
 // package panel
 document.getElementById("add_package").addEventListener("click", () => {
     toggleConfigurePackage();
@@ -470,13 +484,6 @@ document.getElementById("addpackage_button").addEventListener("click", () => {
     addPackage();
 });
 
-document.addEventListener("click", function handleClickOutside(event) {
-    const isClickInside = container.contains(event.target) || info_panel.contains(event.target);
-    if (!isClickInside) {
-        toggleDrop("info_drop_content");
-        document.removeEventListener("click", handleClickOutside); // Listener wieder entfernen
-    }
-});
 
 // map
 document.getElementById("map").addEventListener("click", (event) => {

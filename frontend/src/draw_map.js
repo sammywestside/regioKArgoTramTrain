@@ -72,4 +72,13 @@ const roboIcon = L.icon({
   iconAnchor: [16, 16]
 });
 
-//startRobotManager(map, roboIcon);
+document.getElementById("active_button_play").addEventListener("click", (event) => {
+   startRobotManager(map, roboIcon);
+});
+
+
+document.getElementById("active_button_rotate").addEventListener("click", (event) => {
+  location.reload(); 
+    startRobotManager(map, roboIcon);
+});
+ 

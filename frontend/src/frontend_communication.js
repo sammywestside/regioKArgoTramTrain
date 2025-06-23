@@ -234,7 +234,6 @@ export async function getAllStations() {
   }
 }
 
-
 //working.
 export async function getStationById(id) { 
   try {

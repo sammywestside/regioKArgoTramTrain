@@ -127,7 +127,12 @@ export function addPackagesToRobot(id){
 
 
 //working. All arguments are passed as strings except battery_level, this is passed as number. Passing an id as "1" did not work. id "a" did work. 
-export function addNewRobot(id, name, battery_level, start_position){
+export function addNewRobot(id, name, battery_level, position){
+
+  console.log('Type of id:', typeof id);
+  console.log('Type of name:', typeof name);
+  console.log('Type of battery_level:', typeof battery_level);
+  console.log('Type of position:', typeof position);
 
   fetch('http://127.0.0.1:8000/api/addRobot', {
   method: 'POST',
@@ -138,12 +143,12 @@ export function addNewRobot(id, name, battery_level, start_position){
     id: id,
     name: name,
     battery_level: battery_level,
-    start_position: start_position
+    position: position
   })
 })
 .then(response => {
   if (!response.ok) {
-    throw new Error('Network response was not ok');
+      throw new Error('Network response was not ok');
   }
   return response.json();
 })
@@ -322,7 +327,6 @@ export async function getAllRobotInfo() {
     return data;
   } catch (error) {
     console.error('Fetch error:', error);
-    throw error; 
   }
 }
 

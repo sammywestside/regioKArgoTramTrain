@@ -72,4 +72,4 @@ const roboIcon = L.icon({
   iconAnchor: [16, 16]
 });
 
-startRobotManager(map, roboIcon);
+//startRobotManager(map, roboIcon);

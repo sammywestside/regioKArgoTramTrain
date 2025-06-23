@@ -62,6 +62,8 @@ async function animateRobotOnce(robot, robotId, map, roboIcon) {
       station.coordinates.long
     ]);
 
+    travel_time = route.travel_time
+
     // Identify transfer points between route segments
     const transferPoints = [];
     if (robot.route.segments.length > 1) {

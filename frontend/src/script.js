@@ -132,17 +132,17 @@ async function defaultInfo() {
     rspan.innerHTML = "Paketroboter:";
     info_panel.appendChild(rspan);
 
-    if (robot != null) {
+    if (robots != null) {
         let rtable1 = document.createElement("table");
         let rtr1 = document.createElement("tr");
         rtr1.id = "robot_1";
         let rtd1 = document.createElement("td");
-        rtd1.innerHTML = robot[0].id; //id = name for robot
+        rtd1.innerHTML = robots[0].id; //id = name for robot
         let rtd2 = document.createElement("td");
         let ri1 = document.createElement("i");
         ri1.id = "robot_trash_1";
         ri1.classList.add("fas", "fa-trash", "pointer");
-        ri1.onclick = () => deleteRobot(ri1.id);
+        ri1.onclick = () => deleteRobot(rtd1.innerHTML);
 
         info_panel.appendChild(rtable1);
         rtable1.appendChild(rtr1);
@@ -150,16 +150,16 @@ async function defaultInfo() {
         rtr1.appendChild(rtd2);
         rtd2.appendChild(ri1);
 
-        if (robot.length >= 2) {
+        if (robots.length >= 2) {
             let rtr2 = document.createElement("tr");
             rtr2.id = "robot_2";
             let rtd3 = document.createElement("td");
-            rtd3.innerHTML = robot[1].id; //id = name for robot
+            rtd3.innerHTML = robots[1].id; //id = name for robot
             let rtd4 = document.createElement("td");
             let ri2 = document.createElement("i");
             ri2.id = "robot_trash_2";
             ri2.classList.add("fas", "fa-trash", "pointer");
-            ri2.onclick = () => deleteRobot(ri2.id);
+            ri2.onclick = () => deleteRobot(rtd3.innerHTML);
 
 
             rtable1.appendChild(rtr2);
@@ -190,7 +190,7 @@ async function defaultInfo() {
     sspan.innerHTML = "Beladestationen:";
     info_panel.appendChild(sspan);
 
-    if (start_station != null) {
+    if (start_stations != null) {
         let stable1 = document.createElement("table");
         let str1 = document.createElement("tr");
         str1.id = "start_station_1";
@@ -208,7 +208,7 @@ async function defaultInfo() {
         str1.appendChild(std2);
         std2.appendChild(si1);
 
-        if (start_station.length >= 2) {
+        if (start_stations.length >= 2) {
             let str2 = document.createElement("tr");
             str2.id = "start_station_2";
             let std3 = document.createElement("td");
@@ -217,7 +217,7 @@ async function defaultInfo() {
             let si2 = document.createElement("i");
             si2.id = "station_trash_2";
             si2.classList.add("fas", "fa-trash", "pointer");
-            si2.onclick = () => deleteStart(start_station[2]);
+            si2.onclick = () => deleteStart(start_stations[1]);
 
 
             stable1.appendChild(str2);
@@ -225,7 +225,7 @@ async function defaultInfo() {
             str2.appendChild(std4);
             std4.appendChild(si2);
         }
-        if (start_station.length >= 3) {
+        if (start_stations.length >= 3) {
             let str3 = document.createElement("tr");
             str3.id = "start_station_3";
             let std5 = document.createElement("td");
@@ -242,7 +242,7 @@ async function defaultInfo() {
             str3.appendChild(std6);
             std6.appendChild(si3);
         }
-        if (start_station.length >= 4) {
+        if (start_stations.length >= 4) {
             let str4 = document.createElement("tr");
             str4.id = "start_station_4";
             let std7 = document.createElement("td");
@@ -357,16 +357,21 @@ function changeSimSpeed() {
 
 // add new robot
 function addRobot() {
-
+    const id = Math.floor(Math.random() * 100) + 1;
+    communication.addNewRobot(id, id, 100, "Karlsruhe Hbf");
 }
 
 //delete robot
-function deleteRobot() {
-
+// id: id of robot
+function deleteRobot(id) {
+    communication.removeRobotById(id);
 }
 
 // add station as start station
+// station: name of station
+// drop_id: id of div around dropdown-content (like span or input)
 function addStartStation(station, drop_id) {
+    communication.addCargoStationByName(station);
     toggleDropdown(drop_id);
 }
 
@@ -424,11 +429,8 @@ document.getElementById("addpackage_button").addEventListener("click", () => {
     addPackage();
 });
 
-
-// info panel
-
 // map
-document.getElementById("map").addEventListener("click", () => {
+document.getElementById("map").addEventListener("click", (event) => {
     defaultInfo();
 });
 

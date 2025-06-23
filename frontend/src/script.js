@@ -121,7 +121,7 @@ async function addPackage() {
 
 // display info in default info-panel (also, when clicked on part of map that is not robot, line, station or other special)
 async function defaultInfo() {
-    let robot;
+    let robot;  //IS THAT SUPPOSED TO BE SINGULAR?? CAUSE ITS NEVER CALLED ONLY THE PLURAL IS CALLED
     let start_station = await communication.getCargoStations(); 
     console.log(start_station); 
     const info_panel = document.getElementById("info_panel");

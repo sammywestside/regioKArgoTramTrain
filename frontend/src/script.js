@@ -122,7 +122,7 @@ async function addPackage() {
     const end = document.getElementById("package_end").value;
 
     if (weight && weight != null && size && size != null && start && start != null && end && end != null) {
-        await communication.addNewPackage(start, end, size, weight)
+        communication.addNewPackage(start, end, size, weight)
         const robots = await communication.getAllRobotInfo();
           // Loop through each robot
           for (const robot of robots) {

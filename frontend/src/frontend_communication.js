@@ -100,9 +100,9 @@ export function initBasicRobots(){
 
 
 //working. id is passed as string. 
-export function addPackagesToRobot(id){
+export async function addPackagesToRobot(id){
 
-  fetch(`http://127.0.0.1:8000/api/addPackagesToRobot?robot_id=${id}`, {
+  await fetch(`http://127.0.0.1:8000/api/addPackagesToRobot?robot_id=${id}`, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'

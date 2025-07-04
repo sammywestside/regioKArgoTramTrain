@@ -48,23 +48,23 @@ function fillCargo(value){
 
 
 function handleUiInput(){
-    console.log("Starting"); 
+    //console.log("Starting"); 
     const startDropdownID = "start_content";
     const destinationDropdownID = "destination_content"; 
     let startID = readDropdownValue(startDropdownID); 
     let destinationID = readDropdownValue(destinationDropdownID); 
     let startName = readDropdownName(startDropdownID);
     let destinationName = readDropdownName(destinationDropdownID); 
-    console.log("Start ID: ", startID);
-    console.log("Destination ID: ", destinationID);
-    console.log("Start Name: ", startName);
-    console.log("Destination Name: ", destinationName); 
+    //console.log("Start ID: ", startID);
+    //console.log("Destination ID: ", destinationID);
+    //console.log("Start Name: ", startName);
+    //console.log("Destination Name: ", destinationName); 
     fillDeliveryRobotInfo(startName, destinationName, "None", 10, "This cargo"); 
     let startDestinationJSON = communication.selectedStationToJson(startName, destinationName);  
     let route = communication.sendData(startDestinationJSON, communication.headersCollection.routeCalc); 
-    console.log("Route: ", route); 
+    //console.log("Route: ", route); 
 
 };
 
-document.getElementById("submit_button").addEventListener("click", handleUiInput); 
+//document.getElementById("submit_button").addEventListener("click", handleUiInput); 
 

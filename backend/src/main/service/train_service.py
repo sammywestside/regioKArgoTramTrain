@@ -2,7 +2,7 @@ import sys
 import pdb
 from collections import defaultdict
 from src.main.repository.train_repository import TrainRepository
-from src.main.model.models import LineData, Station, Coordinates
+from src.main.model.models import LineData, Station, Coordinates, Package
 
 
 class TrainService:
@@ -10,7 +10,6 @@ class TrainService:
     def __init__(self, train_repo: TrainRepository):
         self.train_repo = train_repo
         self.lines: list[LineData] = self.load_all_line_data()
-
 
     def get_station_id(self, station_name):
         station_data = self.train_repo.load_stations_data()
@@ -22,8 +21,23 @@ class TrainService:
                 station_id = station["triasID"]
 
         return station_id
-    
 
+    def get_station_id_by_coords(self, coords: Coordinates):
+        station_data = self.train_repo.load_stations_data()
+
+        station_id = ""
+
+        for station in station_data: 
+            coordinates = station["coordPositionWGS84"]
+            station_coords = Coordinates(lat=coordinates["lat"], long=coordinates["long"])
+            
+            if coords == station_coords:
+                station_id = station["triasID"]
+                break
+        
+        return station_id
+    
+    
     def get_station_name(self, station_id):
         stations_data = self.train_repo.load_stations_data()
 
@@ -34,7 +48,6 @@ class TrainService:
                 station_name = station["name"]
 
         return station_name
-
 
     def get_station_coords(self, station_id) -> Coordinates:
         try:
@@ -51,6 +64,8 @@ class TrainService:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
 
+    def get_station_by_id(self, station_id) -> Station:
+        return Station(id=station_id, name=self.get_station_name(station_id), coordinates=self.get_station_coords(station_id))
 
     def get_line(self, station_id):
         try:
@@ -59,13 +74,13 @@ class TrainService:
             if not line_data or "lines" not in line_data:
                 print("Error: No lines found in the loaded data")
                 return None
-            
+
             for line in line_data["lines"]:
                 line_stations = line.get("stations", [])
                 for id in line_stations:
                     if id == station_id:
                         return line["name"]
-            
+
             print(f"Error: Station {station_id} not found in any line")
             return None
         except KeyError as e:
@@ -74,7 +89,6 @@ class TrainService:
             exc_tb = sys.exc_info()
             print(f"An error occurred on line: {exc_tb.tb_lineno}: {e}")
             return None
-
 
     def get_line_travel_time(self, line_name) -> int:
         try:
@@ -124,7 +138,7 @@ class TrainService:
             for line in all_lines_json["lines"]:
                 number = line["number"]
                 all_lines.append(self.get_all_line_stations(number))
-            
+
             return all_lines
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -137,7 +151,7 @@ class TrainService:
             for line in self.lines:
                 for station in line.stations:
                     station_map[station.id] = station
-            
+
             return station_map
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
@@ -182,3 +196,107 @@ class TrainService:
         except Exception as e:
             exc_type, exc_obj, exc_tb = sys.exc_info()
             print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+
+    def add_cargo_station(self, station_id: str):
+        try:
+            cargo_data = self.train_repo.load_cargo_stations()
+
+            if any(station["id"] == station_id for station in cargo_data):
+                print(f"Station already exists.")
+                return False
+            
+            cargo_data.append({"id": station_id, "packages": []})
+            
+            self.train_repo.save_cargo_station_data(cargo_data)
+            return True
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+    
+    def add_package(self, station_id, packages: list[Package]):
+        try:
+            data = self.train_repo.load_cargo_stations()
+
+            for station in data:
+                if station["id"] == station_id:
+                    station["packages"].extend([
+                        {                        
+                            "id": pkg.id,
+                            "destination": self.get_station_by_id(self.get_station_id_by_coords(pkg.destination.coordinates)).name,
+                            "size": pkg.size,
+                            "weight": pkg.weight
+                        } 
+                        for pkg in packages
+                        ])
+                    self.train_repo.save_cargo_station_data(data)
+                    return
+
+                print("Station not found.")
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+    
+    def remove_package(self, station_id, packages: list[Package]):
+        try:
+            data = self.train_repo.load_cargo_stations()
+
+            for station in data:
+                if station["id"] == station_id:
+                    station["packages"] = [package for package in station["packages"] if package not in packages]
+                    self.train_repo.save_cargo_station_data(data)
+                    return
+                
+                print("Station not found.")
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+    
+    def get_cargo_station_ids(self) -> list[str]:
+        try:
+            data = self.train_repo.load_cargo_stations()
+            
+            stations = []
+            for station in data:
+                stations.append(station["id"])
+            
+            return stations
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+            
+                       
+    def remove_cargo_station(self, station_id: str):
+        try:
+            data = self.train_repo.load_cargo_stations()
+            data = [station for station in data if station["id"] != station_id]
+
+            self.train_repo.save_cargo_station_data(data)
+            return
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+    
+    def get_cargo_stations(self) -> dict[str, int]:
+        try:
+            data = self.train_repo.load_cargo_stations()
+
+            stations = {}
+
+            for station in data:
+                stations[station["id"]] = len(station["packages"])
+
+            return stations
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")
+    
+    def get_cargo_station_packages_by_id(self, id) -> list[str]:
+        try: 
+            data = self.train_repo.load_cargo_stations()
+
+            for station in data:
+                if station["id"] == id:
+                    return station["packages"]
+        except Exception as e:
+            exc_type, exc_obj, exc_tb = sys.exc_info()
+            print(f"An error occured on line: {exc_tb.tb_lineno}: {e}")   

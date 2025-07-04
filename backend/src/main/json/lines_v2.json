@@ -593,7 +593,7 @@
         "de:08236:1717",
         "de:08231:50"
       ],
-      "color": "#F69796"
+      "color": "#F6796"
     },
     {
       "id": "kvv:21016:E:R:j20",
@@ -891,7 +891,7 @@
       "id": "kvv:22033:E:R:j20",
       "name": "S-Bahn S33",
       "disassembledName": "S33",
-      "number": "S32",
+      "number": "S33",
       "iconID": "ic_s_33_small.svg",
       "stations": [
         "de:07334:32637",
@@ -972,7 +972,7 @@
         "de:08236:1717",
         "de:08231:50"
       ],
-      "color": "#F6979"
+      "color": "#F69F79"
     },
     {
       "id": "kvv:21012:E:R:",

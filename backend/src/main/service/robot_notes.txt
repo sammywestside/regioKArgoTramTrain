@@ -1,0 +1,23 @@
+Hier meine Gedanken zu deinem Code:
+
+- der name "calculate_robot_capacity()" ist ein wenig irreführend.
+    Wenn ich den namen lese, erwarte ich einen Integer wert und nicht einen boolean wert.
+- Wenn wir diese funktion als boolean behalten, würde ich noch eine funktion einbauen, die
+    die Anzahl der aktuellen Pakete im Roboter zurück gibt.
+- Ich hätte einen Konstruktor für roboter eingebaut. Macht den ganzen code glaube ich einfacher.
+    Dann muss man den Roboter nicht immer als Paramter übergeben, sondern kann diesen mit "self.robot" erreichen.
+- Ich würde die Route als attribut des Roboters erstmal rausnehmen (einfach als Kommentar schreiben), 
+    weil wir die Route im moment noch manuell angeben und nicht anhand der vorhandenen Pakete berechnen.
+    Das kommt später, deswegen auskommentieren, damit wir das in der Zukunft wieder einbauen können.
+- Was ähnliches mit der aktuellen Position. Die ist wichtig! Aber da müssen wir uns noch etwas anderes 
+    als Koordinaten überlegen...Denn die Koordinaten stehen für stationen, also wie machen wir das wenn 
+    der Roboter zwischen 2 Stationen ist? Deswegen erstmal auskommentieren.
+- Die "id" sollten wir vielleicht auch zu einem integer ändern
+- Den dissipation_factor und die dis_charge_time könnten wir auch als globale variablen in den Service schreiben
+    anstatt als eigene Variablen im Roboter selber. Somit würden diese Werte für jeden Roboter immer gleich sein.
+- Bei der Funktion auch wäre es hilfreich gewesen, wenn du als Kommentar hinzugefügt hättest,
+    in welchem Bereich die Werte liegen müssen. Weil egal welche Werte ich auswähle, die Batterie ist direkt bei 0.
+- Desweiteren müssen wir uns noch ausdenken, wie diese Funktion aufgerufen wird, denn wir wollen ja simulieren,
+    dass der Roboter dauerhaft ein wenig batterie verliert, und nicht auf einmal alles wenn die funktion aufgerufen wird.
+- Zum schluss noch: Die Status funktion sollte ein Dictionary mit den Werten returnen und keinen String. 
+    Die Daten müssen ja an das frontend weitergegeben werden.
